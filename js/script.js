@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         observer.observe(contactForm);
         
-        // Gestion du formulaire de contact
+        // Gestion du formulaire de contact avec Formspree
         const form = document.getElementById('contactForm');
         const formMessage = document.getElementById('form-message');
         
@@ -201,30 +201,26 @@ document.addEventListener('DOMContentLoaded', () => {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                // Récupérer les données du formulaire
-                const formData = new FormData(form);
-                
                 // Afficher le message de chargement
                 formMessage.textContent = 'Envoi en cours...';
                 formMessage.classList.add('form-message-info');
                 formMessage.classList.remove('form-message-success', 'form-message-error');
                 
                 try {
-                    // Envoyer les données via une requête AJAX
-                    const response = await fetch('mail/contact.php', {
+                    // Envoyer les données via Formspree
+                    const response = await fetch(form.action, {
                         method: 'POST',
-                        body: formData,
+                        body: new FormData(form),
                         headers: {
-                            'X-Requested-With': 'XMLHttpRequest'
+                            'Accept': 'application/json'
                         }
                     });
                     
-                    // Traiter la réponse
                     const data = await response.json();
                     
-                    if (data.success) {
+                    if (response.ok) {
                         // Afficher le message de succès
-                        formMessage.textContent = data.message;
+                        formMessage.textContent = "Votre message a été envoyé avec succès !";
                         formMessage.classList.add('form-message-success');
                         formMessage.classList.remove('form-message-error', 'form-message-info');
                         
@@ -232,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         form.reset();
                     } else {
                         // Afficher le message d'erreur
-                        formMessage.textContent = data.message;
+                        formMessage.textContent = data.error || "Une erreur est survenue lors de l'envoi du message.";
                         formMessage.classList.add('form-message-error');
                         formMessage.classList.remove('form-message-success', 'form-message-info');
                     }
