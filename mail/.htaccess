@@ -1,0 +1,55 @@
+# Sécuriser le répertoire mail
+<IfModule mod_authz_core.c>
+    # Apache 2.4
+    Require all granted
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    # Apache 2.2
+    Order allow,deny
+    Allow from all
+</IfModule>
+
+# Bloquer l'accès direct aux fichiers .php sauf contact.php
+<FilesMatch "^(?!contact\.php$).*\.php$">
+    <IfModule mod_authz_core.c>
+        # Apache 2.4
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        # Apache 2.2
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Ne pas afficher la liste des fichiers
+Options -Indexes
+
+# Protection contre l'inclusion de fichiers
+<IfModule mod_php5.c>
+    php_flag allow_url_fopen off
+    php_flag allow_url_include off
+</IfModule>
+
+<IfModule mod_php7.c>
+    php_flag allow_url_fopen off
+    php_flag allow_url_include off
+</IfModule>
+
+<IfModule mod_php.c>
+    php_flag allow_url_fopen off
+    php_flag allow_url_include off
+</IfModule>
+
+# Forcer le type MIME pour les fichiers PHP
+<IfModule mod_mime.c>
+    AddType application/x-httpd-php .php
+</IfModule>
+
+# Ajouter des en-têtes de sécurité
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule> 
