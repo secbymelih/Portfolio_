@@ -52,7 +52,6 @@ ul {
 }
 
 .btn:hover {
-    transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -179,12 +178,11 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .scroll-down:hover {
     color: var(--secondary-color);
-    transform: scale(1.2);
 }
 
 @keyframes bounce {
@@ -1248,7 +1246,6 @@ ul {
 .carousel-prev:hover, .carousel-next:hover {
     background-color: var(--primary-color);
     color: white;
-    transform: scale(1.1);
 }
 
 .carousel-dots {
@@ -1267,7 +1264,6 @@ ul {
 
 .carousel-dot.active {
     background-color: var(--primary-color);
-    transform: scale(1.2);
 }
 
 /* Media Queries pour la responsivité */
@@ -1496,7 +1492,6 @@ ul {
 
 .btn-small:hover {
     background-color: var(--secondary-color);
-    transform: translateY(-3px);
 }
 
 .projet-card.hide {
@@ -1620,7 +1615,6 @@ ul {
 .temoignage-prev:hover, .temoignage-next:hover {
     background-color: var(--primary-color);
     color: white;
-    transform: scale(1.1);
 }
 
 .temoignages-dots {
@@ -1639,7 +1633,6 @@ ul {
 
 .temoignage-dot.active {
     background-color: var(--primary-color);
-    transform: scale(1.2);
 }
 
 /* Media query responsivité témoignages */
@@ -1788,8 +1781,8 @@ ul {
 }
 
 .social-link:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-5px);
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
 }
 
 .contact-form {
@@ -2017,7 +2010,6 @@ ul {
 .footer-social a:hover {
     background-color: var(--accent-color);
     color: var(--secondary-color);
-    transform: translateY(-5px);
 }
 
 .footer-divider {
