@@ -25,20 +25,84 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bgOverlay && accueilSection) {
         const initialScale = 1.2;
         const targetScale = 1.0;
-        const scrollRange = window.innerHeight; // La hauteur de la fenêtre
-
+        const scrollRange = window.innerHeight * 1.2; // La hauteur de la fenêtre, ajustée pour un effet plus doux
+        
+        // Variables pour l'animation fluide
+        let currentScaleValue = initialScale;
+        let targetScaleValue = initialScale;
+        let animationFrameId = null;
+        
+        // Fonction pour une transition fluide avec easing
+        function easeOutQuad(t) {
+            return t * (2 - t);
+        }
+        
+        // Animation fluide avec requestAnimationFrame
+        function animateScale() {
+            // Interpolation fluide entre la valeur actuelle et la valeur cible
+            const difference = targetScaleValue - currentScaleValue;
+            
+            // Si la différence est très petite, on atteint directement la valeur cible
+            if (Math.abs(difference) < 0.0001) {
+                currentScaleValue = targetScaleValue;
+                bgOverlay.style.transform = `scale(${currentScaleValue})`;
+                // Réinitialiser l'ID d'animation pour permettre de futures animations
+                animationFrameId = null;
+                return;
+            } else {
+                // Sinon on fait une transition douce (15% de la différence)
+                currentScaleValue += difference * 0.15;
+            }
+            
+            // Appliquer la transformation
+            bgOverlay.style.transform = `scale(${currentScaleValue})`;
+            
+            // Continuer l'animation
+            animationFrameId = requestAnimationFrame(animateScale);
+        }
+        
+        // Écouter l'événement de scroll
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             
-            // Limiter l'effet dans la section d'accueil
+            // Calculer le facteur de dé-zoom en fonction du scroll
             if (scrollY <= scrollRange) {
-                // Calculer le facteur de dé-zoom en fonction du scroll
                 const scrollProgress = scrollY / scrollRange;
-                const currentScale = initialScale - (scrollProgress * (initialScale - targetScale));
-                
-                // Appliquer le dé-zoom
-                bgOverlay.style.transform = `scale(${currentScale})`;
+                // Utiliser une fonction d'easing pour un effet plus naturel
+                const easedProgress = easeOutQuad(scrollProgress);
+                targetScaleValue = initialScale - (easedProgress * (initialScale - targetScale));
+            } else {
+                targetScaleValue = targetScale;
             }
+            
+            // Démarrer ou continuer l'animation si elle n'est pas déjà en cours
+            if (!animationFrameId) {
+                animationFrameId = requestAnimationFrame(animateScale);
+            }
+        });
+        
+        // Réinitialiser l'animation lors du redimensionnement de la fenêtre
+        window.addEventListener('resize', () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            
+            // Réinitialiser les valeurs
+            const scrollY = window.scrollY;
+            const scrollRange = window.innerHeight * 1.2;
+            
+            if (scrollY <= scrollRange) {
+                const scrollProgress = scrollY / scrollRange;
+                const easedProgress = easeOutQuad(scrollProgress);
+                currentScaleValue = initialScale - (easedProgress * (initialScale - targetScale));
+                targetScaleValue = currentScaleValue;
+            } else {
+                currentScaleValue = targetScale;
+                targetScaleValue = targetScale;
+            }
+            
+            bgOverlay.style.transform = `scale(${currentScaleValue})`;
         });
     }
 

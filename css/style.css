@@ -147,7 +147,6 @@ ul {
     filter: blur(15px);
     z-index: -1;
     transform: scale(1.2);
-    transition: transform 0.01s linear;
     will-change: transform;
 }
 
