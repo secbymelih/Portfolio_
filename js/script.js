@@ -18,6 +18,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const contactItems = document.querySelectorAll('.contact-item');
     const contactForm = document.querySelector('.contact-form');
+    const bgOverlay = document.querySelector('.bg-overlay');
+    const accueilSection = document.querySelector('#accueil');
+
+    // Effet de dé-zoom sur l'image de fond
+    if (bgOverlay && accueilSection) {
+        const initialScale = 1.2;
+        const targetScale = 1.0;
+        const scrollRange = window.innerHeight; // La hauteur de la fenêtre
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            
+            // Limiter l'effet dans la section d'accueil
+            if (scrollY <= scrollRange) {
+                // Calculer le facteur de dé-zoom en fonction du scroll
+                const scrollProgress = scrollY / scrollRange;
+                const currentScale = initialScale - (scrollProgress * (initialScale - targetScale));
+                
+                // Appliquer le dé-zoom
+                bgOverlay.style.transform = `scale(${currentScale})`;
+            }
+        });
+    }
 
     // Fonction pour gérer le menu mobile
     menuIcon.addEventListener('click', (e) => {
