@@ -1151,17 +1151,29 @@ ul {
 }
 
 .competence-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    display: block;
+    margin-top: 15px;
 }
 
 .competence-card {
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    font-size: 0.9rem;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.competence-card::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .download-btn {
@@ -1293,7 +1305,11 @@ ul {
     }
 
     .competence-cards {
-        grid-template-columns: 1fr;
+        margin-top: 10px;
+    }
+    
+    .competence-card {
+        margin-bottom: 12px;
     }
 }
 
@@ -1347,14 +1363,14 @@ ul {
 
 .projets-filter {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 40px;
 }
 
 .filter-select-container {
     position: relative;
     width: 250px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .filter-select {
@@ -1939,30 +1955,19 @@ ul {
 
 .footer-nav a {
     color: #ccc;
-    transition: all 0.3s ease;
-    position: relative;
-    padding-left: 0;
-    display: inline-block;
-}
-
-.footer-nav a::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -3px;
-    left: 0;
-    background-color: var(--accent-color);
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .footer-nav a:hover {
     color: white;
-    padding-left: 0;
+}
+
+.footer-nav a::before {
+    display: none;
 }
 
 .footer-nav a:hover::before {
-    width: 100%;
+    width: 0;
 }
 
 .footer-contact-info {

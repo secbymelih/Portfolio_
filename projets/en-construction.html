@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En Construction | Léo Loss-Jayet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../image copy.png">
+    <style>
+        .construction-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .construction-icon {
+            font-size: 5rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        .construction-title {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .construction-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .return-btn {
+            margin-top: 30px;
+        }
+        
+        .construction-page {
+            background-color: var(--light-alt-color);
+            min-height: calc(100vh - 300px);
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../index.html" class="navbar-logo">Léo Loss-Jayet</a>
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="../index.html#apropos" class="nav-link">À Propos</a></li>
+                <li><a href="../index.html#cv" class="nav-link">CV</a></li>
+                <li><a href="../index.html#projet-phare" class="nav-link">Projet Phare</a></li>
+                <li><a href="../index.html#projets" class="nav-link">Projets</a></li>
+                <li><a href="../index.html#temoignages" class="nav-link">Témoignages</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenu de la page en construction -->
+    <section class="construction-page">
+        <div class="section-background">
+            <!-- Les formes seront ajoutées dynamiquement par JavaScript -->
+        </div>
+        <div class="construction-container">
+            <div class="construction-icon">
+                <i class="fas fa-hard-hat"></i>
+            </div>
+            <h1 class="construction-title">Page en construction</h1>
+            <p class="construction-text">Cette page est actuellement en cours de développement. Les détails de ce projet seront bientôt disponibles. Merci pour votre patience !</p>
+            <a href="../index.html#projets" class="btn return-btn">
+                <i class="fas fa-arrow-left"></i> Retour aux projets
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h2>Léo Loss-Jayet</h2>
+                    <p class="footer-tagline">Étudiant en Réseaux & Télécommunications</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/leolossjayet/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="../index.html#accueil">Accueil</a></li>
+                        <li><a href="../index.html#apropos">À propos</a></li>
+                        <li><a href="../index.html#cv">CV</a></li>
+                        <li><a href="../index.html#projets">Projets</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>lossjayet@gmail.com</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>06 52 80 44 49</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Grenoble, France</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="copyright-year">2024</span> Léo Loss-Jayet. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/script.js"></script>
+    <script>
+        // Script pour générer des formes de fond
+        document.addEventListener('DOMContentLoaded', () => {
+            const sectionBackground = document.querySelector('.section-background');
+            if (sectionBackground) {
+                const shapeTypes = ['shape-square', 'shape-circle', 'shape-triangle', 'shape-rectangle', 'shape-ring'];
+                const shapesCount = 4 + Math.floor(Math.random() * 3);
+                
+                for (let i = 0; i < shapesCount; i++) {
+                    const shape = document.createElement('div');
+                    const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+                    shape.classList.add('shape', shapeType);
+                    
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    shape.style.left = `${posX}%`;
+                    shape.style.top = `${posY}%`;
+                    
+                    const rotation = Math.random() * 360;
+                    shape.style.transform = `rotate(${rotation}deg)`;
+                    
+                    const scale = 0.5 + Math.random();
+                    shape.style.transform += ` scale(${scale})`;
+                    
+                    sectionBackground.appendChild(shape);
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
