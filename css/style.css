@@ -52,7 +52,7 @@ ul {
 }
 
 .btn:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* Suppression de l'ombre au survol */
 }
 
 .btn-outline {
@@ -767,7 +767,7 @@ ul {
     padding: 15px 25px;
     background-color: white;
     border-radius: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -776,7 +776,7 @@ ul {
 }
 
 .tag:hover {
-    /* Suppression de l'effet d'ombre au survol */
+    /* Aucun effet d'ombre */
 }
 
 @keyframes floating {
@@ -1280,7 +1280,6 @@ ul {
     color: var(--secondary-color);
     cursor: pointer;
     background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
     margin: 0 15px;
 }
@@ -1288,6 +1287,7 @@ ul {
 .carousel-prev:hover, .carousel-next:hover {
     background-color: var(--primary-color);
     color: white;
+    /* Pas d'ombre au survol */
 }
 
 .carousel-dots {
@@ -1421,7 +1421,7 @@ ul {
 .filter-select:hover, .filter-select:focus {
     border-color: var(--secondary-color);
     outline: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Suppression de l'ombre au survol */
 }
 
 .select-arrow {
@@ -1652,7 +1652,7 @@ ul {
     color: var(--secondary-color);
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
     transition: var(--transition);
     margin: 0 15px;
     z-index: 5; /* S'assurer que les boutons sont au-dessus du contenu */
@@ -1661,6 +1661,7 @@ ul {
 .temoignage-prev:hover, .temoignage-next:hover {
     background-color: var(--primary-color);
     color: white;
+    /* Pas d'ombre au survol */
 }
 
 .temoignages-dots {
@@ -1859,7 +1860,7 @@ ul {
 .form-group input:focus, .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 119, 182, 0.2);
+    /* Suppression de l'ombre de focus */
 }
 
 .form-group textarea {
