@@ -623,10 +623,47 @@ document.addEventListener('DOMContentLoaded', () => {
         const shapeTypes = ['shape-square', 'shape-circle', 'shape-triangle', 'shape-rectangle', 'shape-ring'];
         
         sectionBackgrounds.forEach(background => {
-            // Nombre de formes à générer (entre 3 et 6)
-            const shapesCount = 3 + Math.floor(Math.random() * 4);
+            // Nombre de formes à générer (entre 5 et 9 pour plus de densité)
+            const shapesCount = 5 + Math.floor(Math.random() * 5);
             
-            for (let i = 0; i < shapesCount; i++) {
+            // Diviser la section en zones pour assurer une distribution uniforme
+            const zones = [
+                {xMin: 0, xMax: 20},    // Extrême gauche
+                {xMin: 20, xMax: 40},   // Gauche
+                {xMin: 40, xMax: 60},   // Centre
+                {xMin: 60, xMax: 80},   // Droite
+                {xMin: 80, xMax: 100}   // Extrême droite
+            ];
+            
+            // Placer au moins une forme dans chaque zone
+            zones.forEach(zone => {
+                // Créer un élément de forme
+                const shape = document.createElement('div');
+                
+                // Sélectionner aléatoirement un type de forme
+                const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+                shape.classList.add('shape', shapeType);
+                
+                // Positionner dans la zone spécifique
+                const posX = zone.xMin + Math.random() * (zone.xMax - zone.xMin);
+                const posY = Math.random() * 100;
+                shape.style.left = `${posX}%`;
+                shape.style.top = `${posY}%`;
+                
+                // Rotation aléatoire
+                const rotation = Math.random() * 360;
+                shape.style.transform = `rotate(${rotation}deg)`;
+                
+                // Échelle aléatoire (entre 0.5 et 1.5)
+                const scale = 0.5 + Math.random();
+                shape.style.transform += ` scale(${scale})`;
+                
+                // Ajouter la forme à l'arrière-plan
+                background.appendChild(shape);
+            });
+            
+            // Ajouter des formes supplémentaires avec positionnement complètement aléatoire
+            for (let i = 0; i < shapesCount - zones.length; i++) {
                 // Créer un élément de forme
                 const shape = document.createElement('div');
                 
@@ -657,10 +694,47 @@ document.addEventListener('DOMContentLoaded', () => {
         const cvSectionBackgrounds = document.querySelectorAll('.cv-section > .section-background');
         
         cvSectionBackgrounds.forEach(background => {
-            // Nombre de formes à générer (entre 2 et 4 par sous-section)
-            const shapesCount = 2 + Math.floor(Math.random() * 3);
+            // Nombre de formes à générer (entre 4 et 7 par sous-section pour plus de densité)
+            const shapesCount = 4 + Math.floor(Math.random() * 4);
             
-            for (let i = 0; i < shapesCount; i++) {
+            // Diviser la section en zones pour assurer une distribution uniforme
+            const zones = [
+                {xMin: 0, xMax: 20},    // Extrême gauche
+                {xMin: 20, xMax: 40},   // Gauche
+                {xMin: 40, xMax: 60},   // Centre
+                {xMin: 60, xMax: 80},   // Droite
+                {xMin: 80, xMax: 100}   // Extrême droite
+            ];
+            
+            // Placer au moins une forme dans chaque zone
+            zones.forEach(zone => {
+                // Créer un élément de forme
+                const shape = document.createElement('div');
+                
+                // Sélectionner aléatoirement un type de forme
+                const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+                shape.classList.add('shape', shapeType);
+                
+                // Positionner dans la zone spécifique
+                const posX = zone.xMin + Math.random() * (zone.xMax - zone.xMin);
+                const posY = Math.random() * 100;
+                shape.style.left = `${posX}%`;
+                shape.style.top = `${posY}%`;
+                
+                // Rotation aléatoire
+                const rotation = Math.random() * 360;
+                shape.style.transform = `rotate(${rotation}deg)`;
+                
+                // Échelle aléatoire (entre 0.4 et 1.2) - Légèrement plus petite pour les sous-sections
+                const scale = 0.4 + Math.random() * 0.8;
+                shape.style.transform += ` scale(${scale})`;
+                
+                // Ajouter la forme à l'arrière-plan
+                background.appendChild(shape);
+            });
+            
+            // Ajouter des formes supplémentaires avec positionnement complètement aléatoire
+            for (let i = 0; i < shapesCount - zones.length; i++) {
                 // Créer un élément de forme
                 const shape = document.createElement('div');
                 
