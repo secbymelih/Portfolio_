@@ -88,19 +88,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
         <div class="footer-container">
             <div class="footer-main">
-                <div class="footer-brand">
-                    <h2>Léo Loss-Jayet</h2>
-                    <p class="footer-tagline">Étudiant en Réseaux & Télécommunications</p>
-                    <div class="footer-social">
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/leolossjayet/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-nav">
+                <nav class="footer-nav" aria-label="Navigation du pied de page">
                     <h3>Navigation</h3>
                     <ul>
                         <li><a href="../index.html#accueil">Accueil</a></li>
@@ -109,23 +100,31 @@
                         <li><a href="../index.html#projets">Projets</a></li>
                         <li><a href="../index.html#contact">Contact</a></li>
                     </ul>
-                </div>
+                </nav>
                 
                 <div class="footer-contact">
                     <h3>Contact</h3>
                     <div class="footer-contact-info">
                         <div class="footer-contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>lossjayet@gmail.com</span>
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span><a href="mailto:contact@leolossjayet.fr">contact@leolossjayet.fr</a></span>
                         </div>
                         <div class="footer-contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>06 52 80 44 49</span>
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <span><a href="tel:+33652804449">06 52 80 44 49</a></span>
                         </div>
                         <div class="footer-contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                             <span>Grenoble, France</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="footer-social-section">
+                    <h3>Réseaux sociaux</h3>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/l%C3%A9o-loss-jayet-1ab463351/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://github.com/leolossjayet/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -133,41 +132,12 @@
             <div class="footer-divider"></div>
             
             <div class="footer-bottom">
-                <p>&copy; <span class="copyright-year">2024</span> Léo Loss-Jayet. Tous droits réservés.</p>
+                <p>&copy; <time datetime="2025">2025</time> Léo Loss-Jayet. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="../js/script.js"></script>
-    <script>
-        // Script pour générer des formes de fond
-        document.addEventListener('DOMContentLoaded', () => {
-            const sectionBackground = document.querySelector('.section-background');
-            if (sectionBackground) {
-                const shapeTypes = ['shape-square', 'shape-circle', 'shape-triangle', 'shape-rectangle', 'shape-ring'];
-                const shapesCount = 4 + Math.floor(Math.random() * 3);
-                
-                for (let i = 0; i < shapesCount; i++) {
-                    const shape = document.createElement('div');
-                    const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
-                    shape.classList.add('shape', shapeType);
-                    
-                    const posX = Math.random() * 100;
-                    const posY = Math.random() * 100;
-                    shape.style.left = `${posX}%`;
-                    shape.style.top = `${posY}%`;
-                    
-                    const rotation = Math.random() * 360;
-                    shape.style.transform = `rotate(${rotation}deg)`;
-                    
-                    const scale = 0.5 + Math.random();
-                    shape.style.transform += ` scale(${scale})`;
-                    
-                    sectionBackground.appendChild(shape);
-                }
-            }
-        });
-    </script>
 </body>
 </html> 

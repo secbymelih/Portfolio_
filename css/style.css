@@ -10,6 +10,19 @@
     --transition: all 0.3s ease;
 }
 
+/* Accessibilité - Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Reset et styles de base */
 * {
     margin: 0;
@@ -651,7 +664,7 @@ ul {
     box-shadow: none;
     margin: 0 30px;
     border: none;
-    position: relative; /* Ajout de position relative pour un meilleur référencement */
+    position: relative;
 }
 
 .timeline-content-horizontal h3 {
@@ -944,10 +957,20 @@ ul {
 
     .competences-col {
         flex: 0 0 100%;
-        margin-bottom: 30px;
+        margin-bottom: 0; /* Supprime l'espacement entre les colonnes */
     }
 
     .competences-col:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Assure un espacement uniforme entre tous les éléments de compétences */
+    .competence-item {
+        margin-bottom: 20px;
+    }
+
+    /* Supprime la marge du dernier élément de la dernière colonne */
+    .competences-col:last-child .competence-item:last-child {
         margin-bottom: 0;
     }
 
@@ -973,23 +996,125 @@ ul {
         display: none;
     }
 
+    /* FORMATIONS - Version responsive complètement différente */
+    .cv-section.formations {
+        margin-bottom: 100px; /* Réduction de la marge */
+    }
+
+    .cv-section.formations .cv-title {
+        margin-bottom: 50px; /* Réduction de la marge */
+    }
+
     .timeline-horizontal {
-        height: 400px;
+        height: auto; /* Supprime la hauteur fixe */
+        position: static; /* Supprime le positionnement */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin: 40px auto 60px;
+    }
+
+    /* Supprime la ligne horizontale en responsive */
+    .timeline-horizontal::before {
+        display: none;
+    }
+
+    /* Supprime les points en responsive */
+    .timeline-horizontal .point-top,
+    .timeline-horizontal .point-bottom {
+        display: none;
     }
 
     .timeline-item-horizontal {
-        width: 80%;
-        left: 50%;
-        transform: translateX(-50%);
+        position: static; /* Supprime le positionnement absolu */
+        width: 100%; /* Pleine largeur */
+        max-width: 500px; /* Largeur maximale pour éviter que ce soit trop large */
+        opacity: 1; /* Toujours visible */
+        transform: none; /* Supprime les transformations */
+        padding: 0; /* Supprime le padding */
+        margin: 0; /* Supprime les marges */
     }
 
-    .timeline-item-horizontal.bottom {
-        top: 50%;
-    }
-
+    .timeline-item-horizontal.bottom,
     .timeline-item-horizontal.top {
-        top: 10%;
+        position: static;
+        top: auto;
+        bottom: auto;
+        left: auto;
         right: auto;
+        transform: none;
+        padding: 0;
+    }
+
+    .timeline-item-horizontal.active.bottom,
+    .timeline-item-horizontal.active.top {
+        transform: none;
+    }
+
+    .timeline-content-horizontal {
+        padding: 30px;
+        margin: 0;
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    /* EXPÉRIENCES PROFESSIONNELLES - Version responsive complètement différente */
+    .cv-section.experiences .timeline {
+        height: auto; /* Supprime la hauteur fixe */
+        position: static; /* Supprime le positionnement */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin: 40px auto 60px;
+        max-width: none; /* Supprime la largeur max */
+        padding: 0; /* Supprime le padding */
+    }
+
+    /* Supprime la ligne verticale en responsive pour les expériences */
+    .cv-section.experiences .timeline::before {
+        display: none;
+    }
+
+    /* Supprime les points en responsive pour les expériences */
+    .cv-section.experiences .timeline .point-right,
+    .cv-section.experiences .timeline .point-left {
+        display: none;
+    }
+
+    .cv-section.experiences .timeline-item {
+        position: static; /* Supprime le positionnement absolu */
+        width: 100%; /* Pleine largeur */
+        max-width: 500px; /* Largeur maximale pour éviter que ce soit trop large */
+        opacity: 1; /* Toujours visible */
+        transform: none; /* Supprime les transformations */
+        padding: 0; /* Supprime le padding */
+        margin: 0; /* Supprime les marges */
+    }
+
+    .cv-section.experiences .timeline-item.left,
+    .cv-section.experiences .timeline-item.right {
+        position: static;
+        left: auto;
+        transform: none;
+        padding: 0;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .cv-section.experiences .timeline-item.active {
+        transform: none;
+    }
+
+    .cv-section.experiences .timeline-content {
+        padding: 30px;
+        margin: 0;
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        border-left: none;
     }
 
     .anglais-container {
@@ -1108,10 +1233,6 @@ ul {
 
     .timeline-item.left::after, .timeline-item.right::after {
         display: none;
-    }
-
-    .timeline-horizontal {
-        height: 500px;
     }
 
     .globe {

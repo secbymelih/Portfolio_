@@ -4,140 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAÉ101 - CyberHygiène | Léo Loss-Jayet</title>
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/projet-detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../../image copy.png">
-
-    <style>
-        /* Styles spécifiques à la page de projet */
-        .projet-detail {
-            padding: var(--section-padding);
-            background-color: var(--light-color);
-            position: relative;
-        }
-        
-        .projet-detail-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .projet-header {
-            margin-bottom: 50px;
-            text-align: center;
-        }
-        
-        .projet-title {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-        
-        .projet-subtitle {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-        }
-        
-        .projet-intro {
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: center;
-        }
-        
-        .projet-section {
-            margin-bottom: 60px;
-        }
-        
-        .projet-section h2 {
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .projet-section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-        
-        .projet-section p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-        
-        .competences-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        .competences-list li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .competences-list li::before {
-            content: '\f5fc';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-        }
-        
-        .projet-conclusion {
-            margin-top: 40px;
-            padding: 30px;
-            background-color: rgba(0, 119, 182, 0.05);
-            border-radius: 8px;
-        }
-        
-        .projet-carousel {
-            margin: 40px auto;
-            max-width: 800px;
-        }
-        
-        .carousel-container {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .return-btn {
-            display: inline-flex;
-            align-items: center;
-            margin-top: 30px;
-        }
-        
-        .return-btn i {
-            margin-right: 10px;
-        }
-        
-        @media screen and (max-width: 768px) {
-            .projet-title {
-                font-size: 2.3rem;
-            }
-            
-            .projet-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .projet-carousel {
-                max-width: 95%;
-            }
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/icons/favicon.png">
 </head>
 <body>
     <!-- Navbar -->
@@ -173,11 +48,11 @@
                 <p class="projet-intro">Découvrez les objectifs, le travail effectué et les compétences acquises lors de cette SAE.</p>
             </div>
 
-            <div class="projet-carousel">
+            <div class="projet-phare-carousel">
                 <div class="carousel-container">
                     <div class="carousel-track">
                         <div class="carousel-slide active">
-                            <img src="" alt="SAÉ101 - CyberHygiène">
+                            <img src="./img/image.png" alt="SAÉ101 - CyberHygiène">
                         </div>
                         <div class="carousel-slide">
                             <img src="img/slide1.jpg" alt="SAÉ101 - Image 1">
@@ -187,13 +62,13 @@
                         </div>
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-prev" aria-label="Image précédente"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                         <div class="carousel-dots">
-                            <span class="carousel-dot active" data-slide="0"></span>
-                            <span class="carousel-dot" data-slide="1"></span>
-                            <span class="carousel-dot" data-slide="2"></span>
+                            <span class="carousel-dot active" data-slide="0" aria-label="Image 1"></span>
+                            <span class="carousel-dot" data-slide="1" aria-label="Image 2"></span>
+                            <span class="carousel-dot" data-slide="2" aria-label="Image 3"></span>
                         </div>
-                        <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                        <button class="carousel-next" aria-label="Image suivante"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
@@ -210,12 +85,12 @@
 
             <div class="projet-section">
                 <h2>Compétences acquises</h2>
-                <ul class="competences-list">
-                    <li><strong>Cybersécurité :</strong> analyse des menaces, identification des risques et adoption des bonnes pratiques</li>
-                    <li><strong>Gestion de projet :</strong> planification rigoureuse, suivi avec GanttProject et respect des délais</li>
-                    <li><strong>Communication :</strong> collaboration en binôme, argumentation et vulgarisation d'un message technique</li>
-                    <li><strong>Présentation et prise de parole :</strong> soutenance orale devant un jury, défense des choix et aisance à l'oral</li>
-                </ul>
+                <div class="competence-cards">
+                    <div class="competence-item"><strong>Cybersécurité :</strong> analyse des menaces, identification des risques et adoption des bonnes pratiques</div>
+                    <div class="competence-item"><strong>Gestion de projet :</strong> planification rigoureuse, suivi avec GanttProject et respect des délais</div>
+                    <div class="competence-item"><strong>Communication :</strong> collaboration en binôme, argumentation et vulgarisation d'un message technique</div>
+                    <div class="competence-item"><strong>Présentation et prise de parole :</strong> soutenance orale devant un jury, défense des choix et aisance à l'oral</div>
+                </div>
             </div>
 
             <div class="projet-section">
@@ -234,19 +109,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
         <div class="footer-container">
             <div class="footer-main">
-                <div class="footer-brand">
-                    <h2>Léo Loss-Jayet</h2>
-                    <p class="footer-tagline">Étudiant en Réseaux & Télécommunications</p>
-                    <div class="footer-social">
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/leolossjayet/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-nav">
+                <nav class="footer-nav" aria-label="Navigation du pied de page">
                     <h3>Navigation</h3>
                     <ul>
                         <li><a href="../../index.html#accueil">Accueil</a></li>
@@ -255,23 +121,31 @@
                         <li><a href="../../index.html#projets">Projets</a></li>
                         <li><a href="../../index.html#contact">Contact</a></li>
                     </ul>
-                </div>
+                </nav>
                 
                 <div class="footer-contact">
                     <h3>Contact</h3>
                     <div class="footer-contact-info">
                         <div class="footer-contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>lossjayet@gmail.com</span>
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span><a href="mailto:contact@leolossjayet.fr">contact@leolossjayet.fr</a></span>
                         </div>
                         <div class="footer-contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>06 52 80 44 49</span>
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <span><a href="tel:+33652804449">06 52 80 44 49</a></span>
                         </div>
                         <div class="footer-contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                             <span>Grenoble, France</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="footer-social-section">
+                    <h3>Réseaux sociaux</h3>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/l%C3%A9o-loss-jayet-1ab463351/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://github.com/leolossjayet/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -279,100 +153,12 @@
             <div class="footer-divider"></div>
             
             <div class="footer-bottom">
-                <p>&copy; <span class="copyright-year">2024</span> Léo Loss-Jayet. Tous droits réservés.</p>
+                <p>&copy; <time datetime="2025">2025</time> Léo Loss-Jayet. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="../../js/script.js"></script>
-    <script>
-        // Script spécifique pour le carousel de la page projet
-        document.addEventListener('DOMContentLoaded', () => {
-            const carouselSlides = document.querySelectorAll('.carousel-slide');
-            const carouselDots = document.querySelectorAll('.carousel-dot');
-            const carouselPrev = document.querySelector('.carousel-prev');
-            const carouselNext = document.querySelector('.carousel-next');
-            
-            let currentSlide = 0;
-            let carouselInterval;
-            
-            // Fonction pour afficher un slide spécifique
-            const showSlide = (index) => {
-                carouselSlides.forEach(slide => {
-                    slide.classList.remove('active');
-                });
-                
-                carouselDots.forEach(dot => {
-                    dot.classList.remove('active');
-                });
-                
-                carouselSlides[index].classList.add('active');
-                carouselDots[index].classList.add('active');
-                
-                currentSlide = index;
-            };
-            
-            // Fonction pour réinitialiser le défilement automatique
-            const resetCarouselInterval = () => {
-                clearInterval(carouselInterval);
-                
-                carouselInterval = setInterval(() => {
-                    const nextIndex = (currentSlide + 1) % carouselSlides.length;
-                    showSlide(nextIndex);
-                }, 5000);
-            };
-            
-            // Event listeners pour les flèches de navigation
-            carouselNext.addEventListener('click', () => {
-                const nextIndex = (currentSlide + 1) % carouselSlides.length;
-                showSlide(nextIndex);
-                resetCarouselInterval();
-            });
-            
-            carouselPrev.addEventListener('click', () => {
-                const prevIndex = (currentSlide - 1 + carouselSlides.length) % carouselSlides.length;
-                showSlide(prevIndex);
-                resetCarouselInterval();
-            });
-            
-            // Event listeners pour les points de navigation
-            carouselDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showSlide(index);
-                    resetCarouselInterval();
-                });
-            });
-            
-            // Démarrer le défilement automatique
-            resetCarouselInterval();
-            
-            // Générer des formes de fond
-            const sectionBackground = document.querySelector('.section-background');
-            if (sectionBackground) {
-                const shapeTypes = ['shape-square', 'shape-circle', 'shape-triangle', 'shape-rectangle', 'shape-ring'];
-                const shapesCount = 4 + Math.floor(Math.random() * 3);
-                
-                for (let i = 0; i < shapesCount; i++) {
-                    const shape = document.createElement('div');
-                    const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
-                    shape.classList.add('shape', shapeType);
-                    
-                    const posX = Math.random() * 100;
-                    const posY = Math.random() * 100;
-                    shape.style.left = `${posX}%`;
-                    shape.style.top = `${posY}%`;
-                    
-                    const rotation = Math.random() * 360;
-                    shape.style.transform = `rotate(${rotation}deg)`;
-                    
-                    const scale = 0.5 + Math.random();
-                    shape.style.transform += ` scale(${scale})`;
-                    
-                    sectionBackground.appendChild(shape);
-                }
-            }
-        });
-    </script>
 </body>
 </html> 
