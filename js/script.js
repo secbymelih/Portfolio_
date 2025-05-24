@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgOverlay = document.querySelector('.bg-overlay');
     const accueilSection = document.querySelector('#accueil');
 
+    // Initialiser le globe 3D
+    initGlobe3D();
+
     // Effet de dé-zoom sur l'image de fond
     if (bgOverlay && accueilSection) {
         const initialScale = 1.2;
@@ -623,20 +626,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const shapeTypes = ['shape-square', 'shape-circle', 'shape-triangle', 'shape-rectangle', 'shape-ring'];
         
         sectionBackgrounds.forEach(background => {
-            // Nombre de formes à générer (entre 5 et 9 pour plus de densité)
-            const shapesCount = 5 + Math.floor(Math.random() * 5);
+            const section = background.parentElement;
+            const sectionHeight = section.offsetHeight;
             
-            // Diviser la section en zones pour assurer une distribution uniforme
+            // Calculer le nombre de formes en fonction de la hauteur de la section
+            // Base : 1 forme par 200px de hauteur, minimum 2, maximum 8
+            let shapesCount = Math.max(2, Math.min(8, Math.floor(sectionHeight / 200)));
+            
+            // Zones privilégiées : principalement sur les bords
             const zones = [
-                {xMin: 0, xMax: 20},    // Extrême gauche
-                {xMin: 20, xMax: 40},   // Gauche
-                {xMin: 40, xMax: 60},   // Centre
-                {xMin: 60, xMax: 80},   // Droite
-                {xMin: 80, xMax: 100}   // Extrême droite
+                {xMin: 0, xMax: 15, weight: 3},    // Bord gauche (poids élevé)
+                {xMin: 85, xMax: 100, weight: 3},  // Bord droit (poids élevé)
+                {xMin: 15, xMax: 25, weight: 2},   // Proche gauche
+                {xMin: 75, xMax: 85, weight: 2},   // Proche droite
+                {xMin: 30, xMax: 70, weight: 1}    // Centre (poids faible)
             ];
             
-            // Placer au moins une forme dans chaque zone
+            // Créer un tableau pondéré des zones
+            const weightedZones = [];
             zones.forEach(zone => {
+                for (let i = 0; i < zone.weight; i++) {
+                    weightedZones.push(zone);
+                }
+            });
+            
+            for (let i = 0; i < shapesCount; i++) {
                 // Créer un élément de forme
                 const shape = document.createElement('div');
                 
@@ -644,8 +658,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
                 shape.classList.add('shape', shapeType);
                 
-                // Positionner dans la zone spécifique
-                const posX = zone.xMin + Math.random() * (zone.xMax - zone.xMin);
+                // Sélectionner une zone selon la pondération
+                const selectedZone = weightedZones[Math.floor(Math.random() * weightedZones.length)];
+                
+                // Positionner dans la zone sélectionnée
+                const posX = selectedZone.xMin + Math.random() * (selectedZone.xMax - selectedZone.xMin);
                 const posY = Math.random() * 100;
                 shape.style.left = `${posX}%`;
                 shape.style.top = `${posY}%`;
@@ -654,36 +671,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rotation = Math.random() * 360;
                 shape.style.transform = `rotate(${rotation}deg)`;
                 
-                // Échelle aléatoire (entre 0.5 et 1.5)
-                const scale = 0.5 + Math.random();
-                shape.style.transform += ` scale(${scale})`;
-                
-                // Ajouter la forme à l'arrière-plan
-                background.appendChild(shape);
-            });
-            
-            // Ajouter des formes supplémentaires avec positionnement complètement aléatoire
-            for (let i = 0; i < shapesCount - zones.length; i++) {
-                // Créer un élément de forme
-                const shape = document.createElement('div');
-                
-                // Sélectionner aléatoirement un type de forme
-                const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
-                shape.classList.add('shape', shapeType);
-                
-                // Positionner aléatoirement
-                const posX = Math.random() * 100; // Position en pourcentage
-                const posY = Math.random() * 100; // Position en pourcentage
-                shape.style.left = `${posX}%`;
-                shape.style.top = `${posY}%`;
-                
-                // Rotation aléatoire
-                const rotation = Math.random() * 360;
-                shape.style.transform = `rotate(${rotation}deg)`;
-                
-                // Échelle aléatoire (entre 0.5 et 1.5)
-                const scale = 0.5 + Math.random();
-                shape.style.transform += ` scale(${scale})`;
+                // Échelle variable selon la zone (plus petites au centre)
+                let scaleRange;
+                if (selectedZone.xMin >= 30 && selectedZone.xMax <= 70) {
+                    // Zone centrale : formes plus petites et plus transparentes
+                    scaleRange = 0.3 + Math.random() * 0.4; // 0.3 à 0.7
+                    shape.style.opacity = '0.03'; // Très transparentes
+                } else {
+                    // Zones sur les bords : formes normales
+                    scaleRange = 0.5 + Math.random() * 0.8; // 0.5 à 1.3
+                }
+                shape.style.transform += ` scale(${scaleRange})`;
                 
                 // Ajouter la forme à l'arrière-plan
                 background.appendChild(shape);
@@ -694,20 +692,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const cvSectionBackgrounds = document.querySelectorAll('.cv-section > .section-background');
         
         cvSectionBackgrounds.forEach(background => {
-            // Nombre de formes à générer (entre 4 et 7 par sous-section pour plus de densité)
-            const shapesCount = 4 + Math.floor(Math.random() * 4);
+            const section = background.parentElement;
+            const sectionHeight = section.offsetHeight;
             
-            // Diviser la section en zones pour assurer une distribution uniforme
+            // Pour les sous-sections : encore moins de formes
+            // Base : 1 forme par 300px de hauteur, minimum 1, maximum 4
+            let shapesCount = Math.max(1, Math.min(4, Math.floor(sectionHeight / 300)));
+            
+            // Zones privilégiées pour sous-sections : encore plus concentrées sur les bords
             const zones = [
-                {xMin: 0, xMax: 20},    // Extrême gauche
-                {xMin: 20, xMax: 40},   // Gauche
-                {xMin: 40, xMax: 60},   // Centre
-                {xMin: 60, xMax: 80},   // Droite
-                {xMin: 80, xMax: 100}   // Extrême droite
+                {xMin: 0, xMax: 12, weight: 4},    // Bord gauche (poids très élevé)
+                {xMin: 88, xMax: 100, weight: 4},  // Bord droit (poids très élevé)
+                {xMin: 12, xMax: 20, weight: 1},   // Proche gauche
+                {xMin: 80, xMax: 88, weight: 1}    // Proche droite
+                // Pas de zone centrale pour les sous-sections
             ];
             
-            // Placer au moins une forme dans chaque zone
+            // Créer un tableau pondéré des zones
+            const weightedZones = [];
             zones.forEach(zone => {
+                for (let i = 0; i < zone.weight; i++) {
+                    weightedZones.push(zone);
+                }
+            });
+            
+            for (let i = 0; i < shapesCount; i++) {
                 // Créer un élément de forme
                 const shape = document.createElement('div');
                 
@@ -715,8 +724,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
                 shape.classList.add('shape', shapeType);
                 
-                // Positionner dans la zone spécifique
-                const posX = zone.xMin + Math.random() * (zone.xMax - zone.xMin);
+                // Sélectionner une zone selon la pondération
+                const selectedZone = weightedZones[Math.floor(Math.random() * weightedZones.length)];
+                
+                // Positionner dans la zone sélectionnée
+                const posX = selectedZone.xMin + Math.random() * (selectedZone.xMax - selectedZone.xMin);
                 const posY = Math.random() * 100;
                 shape.style.left = `${posX}%`;
                 shape.style.top = `${posY}%`;
@@ -725,35 +737,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rotation = Math.random() * 360;
                 shape.style.transform = `rotate(${rotation}deg)`;
                 
-                // Échelle aléatoire (entre 0.4 et 1.2) - Légèrement plus petite pour les sous-sections
-                const scale = 0.4 + Math.random() * 0.8;
-                shape.style.transform += ` scale(${scale})`;
-                
-                // Ajouter la forme à l'arrière-plan
-                background.appendChild(shape);
-            });
-            
-            // Ajouter des formes supplémentaires avec positionnement complètement aléatoire
-            for (let i = 0; i < shapesCount - zones.length; i++) {
-                // Créer un élément de forme
-                const shape = document.createElement('div');
-                
-                // Sélectionner aléatoirement un type de forme
-                const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
-                shape.classList.add('shape', shapeType);
-                
-                // Positionner aléatoirement
-                const posX = Math.random() * 100; // Position en pourcentage
-                const posY = Math.random() * 100; // Position en pourcentage
-                shape.style.left = `${posX}%`;
-                shape.style.top = `${posY}%`;
-                
-                // Rotation aléatoire
-                const rotation = Math.random() * 360;
-                shape.style.transform = `rotate(${rotation}deg)`;
-                
-                // Échelle aléatoire (entre 0.4 et 1.2) - Légèrement plus petite pour les sous-sections
-                const scale = 0.4 + Math.random() * 0.8;
+                // Échelle plus petite pour les sous-sections
+                const scale = 0.3 + Math.random() * 0.5; // 0.3 à 0.8
                 shape.style.transform += ` scale(${scale})`;
                 
                 // Ajouter la forme à l'arrière-plan
@@ -1043,5 +1028,117 @@ document.addEventListener('DOMContentLoaded', () => {
     // pour qu'ils soient bien placés avant le déclenchement des animations
     if (document.querySelector('.timeline') || document.querySelector('.timeline-horizontal')) {
         adjustTimelinePoints();
+    }
+
+    // Fonction pour initialiser le globe 3D
+    function initGlobe3D() {
+        const container = document.getElementById('globe-3d');
+        
+        if (!container) return;
+        
+        // Taille du conteneur
+        const width = 180;
+        const height = 180;
+        
+        // Création de la scène Three.js
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+        camera.position.z = 2.5;
+        
+        // Renderer avec fond transparent
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(width, height);
+        container.appendChild(renderer.domElement);
+        
+        // Créer une texture pour le globe en utilisant un canvas
+        const canvasSize = 512;  // Taille de la texture
+        const canvas = document.createElement('canvas');
+        canvas.width = canvasSize;
+        canvas.height = canvasSize;
+        const ctx = canvas.getContext('2d');
+        
+        // Remplir le fond en bleu (océans)
+        ctx.fillStyle = '#4FB6D6';
+        ctx.fillRect(0, 0, canvasSize, canvasSize);
+        
+        // Dessiner les continents en vert
+        ctx.fillStyle = '#8CC751';
+        
+        // Fonction pour dessiner un continent
+        function drawContinent(coords) {
+            ctx.beginPath();
+            let first = true;
+            for (const point of coords) {
+                const x = (point[0] + 180) * (canvasSize / 360);
+                const y = (90 - point[1]) * (canvasSize / 180);
+                if (first) {
+                    ctx.moveTo(x, y);
+                    first = false;
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.closePath();
+            ctx.fill();
+        }
+        
+        // Dessiner l'Amérique du Nord (forme simplifiée)
+        drawContinent([
+            [-170, 70], [-120, 70], [-80, 70], [-60, 50], 
+            [-80, 30], [-100, 25], [-120, 30], [-130, 20],
+            [-160, 20], [-170, 30], [-170, 70]
+        ]);
+        
+        // Amérique du Sud
+        drawContinent([
+            [-80, 10], [-60, 10], [-40, 0], [-40, -20], 
+            [-60, -40], [-80, -40], [-80, -20], [-80, 10]
+        ]);
+        
+        // Europe
+        drawContinent([
+            [-10, 70], [20, 70], [40, 60], [30, 40],
+            [10, 40], [0, 50], [-10, 50], [-10, 70]
+        ]);
+        
+        // Afrique
+        drawContinent([
+            [-20, 35], [40, 35], [50, 10], [40, -30],
+            [20, -35], [0, -35], [-20, 0], [-20, 35]
+        ]);
+        
+        // Asie
+        drawContinent([
+            [40, 70], [140, 70], [140, 30], [110, 20],
+            [100, 0], [60, 0], [50, 30], [40, 40], [40, 70]
+        ]);
+        
+        // Australie
+        drawContinent([
+            [110, -10], [150, -10], [150, -40], [110, -40], [110, -10]
+        ]);
+        
+        // Créer une texture à partir du canvas
+        const texture = new THREE.CanvasTexture(canvas);
+        
+        // Créer le matériau et la géométrie pour le globe
+        const globeGeometry = new THREE.SphereGeometry(1, 32, 32);
+        const globeMaterial = new THREE.MeshBasicMaterial({
+            map: texture
+        });
+        
+        // Créer le globe
+        const globe = new THREE.Mesh(globeGeometry, globeMaterial);
+        globe.rotation.x = 0.2;  // Légère inclinaison
+        scene.add(globe);
+        
+        // Animation
+        function animate() {
+            requestAnimationFrame(animate);
+            globe.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        
+        animate();
     }
 }); 
