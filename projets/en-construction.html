@@ -4,13 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>En Construction | Léo Loss-Jayet</title>
+    
+    <!-- Performance & SEO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="../image copy.png">
+    
+    <!-- Preloader CSS critique pour masquer tout flash visuel -->
     <style>
+        /* Preloader - affiché par défaut */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0077B6 0%, #023E8A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.8s ease-out;
+        }
+        
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .preloader-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .preloader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* PROTECTION ULTIME : Garder la navbar visible sur toutes les pages pendant le preloader */
+        .navbar {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+        
+        /* Masquer SEULEMENT le contenu principal pendant le preloader */
+        body:not(.loaded) main,
+        body:not(.loaded) footer {
+            opacity: 0;
+        }
+        
+        /* Forcer l'affichage de la police Montserrat pour éviter le flash de police */
+        body, h1, h2, h3, h4, h5, h6, .navbar-logo {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        }
+        
         .construction-container {
             max-width: 800px;
             margin: 0 auto;
@@ -47,12 +108,23 @@
             align-items: center;
         }
     </style>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../image copy.png">
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="../index.html" class="navbar-logo">Léo Loss-Jayet</a>
+            <a href="../index.html" class="navbar-logo">LÉO LOSS-JAYET</a>
             <div class="menu-icon">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -70,6 +142,7 @@
         </div>
     </nav>
 
+    <main>
     <!-- Contenu de la page en construction -->
     <section class="construction-page">
         <div class="section-background">
@@ -86,6 +159,7 @@
             </a>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">

@@ -1,3 +1,34 @@
+// Preloader et gestion du chargement
+window.addEventListener('load', () => {
+    // Attendre que les polices soient chargées
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            hidePreloader();
+        });
+    } else {
+        // Fallback si l'API Font Loading n'est pas supportée
+        setTimeout(hidePreloader, 800);
+    }
+});
+
+function hidePreloader() {
+    const preloader = document.getElementById('preloader');
+    const body = document.body;
+    
+    if (preloader) {
+        // Ajouter la classe fade-out au preloader
+        preloader.classList.add('fade-out');
+        
+        // Marquer le body comme chargé
+        body.classList.add('loaded');
+        
+        // Supprimer complètement le preloader après l'animation
+        setTimeout(() => {
+            preloader.remove();
+        }, 800);
+    }
+}
+
 // Attendre que le DOM soit complètement chargé
 document.addEventListener('DOMContentLoaded', () => {
     // Variables
@@ -20,6 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.querySelector('.contact-form');
     const bgOverlay = document.querySelector('.bg-overlay');
     const accueilSection = document.querySelector('#accueil');
+
+    // Détection de la page d'accueil
+    const homeH1 = document.querySelector('#accueil h1');
+    const isHomePage = homeH1 !== null;
+    if (isHomePage) {
+        document.body.classList.add('home-page');
+    }
 
     // Initialiser le globe 3D
     initGlobe3D();
@@ -896,30 +934,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tagWidth = tag.offsetWidth || 150;
                 const tagHeight = tag.offsetHeight || 50;
                 
-                // Version desktop - essayer les quatre coins
-                const corners = [
-                    {left: edgeMargin, top: edgeMargin},
-                    {left: tagCloudWidth - tagWidth - edgeMargin, top: edgeMargin},
-                    {left: edgeMargin, top: tagCloudHeight - tagHeight - edgeMargin},
-                    {left: tagCloudWidth - tagWidth - edgeMargin, top: tagCloudHeight - tagHeight - edgeMargin}
-                ];
-                
-                for (const corner of corners) {
-                    tag.style.left = `${corner.left}px`;
-                    tag.style.top = `${corner.top}px`;
+                    // Version desktop - essayer les quatre coins
+                    const corners = [
+                        {left: edgeMargin, top: edgeMargin},
+                        {left: tagCloudWidth - tagWidth - edgeMargin, top: edgeMargin},
+                        {left: edgeMargin, top: tagCloudHeight - tagHeight - edgeMargin},
+                        {left: tagCloudWidth - tagWidth - edgeMargin, top: tagCloudHeight - tagHeight - edgeMargin}
+                    ];
                     
-                    let hasCollision = false;
-                    for (const posTag of positionedTags) {
-                        if (checkCollision(tag, posTag)) {
-                            hasCollision = true;
-                            break;
+                    for (const corner of corners) {
+                        tag.style.left = `${corner.left}px`;
+                        tag.style.top = `${corner.top}px`;
+                        
+                        let hasCollision = false;
+                        for (const posTag of positionedTags) {
+                            if (checkCollision(tag, posTag)) {
+                                hasCollision = true;
+                                break;
+                            }
                         }
-                    }
-                    
-                    if (!hasCollision) {
-                        positioned = true;
-                        positionedTags.push(tag);
-                        break;
+                        
+                        if (!hasCollision) {
+                            positioned = true;
+                            positionedTags.push(tag);
+                            break;
                     }
                 }
                 

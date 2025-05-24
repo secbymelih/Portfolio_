@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAÉ101 - CyberHygiène | Léo Loss-Jayet</title>
+    <title>SAÉ201 - Construire un réseau informatique | Léo Loss-Jayet</title>
     
     <!-- Performance & SEO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,8 +118,8 @@
         </div>
         <div class="projet-detail-container">
             <div class="projet-header">
-                <h1 class="projet-title">SAÉ101 - CyberHygiène</h1>
-                <h2 class="projet-subtitle">Sensibilisation aux bonnes pratiques de cybersécurité</h2>
+                <h1 class="projet-title">SAÉ201 - Construire un réseau informatique</h1>
+                <h2 class="projet-subtitle">Déploiement d'une infrastructure réseau sécurisée sous OpenStack</h2>
                 <p class="projet-intro">Découvrez les objectifs, le travail effectué et les compétences acquises lors de cette SAE.</p>
             </div>
 
@@ -128,19 +128,19 @@
                 <div class="carousel-container">
                     <div class="carousel-track">
                         <div class="carousel-slide active">
-                            <img src="./img/cyber-principal.jpg" alt="SAÉ101 - CyberHygiène et sécurité numérique">
+                            <img src="./img/openstack-principal.jpg" alt="SAÉ201 - Infrastructure OpenStack">
                         </div>
                         <div class="carousel-slide">
-                            <img src="img/password-security.jpg" alt="Gestion sécurisée des mots de passe">
+                            <img src="img/schema-reseau.jpg" alt="Schéma réseau avec draw.io">
                         </div>
                         <div class="carousel-slide">
-                            <img src="img/phishing-awareness.jpg" alt="Sensibilisation au phishing">
+                            <img src="img/services-reseau.jpg" alt="Services réseau (DNS, FTP, Apache)">
                         </div>
                         <div class="carousel-slide">
-                            <img src="img/backup-strategy.jpg" alt="Stratégies de sauvegarde">
+                            <img src="img/nextcloud-deploy.jpg" alt="Déploiement Nextcloud">
                         </div>
                         <div class="carousel-slide">
-                            <img src="img/privacy-protection.jpg" alt="Protection de la vie privée">
+                            <img src="img/monitoring-grafana.jpg" alt="Monitoring avec Prometheus et Grafana">
                         </div>
                     </div>
                     <div class="carousel-nav">
@@ -160,31 +160,48 @@
 
             <div class="projet-section">
                 <h2>Objectifs de la SAE</h2>
-                <p>Vulgariser un concept de cybersécurité pour inciter les salariés à adopter de meilleures pratiques à travers une affiche pédagogique et impactante.</p>
+                <p>Mettre en place une infrastructure réseau complète pour une petite entreprise fictive, en utilisant des instances Windows et Linux sous OpenStack, et en configurant plusieurs services réseaux essentiels dans un environnement virtualisé sécurisé.</p>
             </div>
 
             <div class="projet-section">
                 <h2>Travail effectué</h2>
-                <p>J'ai suivi le MOOC SecNumAcadémie pour renforcer ma compréhension des menaces informatiques. Dans ce cadre, j'ai conçu une affiche de sensibilisation et géré le projet avec GanttProject en binôme. L'expérience s'est conclue par une soutenance orale devant un jury, où j'ai argumenté et présenté mes choix avec conviction.</p>
+                <p>En binôme, nous avons conçu un réseau à partir de zéro dans OpenStack, en suivant un cahier des charges très précis :</p>
+                <ul>
+                    <li><strong>Création de réseaux privés et publics</strong>, configuration de routeurs et de NAT</li>
+                    <li><strong>Déploiement d'instances</strong> Windows 10 et Rocky Linux 9</li>
+                    <li><strong>Mise en place et test de services :</strong>
+                        <ul>
+                            <li>DNS (dnsmasq) pour la résolution interne</li>
+                            <li>FTP (vsftpd) pour le transfert de fichiers</li>
+                            <li>Web (Apache) avec plusieurs virtualhosts (site de test, CV en ligne, Nextcloud)</li>
+                            <li>Nextcloud avec gestion d'utilisateurs et partage de fichiers</li>
+                            <li>Monitoring avec Prometheus, Node Exporter et Grafana</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Un schéma réseau complet a été réalisé sous draw.io avec toutes les tables de routage, et nous avons assuré la connectivité fine entre les instances avec des tests de bout en bout.</p>
             </div>
 
             <div class="projet-section">
                 <h2>Compétences acquises</h2>
                 <div class="competence-cards">
-                    <div class="competence-item"><strong>Cybersécurité :</strong> analyse des menaces, identification des risques et adoption des bonnes pratiques</div>
-                    <div class="competence-item"><strong>Gestion de projet :</strong> planification rigoureuse, suivi avec GanttProject et respect des délais</div>
-                    <div class="competence-item"><strong>Communication :</strong> collaboration en binôme, argumentation et vulgarisation d'un message technique</div>
-                    <div class="competence-item"><strong>Présentation et prise de parole :</strong> soutenance orale devant un jury, défense des choix et aisance à l'oral</div>
+                    <div class="competence-item"><strong>Virtualisation & Cloud :</strong> prise en main d'OpenStack, gestion des volumes, réseaux, IP flottantes</div>
+                    <div class="competence-item"><strong>Réseaux :</strong> routage, NAT, DNS interne, configuration de routes statiques</div>
+                    <div class="competence-item"><strong>Services réseau :</strong> installation, configuration et sécurisation de FTP, DNS, HTTP/HTTPS, Nextcloud</div>
+                    <div class="competence-item"><strong>Sécurité :</strong> gestion des groupes de sécurité OpenStack, configuration des firewalls internes</div>
+                    <div class="competence-item"><strong>Supervision :</strong> installation de Prometheus et création de dashboards Grafana</div>
+                    <div class="competence-item"><strong>Méthodologie projet :</strong> travail en binôme, respect du cahier des charges, validation par étapes</div>
                 </div>
             </div>
 
             <div class="projet-section">
                 <h2>Auto-réflexion</h2>
-                <p>Mon affiche a été sélectionnée parmi les meilleures pour être imprimée et exposée dans mon établissement universitaire, soulignant son efficacité visuelle et sa clarté pédagogique. Cette reconnaissance confirme ma capacité à rendre des concepts complexes accessibles. Cette expérience m'a permis de renforcer ma rigueur, ma créativité et mon sens du détail, tout en développant mes compétences en communication et en présentation face à un jury.</p>
+                <p>Ce projet m'a permis d'approfondir mes compétences réseau en situation quasi-professionnelle. Il m'a appris à être rigoureux dans la documentation, à automatiser certaines tâches, et à comprendre les enjeux de l'interconnexion entre services dans un environnement cloud.</p>
+                <p><em>Une immersion complète dans l'univers du DevOps, entre infrastructure, services, sécurité et supervision.</em></p>
             </div>
 
             <div class="projet-conclusion">
-                <p>Les Situations d'Apprentissage et d'Évaluation (SAE) réalisées dans le cadre de ma formation en BUT Réseaux & Télécommunications me permettent d'appliquer théorie et compétences sur des projets concrets. Cette SAE sur l'hygiène informatique a constitué une introduction parfaite aux enjeux de la cybersécurité moderne que je continue d'explorer dans mes autres projets.</p>
+                <p>Les Situations d'Apprentissage et d'Évaluation (SAE) réalisées dans le cadre de ma formation en BUT Réseaux & Télécommunications me permettent d'appliquer théorie et compétences sur des projets concrets. Cette SAE sur la construction d'un réseau informatique a constitué une excellente immersion dans les technologies cloud et l'administration d'infrastructures complexes.</p>
             </div>
 
             <a href="../../index.html#projets" class="btn return-btn">
