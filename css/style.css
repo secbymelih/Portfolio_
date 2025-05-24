@@ -125,6 +125,23 @@ ul {
 .menu-icon {
     display: none;
     cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.menu-icon:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.menu-icon:active {
+    background-color: rgba(0, 119, 182, 0.1);
+    outline: none;
 }
 
 .menu-icon .bar {
@@ -778,6 +795,43 @@ ul {
     
     .globe-container {
         margin-bottom: 40px;
+    }
+
+    /* Désactivation des effets hover sur les appareils tactiles */
+    .nav-link:hover,
+    .btn:hover,
+    .btn-outline:hover,
+    .carousel-prev:hover,
+    .carousel-next:hover,
+    .temoignage-prev:hover,
+    .temoignage-next:hover,
+    .social-link:hover,
+    .footer-social a:hover,
+    .filter-select:hover,
+    .btn-small:hover,
+    .tag:hover,
+    .tag-cinema:hover a,
+    .menu-icon:hover,
+    .menu-icon:focus {
+        color: inherit !important;
+        background-color: transparent !important;
+        border-color: inherit !important;
+        transform: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    
+    /* Exceptions pour les éléments qui ont besoin de feedback visuel */
+    .nav-link:active,
+    .btn:active,
+    .btn-outline:active {
+        color: var(--primary-color) !important;
+        background-color: rgba(0, 119, 182, 0.1) !important;
+        transition: all 0.1s ease !important;
+    }
+
+    .apropos-block {
+        max-width: 95%;
     }
 }
 
@@ -2398,5 +2452,31 @@ ul {
 
     .timeline-item.left::after, .timeline-item.right::after {
         display: none;
+    }
+}
+
+/* Désactivation complète des effets hover sur les appareils tactiles */
+@media (hover: none) and (pointer: coarse) {
+    .nav-link:hover,
+    .btn:hover,
+    .btn-outline:hover,
+    .carousel-prev:hover,
+    .carousel-next:hover,
+    .temoignage-prev:hover,
+    .temoignage-next:hover,
+    .social-link:hover,
+    .footer-social a:hover,
+    .filter-select:hover,
+    .btn-small:hover,
+    .tag:hover,
+    .tag-cinema:hover a,
+    .menu-icon:hover,
+    .menu-icon:focus {
+        color: inherit !important;
+        background-color: transparent !important;
+        border-color: inherit !important;
+        transform: none !important;
+        box-shadow: none !important;
+        outline: none !important;
     }
 } 
