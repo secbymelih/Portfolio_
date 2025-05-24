@@ -823,6 +823,10 @@ ul {
     .tag-cloud {
         height: 600px; /* Augmentation de la hauteur pour les tablettes */
     }
+    
+    .tag {
+        animation: none; /* Désactive l'animation floating en mode responsive */
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -832,12 +836,17 @@ ul {
     
     .tag {
         padding: 12px 20px; /* Réduire légèrement la taille des tags */
+        animation: none; /* Désactive l'animation floating en mode responsive */
     }
 }
 
 @media screen and (max-width: 576px) {
     .tag-cloud {
         height: 800px; /* Encore plus d'espace pour les petits écrans */
+    }
+    
+    .tag {
+        animation: none; /* Désactive l'animation floating en mode responsive */
     }
 }
 
