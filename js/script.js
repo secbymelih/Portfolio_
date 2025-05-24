@@ -780,17 +780,23 @@ document.addEventListener('DOMContentLoaded', () => {
         tags.forEach(tag => {
             tag.style.left = '';
             tag.style.top = '';
+            tag.style.transform = '';
         });
         
+        // En mode responsive (≤ 992px), utiliser un positionnement fixe et prévisible
+        if (window.innerWidth <= 992) {
+            positionTagsResponsive();
+            return;
+        }
+        
+        // Mode desktop : garder le comportement aléatoire existant
         const positionedTags = [];
         const tagCloudWidth = tagCloud.clientWidth;
         const tagCloudHeight = tagCloud.clientHeight;
         
-        // Marge par rapport aux bords, plus grande en responsive
-        const edgeMargin = window.innerWidth <= 768 ? 40 : 30;
-        
-        // Augmenter le nombre de tentatives en mode responsive
-        const maxAttempts = window.innerWidth <= 768 ? 75 : 50;
+        // Marge par rapport aux bords
+        const edgeMargin = 30;
+        const maxAttempts = 50;
         
         // Trier les tags par taille (plus grands en premier pour éviter qu'ils se retrouvent coincés)
         const sortedTags = Array.from(tags).sort((a, b) => {
@@ -813,27 +819,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tagWidth = tag.offsetWidth || 150;
                 const tagHeight = tag.offsetHeight || 50;
                 
-                // Position aléatoire
-                // En mode responsive, limiter l'espace horizontal et distribuer verticalement
-                let left, top;
-                
-                if (window.innerWidth <= 768) {
-                    // En version mobile, prioriser la disposition verticale
-                    // Diviser l'espace en sections verticales et limiter l'aléatoire horizontal
-                    const sections = Math.min(5, positionedTags.length + 1);
-                    const sectionHeight = (tagCloudHeight - 2 * edgeMargin) / sections;
-                    const sectionIndex = attempt % sections;
-                    
-                    left = edgeMargin + Math.random() * (tagCloudWidth - tagWidth - 2 * edgeMargin);
-                    
-                    // Limiter la position verticale à la section correspondante
-                    const sectionStart = edgeMargin + sectionIndex * sectionHeight;
-                    top = sectionStart + Math.random() * (sectionHeight - tagHeight);
-                } else {
-                    // En version desktop, positionnement plus libre
-                    left = edgeMargin + Math.random() * (tagCloudWidth - tagWidth - 2 * edgeMargin);
-                    top = edgeMargin + Math.random() * (tagCloudHeight - tagHeight - 2 * edgeMargin);
-                }
+                // Position aléatoire pour desktop
+                const left = edgeMargin + Math.random() * (tagCloudWidth - tagWidth - 2 * edgeMargin);
+                const top = edgeMargin + Math.random() * (tagCloudHeight - tagHeight - 2 * edgeMargin);
                 
                 // Appliquer la position
                 tag.style.left = `${left}px`;
@@ -868,40 +856,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tagWidth = tag.offsetWidth || 150;
                 const tagHeight = tag.offsetHeight || 50;
                 
-                // En mode responsive, utiliser une stratégie différente pour placer les tags restants
-                if (window.innerWidth <= 768) {
-                    // Essayer de placer le tag dans la partie inférieure avec une grande marge
-                    const bottomPosition = tagCloudHeight - tagHeight - edgeMargin - (positionedTags.length % 3) * 60;
-                    const leftPosition = edgeMargin + (positionedTags.length % 2) * (tagCloudWidth - tagWidth - 2 * edgeMargin) / 2;
+                // Version desktop - essayer les quatre coins
+                const corners = [
+                    {left: edgeMargin, top: edgeMargin},
+                    {left: tagCloudWidth - tagWidth - edgeMargin, top: edgeMargin},
+                    {left: edgeMargin, top: tagCloudHeight - tagHeight - edgeMargin},
+                    {left: tagCloudWidth - tagWidth - edgeMargin, top: tagCloudHeight - tagHeight - edgeMargin}
+                ];
+                
+                for (const corner of corners) {
+                    tag.style.left = `${corner.left}px`;
+                    tag.style.top = `${corner.top}px`;
                     
-                    tag.style.left = `${leftPosition}px`;
-                    tag.style.top = `${bottomPosition}px`;
-                } else {
-                    // Version desktop - essayer les quatre coins
-                    const corners = [
-                        {left: edgeMargin, top: edgeMargin},
-                        {left: tagCloudWidth - tagWidth - edgeMargin, top: edgeMargin},
-                        {left: edgeMargin, top: tagCloudHeight - tagHeight - edgeMargin},
-                        {left: tagCloudWidth - tagWidth - edgeMargin, top: tagCloudHeight - tagHeight - edgeMargin}
-                    ];
-                    
-                    for (const corner of corners) {
-                        tag.style.left = `${corner.left}px`;
-                        tag.style.top = `${corner.top}px`;
-                        
-                        let hasCollision = false;
-                        for (const posTag of positionedTags) {
-                            if (checkCollision(tag, posTag)) {
-                                hasCollision = true;
-                                break;
-                            }
-                        }
-                        
-                        if (!hasCollision) {
-                            positioned = true;
-                            positionedTags.push(tag);
+                    let hasCollision = false;
+                    for (const posTag of positionedTags) {
+                        if (checkCollision(tag, posTag)) {
+                            hasCollision = true;
                             break;
                         }
+                    }
+                    
+                    if (!hasCollision) {
+                        positioned = true;
+                        positionedTags.push(tag);
+                        break;
                     }
                 }
                 
@@ -919,12 +897,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             
-            // Animation pour tous les tags
+            // Animation pour tous les tags (desktop seulement)
             const baseDelay = Math.random() * 2;
             const baseDuration = 3 + Math.random() * 2;
             
             tag.style.animationDelay = `${baseDelay}s`;
             tag.style.animationDuration = `${baseDuration}s`;
+        });
+    }
+    
+    // Nouvelle fonction pour le positionnement fixe en mode responsive
+    function positionTagsResponsive() {
+        // Positions fixes pour écrans responsives étroits - JAMAIS de randomisation
+        // Positions adaptées aux écrans mobiles/tablettes avec marges de sécurité
+        const fixedPositions = [
+            { left: '5%', top: '8%' },      // 1er tag - GUITARE ÉLECTRIQUE - haut gauche
+            { left: '35%', top: '88%' },    // 2ème tag - CINÉMA - tout en bas au centre
+            { left: '50%', top: '25%' },    // 3ème tag - CANOË - milieu droite (bien séparé de guitare)
+            { left: '15%', top: '65%' },    // 4ème tag - RANDONNÉE - bas gauche (mieux réparti)
+            { left: '25%', top: '45%' }     // 5ème tag - INNOVATION - centre (utilise l'espace vide)
+        ];
+        
+        // Appliquer les positions fixes dans l'ordre exact des tags dans le DOM
+        tags.forEach((tag, index) => {
+            // Utiliser la position correspondante à l'index, ou une position de secours
+            const position = fixedPositions[index] || { 
+                left: `${5 + (index % 2) * 20}%`,  // Alternance gauche/centre seulement
+                top: `${10 + Math.floor(index / 2) * 12}%` 
+            };
+            
+            // Appliquer la position EXACTE - aucune variation
+            tag.style.left = position.left;
+            tag.style.top = position.top;
+            tag.style.transform = 'none';
+            
+            // Aucune animation en responsive
+            tag.style.animationDelay = '';
+            tag.style.animationDuration = '';
         });
     }
     

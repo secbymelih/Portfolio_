@@ -822,55 +822,31 @@ ul {
 @media screen and (max-width: 992px) {
     .tag-cloud {
         height: 600px; /* Augmentation de la hauteur pour les tablettes */
-        touch-action: pan-y; /* Permet seulement le scroll vertical */
-        -webkit-overflow-scrolling: touch; /* Optimise le scroll sur iOS */
     }
     
     .tag {
         animation: none; /* Désactive l'animation floating en mode responsive */
-        transform: none !important; /* Force la suppression de toute transformation */
-        will-change: auto; /* Désactive l'optimisation GPU */
-        position: absolute !important; /* Force le positionnement absolu */
-        backface-visibility: hidden; /* Optimise le rendu */
-        -webkit-backface-visibility: hidden; /* Optimise le rendu sur WebKit */
-        pointer-events: auto; /* Assure l'interactivité */
     }
 }
 
 @media screen and (max-width: 768px) {
     .tag-cloud {
         height: 700px; /* Augmentation supplémentaire pour les smartphones */
-        touch-action: pan-y; /* Permet seulement le scroll vertical */
-        -webkit-overflow-scrolling: touch; /* Optimise le scroll sur iOS */
     }
     
     .tag {
         padding: 12px 20px; /* Réduire légèrement la taille des tags */
         animation: none; /* Désactive l'animation floating en mode responsive */
-        transform: none !important; /* Force la suppression de toute transformation */
-        will-change: auto; /* Désactive l'optimisation GPU */
-        position: absolute !important; /* Force le positionnement absolu */
-        backface-visibility: hidden; /* Optimise le rendu */
-        -webkit-backface-visibility: hidden; /* Optimise le rendu sur WebKit */
-        pointer-events: auto; /* Assure l'interactivité */
     }
 }
 
 @media screen and (max-width: 576px) {
     .tag-cloud {
         height: 800px; /* Encore plus d'espace pour les petits écrans */
-        touch-action: pan-y; /* Permet seulement le scroll vertical */
-        -webkit-overflow-scrolling: touch; /* Optimise le scroll sur iOS */
     }
     
     .tag {
         animation: none; /* Désactive l'animation floating en mode responsive */
-        transform: none !important; /* Force la suppression de toute transformation */
-        will-change: auto; /* Désactive l'optimisation GPU */
-        position: absolute !important; /* Force le positionnement absolu */
-        backface-visibility: hidden; /* Optimise le rendu */
-        -webkit-backface-visibility: hidden; /* Optimise le rendu sur WebKit */
-        pointer-events: auto; /* Assure l'interactivité */
     }
 }
 
