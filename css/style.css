@@ -797,39 +797,6 @@ ul {
         margin-bottom: 40px;
     }
 
-    /* Désactivation des effets hover sur les appareils tactiles */
-    .nav-link:hover,
-    .btn:hover,
-    .btn-outline:hover,
-    .carousel-prev:hover,
-    .carousel-next:hover,
-    .temoignage-prev:hover,
-    .temoignage-next:hover,
-    .social-link:hover,
-    .footer-social a:hover,
-    .filter-select:hover,
-    .btn-small:hover,
-    .tag:hover,
-    .tag-cinema:hover a,
-    .menu-icon:hover,
-    .menu-icon:focus {
-        color: inherit !important;
-        background-color: transparent !important;
-        border-color: inherit !important;
-        transform: none !important;
-        box-shadow: none !important;
-        outline: none !important;
-    }
-    
-    /* Exceptions pour les éléments qui ont besoin de feedback visuel */
-    .nav-link:active,
-    .btn:active,
-    .btn-outline:active {
-        color: var(--primary-color) !important;
-        background-color: rgba(0, 119, 182, 0.1) !important;
-        transition: all 0.1s ease !important;
-    }
-
     .apropos-block {
         max-width: 95%;
     }
@@ -1414,6 +1381,7 @@ ul {
 .carousel-container {
     width: 320px;
     position: relative;
+    touch-action: pan-y; /* Permet le scroll vertical tout en capturant les swipes horizontaux */
 }
 
 .carousel-track {
@@ -2457,6 +2425,7 @@ ul {
 
 /* Désactivation complète des effets hover sur les appareils tactiles */
 @media (hover: none) and (pointer: coarse) {
+    /* Désactiver seulement les transformations et effets de survol, pas les couleurs de base */
     .nav-link:hover,
     .btn:hover,
     .btn-outline:hover,
@@ -2472,11 +2441,53 @@ ul {
     .tag-cinema:hover a,
     .menu-icon:hover,
     .menu-icon:focus {
-        color: inherit !important;
-        background-color: transparent !important;
-        border-color: inherit !important;
         transform: none !important;
         box-shadow: none !important;
+        outline: none !important;
+        /* Ne pas forcer les couleurs - laisser les styles par défaut */
+    }
+    
+    /* Désactiver spécifiquement les changements de couleur de survol problématiques */
+    .carousel-prev:hover,
+    .carousel-next:hover,
+    .temoignage-prev:hover,
+    .temoignage-next:hover {
+        background-color: rgba(255, 255, 255, 0.7) !important;
+        color: var(--secondary-color) !important;
+    }
+    
+    .menu-icon:hover,
+    .menu-icon:focus,
+    .menu-icon:active {
+        background-color: transparent !important;
+        outline: none !important;
+    }
+    
+    /* Correction des états focus et active problématiques */
+    .carousel-prev:focus,
+    .carousel-next:focus,
+    .temoignage-prev:focus,
+    .temoignage-next:focus,
+    .carousel-prev:active,
+    .carousel-next:active,
+    .temoignage-prev:active,
+    .temoignage-next:active {
+        background-color: rgba(255, 255, 255, 0.7) !important;
+        color: var(--secondary-color) !important;
+        outline: none !important;
+    }
+    
+    /* Éviter les couleurs noires sur les liens et boutons */
+    .nav-link:focus,
+    .nav-link:active,
+    .btn:focus,
+    .btn:active,
+    .btn-outline:focus,
+    .btn-outline:active,
+    .btn-small:focus,
+    .btn-small:active {
+        color: inherit !important;
+        background-color: inherit !important;
         outline: none !important;
     }
 } 

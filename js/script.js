@@ -360,9 +360,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const carouselDots = document.querySelectorAll('.carousel-dot');
     const carouselPrev = document.querySelector('.carousel-prev');
     const carouselNext = document.querySelector('.carousel-next');
+    const carouselContainer = document.querySelector('.carousel-container');
     
     let currentSlide = 0;
     let carouselInterval; // Variable pour stocker l'intervalle
+    let isCarouselTouchMoving = false;
+    let carouselTouchStartX = 0;
+    let carouselTouchEndX = 0;
     
     if (carouselSlides.length > 0) {
         // Fonction pour afficher un slide spécifique
@@ -417,6 +421,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 resetCarouselInterval(); // Réinitialiser le timer
             });
         });
+        
+        // Ajouter la gestion tactile pour mobile
+        if (carouselContainer) {
+            // Événement au début du toucher
+            carouselContainer.addEventListener('touchstart', (e) => {
+                carouselTouchStartX = e.changedTouches[0].screenX;
+                isCarouselTouchMoving = false;
+            }, { passive: true });
+            
+            // Événement pendant le mouvement
+            carouselContainer.addEventListener('touchmove', () => {
+                isCarouselTouchMoving = true;
+            }, { passive: true });
+            
+            // Événement à la fin du toucher
+            carouselContainer.addEventListener('touchend', (e) => {
+                if (!isCarouselTouchMoving) return;
+                
+                carouselTouchEndX = e.changedTouches[0].screenX;
+                const difference = carouselTouchStartX - carouselTouchEndX;
+                
+                // Détecter si c'est un swipe significatif (plus de 50px)
+                if (Math.abs(difference) > 50) {
+                    if (difference > 0) {
+                        // Swipe gauche - prochain slide
+                        const nextIndex = (currentSlide + 1) % carouselSlides.length;
+                        showSlide(nextIndex);
+                    } else {
+                        // Swipe droite - slide précédent
+                        const prevIndex = (currentSlide - 1 + carouselSlides.length) % carouselSlides.length;
+                        showSlide(prevIndex);
+                    }
+                    resetCarouselInterval();
+                }
+            }, { passive: true });
+        }
         
         // Démarrer le défilement automatique
         resetCarouselInterval();
