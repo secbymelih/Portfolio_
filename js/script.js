@@ -59,6 +59,121 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('home-page');
     }
 
+    // Gestion de l'affichage du logo dans la navbar
+    const navbarLogo = document.querySelector('.navbar-logo');
+    
+    // Variable pour éviter l'initialisation multiple
+    let logoVisibilityInitialized = false;
+    
+    // Fonction pour gérer l'affichage du logo
+    function handleLogoVisibility() {
+        // Éviter l'initialisation multiple
+        if (logoVisibilityInitialized) {
+            return;
+        }
+        logoVisibilityInitialized = true;
+        
+        // Si on n'est pas sur la page d'accueil, le logo doit toujours être visible
+        if (!isHomePage || !homeH1 || !navbarLogo) {
+            if (navbarLogo) {
+                navbarLogo.style.opacity = '1';
+                navbarLogo.style.visibility = 'visible';
+                navbarLogo.style.pointerEvents = 'auto';
+            }
+            return;
+        }
+        
+        // Observer pour détecter quand le h1 de la section home sort du viewport
+        const h1Observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Le h1 est visible - cacher le logo
+                    navbarLogo.style.opacity = '0';
+                    navbarLogo.style.visibility = 'hidden';
+                    navbarLogo.style.pointerEvents = 'none';
+                } else {
+                    // Le h1 n'est plus visible - afficher le logo
+                    navbarLogo.style.opacity = '1';
+                    navbarLogo.style.visibility = 'visible';
+                    navbarLogo.style.pointerEvents = 'auto';
+                }
+            });
+        }, {
+            threshold: 0,
+            rootMargin: '-50px 0px 0px 0px' // Déclencher un peu avant que le h1 disparaisse complètement
+        });
+        
+        // Observer le h1 de la section home
+        h1Observer.observe(homeH1);
+        
+        // Gestion de l'état initial avec vérification des ancres
+        function setInitialLogoState() {
+            const hash = window.location.hash;
+            const scrollY = window.scrollY;
+            
+            // Si on a une ancre qui n'est pas #accueil, afficher le logo immédiatement
+            if (hash && hash !== '#accueil' && hash !== '#') {
+                navbarLogo.style.opacity = '1';
+                navbarLogo.style.visibility = 'visible';
+                navbarLogo.style.pointerEvents = 'auto';
+                return;
+            }
+            
+            // Si on est en haut de page ou sur l'ancre accueil, cacher le logo
+            if (scrollY < 100 || hash === '#accueil' || hash === '#') {
+                navbarLogo.style.opacity = '0';
+                navbarLogo.style.visibility = 'hidden';
+                navbarLogo.style.pointerEvents = 'none';
+            } else {
+                // Si on scroll déjà plus loin, afficher le logo
+                navbarLogo.style.opacity = '1';
+                navbarLogo.style.visibility = 'visible';
+                navbarLogo.style.pointerEvents = 'auto';
+            }
+        }
+        
+        // Appliquer l'état initial
+        setInitialLogoState();
+        
+        // Écouter les changements d'ancre pour ajuster l'état du logo
+        window.addEventListener('hashchange', () => {
+            // Attendre un court délai pour que le scroll soit effectué
+            setTimeout(setInitialLogoState, 100);
+        });
+    }
+    
+    // Initialiser la gestion du logo après le preloader
+    if (isHomePage) {
+        // Si on est sur la page d'accueil, attendre que le preloader soit terminé
+        // Synchroniser avec le preloader (800ms + petit délai de sécurité)
+        setTimeout(() => {
+            handleLogoVisibility();
+        }, 900);
+        
+        // Également écouter l'événement de fin du preloader pour plus de robustesse
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            // Observer la suppression du preloader
+            const preloaderObserver = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'childList') {
+                        mutation.removedNodes.forEach((node) => {
+                            if (node.id === 'preloader') {
+                                // Le preloader a été supprimé, initialiser immédiatement
+                                setTimeout(handleLogoVisibility, 50);
+                                preloaderObserver.disconnect();
+                            }
+                        });
+                    }
+                });
+            });
+            preloaderObserver.observe(document.body, { childList: true });
+        }
+    } else {
+        // Si on n'est pas sur la page d'accueil, initialiser immédiatement
+        handleLogoVisibility();
+    }
+
     // Initialiser le globe 3D
     initGlobe3D();
 
