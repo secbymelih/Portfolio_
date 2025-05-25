@@ -29,6 +29,25 @@ function hidePreloader() {
     }
 }
 
+// Détection de la page d'accueil - IMMÉDIATEMENT, avant même DOMContentLoaded
+(function() {
+    const homeH1 = document.querySelector('#accueil h1');
+    const isHomePage = homeH1 !== null;
+    if (isHomePage) {
+        document.body.classList.add('home-page');
+        
+        // Détection immédiate si le logo doit être visible
+        const hash = window.location.hash;
+        const scrollY = window.scrollY;
+        
+        // Si on a une ancre qui n'est pas #accueil, ou si on est déjà scrollé
+        // alors le logo doit être visible immédiatement
+        if ((hash && hash !== '#accueil' && hash !== '#') || scrollY > 100) {
+            document.body.classList.add('logo-visible');
+        }
+    }
+})();
+
 // Attendre que le DOM soit complètement chargé
 document.addEventListener('DOMContentLoaded', () => {
     // Variables
@@ -52,15 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgOverlay = document.querySelector('.bg-overlay');
     const accueilSection = document.querySelector('#accueil');
 
-    // Détection de la page d'accueil
-    const homeH1 = document.querySelector('#accueil h1');
-    const isHomePage = homeH1 !== null;
-    if (isHomePage) {
-        document.body.classList.add('home-page');
-    }
-
     // Gestion de l'affichage du logo dans la navbar
     const navbarLogo = document.querySelector('.navbar-logo');
+    const homeH1 = document.querySelector('#accueil h1');
+    const isHomePage = document.body.classList.contains('home-page');
     
     // Variable pour éviter l'initialisation multiple
     let logoVisibilityInitialized = false;
@@ -88,11 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     // Le h1 est visible - cacher le logo
+                    document.body.classList.remove('logo-visible');
                     navbarLogo.style.opacity = '0';
                     navbarLogo.style.visibility = 'hidden';
                     navbarLogo.style.pointerEvents = 'none';
                 } else {
                     // Le h1 n'est plus visible - afficher le logo
+                    document.body.classList.add('logo-visible');
                     navbarLogo.style.opacity = '1';
                     navbarLogo.style.visibility = 'visible';
                     navbarLogo.style.pointerEvents = 'auto';
@@ -113,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Si on a une ancre qui n'est pas #accueil, afficher le logo immédiatement
             if (hash && hash !== '#accueil' && hash !== '#') {
+                document.body.classList.add('logo-visible');
                 navbarLogo.style.opacity = '1';
                 navbarLogo.style.visibility = 'visible';
                 navbarLogo.style.pointerEvents = 'auto';
@@ -121,11 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Si on est en haut de page ou sur l'ancre accueil, cacher le logo
             if (scrollY < 100 || hash === '#accueil' || hash === '#') {
+                document.body.classList.remove('logo-visible');
                 navbarLogo.style.opacity = '0';
                 navbarLogo.style.visibility = 'hidden';
                 navbarLogo.style.pointerEvents = 'none';
             } else {
                 // Si on scroll déjà plus loin, afficher le logo
+                document.body.classList.add('logo-visible');
                 navbarLogo.style.opacity = '1';
                 navbarLogo.style.visibility = 'visible';
                 navbarLogo.style.pointerEvents = 'auto';
@@ -144,11 +163,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialiser la gestion du logo après le preloader
     if (isHomePage) {
-        // Si on est sur la page d'accueil, attendre que le preloader soit terminé
-        // Synchroniser avec le preloader (800ms + petit délai de sécurité)
+        // Si on est sur la page d'accueil, le logo est déjà caché par CSS
+        // On peut initialiser plus rapidement maintenant
         setTimeout(() => {
             handleLogoVisibility();
-        }, 900);
+        }, 200);
         
         // Également écouter l'événement de fin du preloader pour plus de robustesse
         const preloader = document.getElementById('preloader');

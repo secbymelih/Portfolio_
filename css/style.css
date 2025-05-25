@@ -101,10 +101,28 @@ ul {
     font-weight: 700;
     font-size: 1.5rem;
     color: var(--dark-color);
-    opacity: 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     transform: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
+/* Afficher le logo sur toutes les pages SAUF la page d'accueil */
+body:not(.home-page) .navbar-logo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Forcer l'affichage du logo quand détecté comme devant être visible */
+body.logo-visible .navbar-logo {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* Le logo reste caché par défaut sur la page d'accueil - sera géré par JS */
 
 .nav-menu {
     display: flex;
