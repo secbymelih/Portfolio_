@@ -817,6 +817,53 @@ body.logo-visible .navbar-logo {
     .globe-container {
         margin-bottom: 40px;
     }
+
+    /* Activation du menu burger dès 992px pour éviter les débordements */
+    .navbar-container {
+        padding: 15px 5%;
+    }
+
+    .nav-menu {
+        position: absolute;
+        left: -100%;
+        top: 100%; /* Collé sous la navbar */
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: var(--transition);
+        /* Suppression de l'ombre */
+        padding: 20px 0;
+        margin: 0; /* Pas de marge */
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu-icon.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .menu-icon.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    .competences-container {
+        flex-direction: column;
+    }
 }
 
 /* Centres d'Intérêts */
@@ -1079,6 +1126,15 @@ body.logo-visible .navbar-logo {
         margin: 0; /* Supprime les marges */
     }
 
+    /* Échange des positions des cartes de formation en responsive */
+    .timeline-item-horizontal.bottom {
+        order: 2; /* Le baccalauréat (bottom) passe en deuxième position */
+    }
+
+    .timeline-item-horizontal.top {
+        order: 1; /* Le BUT (top) passe en première position */
+    }
+
     .timeline-item-horizontal.bottom,
     .timeline-item-horizontal.top {
         position: static;
@@ -1199,51 +1255,22 @@ body.logo-visible .navbar-logo {
         max-width: 200px;
         padding: 12px 20px;
     }
+
+    .projets-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .contact-content {
+        flex-direction: column;
+    }
+    
+    .contact-info, .contact-form {
+        flex: 0 0 100%;
+    }
 }
 
 @media screen and (max-width: 768px) {
-    .navbar-container {
-        padding: 15px 5%;
-    }
-
-    .nav-menu {
-        position: absolute;
-        left: -100%;
-        top: 100%; /* Collé sous la navbar */
-        flex-direction: column;
-        background-color: white;
-        width: 100%;
-        text-align: center;
-        transition: var(--transition);
-        /* Suppression de l'ombre */
-        padding: 20px 0;
-        margin: 0; /* Pas de marge */
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-menu li {
-        margin: 15px 0;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    .menu-icon.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-    }
-
-    .menu-icon.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-icon.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -6px);
-    }
-
+    /* Styles spécifiques aux petits écrans - le menu burger est déjà actif */
     .accueil h1 {
         font-size: 2.5rem;
     }
@@ -1269,7 +1296,7 @@ body.logo-visible .navbar-logo {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Responsive pour les boutons - tablettes */
+    /* Responsive pour les boutons - smartphones */
     .download-btn {
         width: 100%;
         max-width: 280px;
@@ -1289,6 +1316,10 @@ body.logo-visible .navbar-logo {
         width: 100%;
         max-width: 200px;
         padding: 12px 20px;
+    }
+
+    .projets-grid {
+        grid-template-columns: 1fr;
     }
 }
 
