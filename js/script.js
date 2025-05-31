@@ -1362,4 +1362,370 @@ document.addEventListener('DOMContentLoaded', () => {
         
         animate();
     }
+
+    // Gestion des bulles cliquables dans les centres d'intérêts
+    const guitarTag = document.querySelector('.tag-guitare');
+    const cinemaTag = document.querySelector('.tag-cinema');
+    let currentAudio = null;
+    let currentTrackIndex = -1;
+    let isPlaying = false;
+    let isManuallyPaused = false; // Nouvelle variable pour tracker les pauses manuelles
+    let progressAnimationId = null; // ID pour l'animation de la barre de progression
+
+    // Éléments de la barre de contrôle audio
+    const audioControlBar = document.getElementById('audio-control-bar');
+    const trackNameElement = document.getElementById('current-track-name');
+    const playPauseBtn = document.getElementById('play-pause');
+    const prevTrackBtn = document.getElementById('prev-track');
+    const nextTrackBtn = document.getElementById('next-track');
+    const closeAudioBtn = document.getElementById('close-audio-bar');
+    const currentTimeElement = document.getElementById('current-time');
+    const totalTimeElement = document.getElementById('total-time');
+    const progressFill = document.getElementById('progress-fill');
+    const progressSlider = document.getElementById('progress-slider');
+
+    // Liste des fichiers MP3 disponibles
+    const mp3Files = [
+        "Final Set/Hip Hop:Rap /86 BPM E Minor.mp3",
+        "Final Set/Hip Hop:Rap /170 BPM G Minor.mp3",
+        "Final Set/Hip Hop:Rap /150 BPM B Minor.mp3",
+        "Final Set/Hip Hop:Rap /92 BPM D Minor.mp3",
+        "Final Set/Hip Hop:Rap /94 BPM E Minor.mp3",
+        "Final Set/Hip Hop:Rap /120 BPM E Minor.mp3",
+        "Final Set/Hip Hop:Rap /140 BPM E Minor.mp3",
+        "Final Set/Hip Hop:Rap /75 BPM D Flat Minor.mp3",
+        "Final Set/Hip Hop:Rap /89 BPM F sharp Minor.mp3",
+        "Final Set/Hip Hop:Rap /140 BPM F Minor.mp3",
+        "Final Set/Pop /90 BPM G sharp Major.mp3",
+        "Final Set/Pop /120 BPM E Minor.mp3",
+        "Final Set/Pop /150 BPM A Major.mp3",
+        "Final Set/Pop /100 BPM G Major.mp3",
+        "Final Set/Pop /140 BPM D Major.mp3",
+        "Final Set/Pop /110 BPM A Major.mp3",
+        "Final Set/Pop /115 BPM F sharp Major.mp3",
+        "Final Set/Pop /120 BPM E Major.mp3",
+        "Final Set/Pop /130 BPM F sharp Minor.mp3",
+        "Final Set/Pop /110 BPM C Major.mp3",
+        "Final Set/Funk:Disco /120 BPM B Minor.mp3",
+        "Final Set/Funk:Disco /100 BPM F sharp Minor.mp3",
+        "Final Set/Funk:Disco /100 BPM D Minor.mp3",
+        "Final Set/Funk:Disco /110 BPM G Minor.mp3",
+        "Final Set/Funk:Disco /108 BPM E Minor.mp3",
+        "Final Set/Funk:Disco /90 BPM G Minor.mp3",
+        "Final Set/Funk:Disco /116 BPM E Minor.mp3",
+        "Final Set/Funk:Disco /100 BPM G Minor.mp3",
+        "Final Set/Funk:Disco /102 BPM F Minor.mp3",
+        "Final Set/Funk:Disco /120 BPM D Minor.mp3"
+    ];
+
+    // Variables pour optimiser les mises à jour
+    let lastProgressValue = 0;
+    let lastCurrentTimeText = '';
+    let lastTotalTimeText = '';
+
+    // Fonction pour formater le temps en MM:SS
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Fonction pour extraire le nom du morceau du chemin de fichier
+    function getTrackName(filePath) {
+        const fileName = filePath.split('/').pop();
+        return fileName.replace('.mp3', '');
+    }
+
+    // Fonction pour afficher la barre de contrôle
+    function showAudioBar() {
+        audioControlBar.classList.remove('hidden');
+        audioControlBar.classList.add('visible');
+        document.body.classList.add('audio-bar-visible');
+    }
+
+    // Fonction pour cacher la barre de contrôle
+    function hideAudioBar() {
+        audioControlBar.classList.remove('visible');
+        audioControlBar.classList.add('hidden');
+        document.body.classList.remove('audio-bar-visible');
+    }
+
+    // Fonction pour mettre à jour l'interface
+    function updateAudioInterface() {
+        if (currentAudio && currentTrackIndex >= 0) {
+            trackNameElement.textContent = getTrackName(mp3Files[currentTrackIndex]);
+            
+            // Mettre à jour l'icône play/pause
+            const playIcon = playPauseBtn.querySelector('i');
+            if (isPlaying) {
+                playIcon.className = 'fas fa-pause';
+                playPauseBtn.setAttribute('aria-label', 'Pause');
+            } else {
+                playIcon.className = 'fas fa-play';
+                playPauseBtn.setAttribute('aria-label', 'Lecture');
+            }
+        }
+    }
+
+    // Fonction pour mettre à jour la progression (version fluide)
+    function updateProgress() {
+        if (currentAudio && currentAudio.duration && !isNaN(currentAudio.duration)) {
+            const progress = (currentAudio.currentTime / currentAudio.duration) * 100;
+            const currentTimeText = formatTime(currentAudio.currentTime);
+            const totalTimeText = formatTime(currentAudio.duration);
+            
+            // Mettre à jour seulement si nécessaire pour optimiser les performances
+            if (Math.abs(progress - lastProgressValue) > 0.1) { // Seuil de 0.1%
+                progressFill.style.width = `${progress}%`;
+                progressSlider.value = progress;
+                lastProgressValue = progress;
+            }
+            
+            if (currentTimeText !== lastCurrentTimeText) {
+                currentTimeElement.textContent = currentTimeText;
+                lastCurrentTimeText = currentTimeText;
+            }
+            
+            if (totalTimeText !== lastTotalTimeText) {
+                totalTimeElement.textContent = totalTimeText;
+                lastTotalTimeText = totalTimeText;
+            }
+        }
+    }
+
+    // Fonction pour l'animation fluide de la barre de progression
+    function animateProgress() {
+        if (currentAudio && isPlaying && !isManuallyPaused) {
+            updateProgress();
+            // Continuer l'animation à 60 FPS
+            progressAnimationId = requestAnimationFrame(animateProgress);
+        }
+    }
+
+    // Fonction pour démarrer l'animation de progression
+    function startProgressAnimation() {
+        if (!progressAnimationId) {
+            progressAnimationId = requestAnimationFrame(animateProgress);
+        }
+    }
+
+    // Fonction pour arrêter l'animation de progression
+    function stopProgressAnimation() {
+        if (progressAnimationId) {
+            cancelAnimationFrame(progressAnimationId);
+            progressAnimationId = null;
+        }
+    }
+
+    // Fonction pour jouer un morceau spécifique
+    function playTrack(index, retryCount = 0) {
+        // Protection contre les boucles infinies si tous les fichiers sont corrompus
+        if (retryCount >= 5) { // Limiter à 5 tentatives maximum
+            console.error('Trop de tentatives échouées, arrêt de la lecture automatique');
+            hideAudioBar();
+            return;
+        }
+
+        // Arrêter l'audio actuel s'il y en a un
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+
+        // Réinitialiser les variables d'optimisation
+        lastProgressValue = 0;
+        lastCurrentTimeText = '';
+        lastTotalTimeText = '';
+
+        currentTrackIndex = index;
+        const selectedFile = mp3Files[index];
+
+        // Encoder correctement le chemin du fichier pour éviter les problèmes avec les caractères spéciaux
+        const encodedFile = encodeURI(selectedFile);
+
+        // Créer et configurer le nouvel audio
+        currentAudio = new Audio(encodedFile);
+        
+        // Événements audio
+        currentAudio.addEventListener('loadedmetadata', () => {
+            totalTimeElement.textContent = formatTime(currentAudio.duration);
+            updateAudioInterface();
+            updateProgress(); // Mise à jour initiale
+        });
+
+        // Garder timeupdate pour la synchronisation mais moins critique
+        currentAudio.addEventListener('timeupdate', () => {
+            // Mise à jour occasionnelle pour s'assurer de la synchronisation
+            if (!progressAnimationId) {
+                updateProgress();
+            }
+        });
+
+        currentAudio.addEventListener('play', () => {
+            isPlaying = true;
+            updateAudioInterface();
+            startProgressAnimation(); // Démarrer l'animation fluide
+        });
+
+        currentAudio.addEventListener('pause', () => {
+            isPlaying = false;
+            updateAudioInterface();
+            stopProgressAnimation(); // Arrêter l'animation fluide
+        });
+
+        currentAudio.addEventListener('ended', () => {
+            isPlaying = false;
+            updateAudioInterface();
+            stopProgressAnimation(); // Arrêter l'animation fluide
+            // Auto-next track - seulement si pas d'erreurs récentes et pas de pause manuelle
+            if (retryCount === 0 && !isManuallyPaused) {
+                playNextTrack();
+            }
+        });
+
+        currentAudio.addEventListener('error', (e) => {
+            console.error('Erreur lors du chargement du fichier audio:', selectedFile);
+            
+            // Augmenter significativement le délai pour éviter le défilement rapide
+            const nextIndex = (index + 1) % mp3Files.length;
+            setTimeout(() => {
+                playTrack(nextIndex, retryCount + 1);
+            }, 1000); // Délai de 1 seconde au lieu de 100ms
+        });
+
+        // Jouer le morceau
+        currentAudio.play().then(() => {
+            isPlaying = true;
+            updateAudioInterface();
+            showAudioBar();
+        }).catch(error => {
+            console.error('Erreur lors de la lecture audio:', error);
+            
+            // Augmenter significativement le délai pour éviter le défilement rapide
+            const nextIndex = (index + 1) % mp3Files.length;
+            setTimeout(() => {
+                playTrack(nextIndex, retryCount + 1);
+            }, 1000); // Délai de 1 seconde au lieu de 100ms
+        });
+    }
+
+    // Fonction pour jouer un MP3 aléatoire
+    function playRandomMP3() {
+        const randomIndex = Math.floor(Math.random() * mp3Files.length);
+        isManuallyPaused = false; // Reset le flag de pause manuelle
+        playTrack(randomIndex);
+    }
+
+    // Fonction pour jouer le morceau suivant
+    function playNextTrack() {
+        if (currentTrackIndex >= 0) {
+            const nextIndex = (currentTrackIndex + 1) % mp3Files.length;
+            isManuallyPaused = false; // Reset le flag de pause manuelle
+            playTrack(nextIndex);
+        }
+    }
+
+    // Fonction pour jouer le morceau précédent
+    function playPrevTrack() {
+        if (currentTrackIndex >= 0) {
+            const prevIndex = (currentTrackIndex - 1 + mp3Files.length) % mp3Files.length;
+            isManuallyPaused = false; // Reset le flag de pause manuelle
+            playTrack(prevIndex);
+        }
+    }
+
+    // Fonction pour toggle play/pause
+    function togglePlayPause() {
+        if (currentAudio) {
+            if (isPlaying) {
+                currentAudio.pause();
+                isManuallyPaused = true; // Marquer que c'est une pause manuelle
+                stopProgressAnimation(); // Arrêter l'animation fluide
+            } else {
+                currentAudio.play().then(() => {
+                    isManuallyPaused = false; // Reset quand on remet play
+                    startProgressAnimation(); // Redémarrer l'animation fluide
+                }).catch(error => {
+                    console.error('Erreur lors de la lecture:', error);
+                });
+            }
+            // L'état isPlaying sera automatiquement mis à jour par les événements 'play' et 'pause'
+        }
+    }
+
+    // Gestionnaires d'événements pour les contrôles audio
+    if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', togglePlayPause);
+    }
+
+    if (nextTrackBtn) {
+        nextTrackBtn.addEventListener('click', playNextTrack);
+    }
+
+    if (prevTrackBtn) {
+        prevTrackBtn.addEventListener('click', playPrevTrack);
+    }
+
+    if (closeAudioBtn) {
+        closeAudioBtn.addEventListener('click', () => {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            stopProgressAnimation(); // Arrêter l'animation fluide
+            hideAudioBar();
+            isPlaying = false;
+            isManuallyPaused = false; // Reset le flag de pause manuelle
+            currentTrackIndex = -1;
+        });
+    }
+
+    // Gestionnaire pour la barre de progression
+    if (progressSlider) {
+        progressSlider.addEventListener('input', (e) => {
+            if (currentAudio && currentAudio.duration) {
+                const newTime = (e.target.value / 100) * currentAudio.duration;
+                currentAudio.currentTime = newTime;
+                updateProgress();
+            }
+        });
+    }
+
+    // Gestionnaire de clic pour la bulle guitare électrique
+    if (guitarTag) {
+        guitarTag.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            playRandomMP3();
+        });
+
+        // Ajouter un indicateur visuel que c'est cliquable
+        guitarTag.addEventListener('mouseenter', () => {
+            guitarTag.style.transform = 'scale(1.05)';
+            guitarTag.style.transition = 'transform 0.3s ease';
+        });
+
+        guitarTag.addEventListener('mouseleave', () => {
+            guitarTag.style.transform = 'scale(1)';
+        });
+    }
+
+    // Gestionnaire de clic pour la bulle cinéma (redirection vers boxd.it)
+    if (cinemaTag) {
+        cinemaTag.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open('https://boxd.it/d5pbL', '_blank', 'noopener');
+        });
+
+        // Ajouter un indicateur visuel que c'est cliquable
+        cinemaTag.addEventListener('mouseenter', () => {
+            cinemaTag.style.transform = 'scale(1.05)';
+            cinemaTag.style.transition = 'transform 0.3s ease';
+        });
+
+        cinemaTag.addEventListener('mouseleave', () => {
+            cinemaTag.style.transform = 'scale(1)';
+        });
+    }
 }); 
