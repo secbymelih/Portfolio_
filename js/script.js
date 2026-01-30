@@ -454,6 +454,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         observer.observe(contactForm);
+
+        contactForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const data = new FormData(form);
+            const formMessage = document.getElementById('form-message');
+
+            // Afficher le message de chargement
+            formMessage.textContent = 'Envoi en cours...';
+            formMessage.className = 'form-message form-message-info';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formMessage.textContent = "Merci ! Votre message a bien été envoyé.";
+                    formMessage.className = 'form-message form-message-success';
+                    form.reset();
+                } else {
+                    const responseData = await response.json();
+                    if (Object.hasOwn(responseData, 'errors')) {
+                        formMessage.textContent = responseData["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        formMessage.textContent = "Oups ! Une erreur s'est produite lors de l'envoi de votre formulaire.";
+                    }
+                    formMessage.className = 'form-message form-message-error';
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                formMessage.textContent = "Oups ! Une erreur s'est produite lors de l'envoi de votre formulaire.";
+                formMessage.className = 'form-message form-message-error';
+            }
+        });
     }
 
     // Animation spéciale pour le CV (style Apple)
