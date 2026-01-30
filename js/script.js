@@ -454,6 +454,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         observer.observe(contactForm);
+
+        // Gestion sécurisée du formulaire de contact via JavaScript
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nom = document.getElementById('nom').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const formMessage = document.getElementById('form-message');
+
+            const subject = `Nouveau message de ${nom} via Portfolio`;
+            const body = `Nom: ${nom}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+            const mailtoLink = `mailto:contact@melihugurlu.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Afficher un message de feedback
+            formMessage.textContent = "Ouverture de votre logiciel de messagerie...";
+            formMessage.className = 'form-message form-message-info';
+
+            // Ouvrir le client mail
+            window.location.href = mailtoLink;
+
+            // Réinitialiser le formulaire après un court délai
+            setTimeout(() => {
+                contactForm.reset();
+                formMessage.textContent = "Si votre messagerie ne s'est pas ouverte, merci de m'écrire directement à contact@melihugurlu.fr";
+            }, 1000);
+        });
     }
 
     // Animation spéciale pour le CV (style Apple)
