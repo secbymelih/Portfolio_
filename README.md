@@ -1,124 +1,48 @@
-# Portfolio - Guide de personnalisation
+# Melih UGURLU
 
-## Fichiers a modifier
+**Étudiant en Réseaux et Télécommunications**
 
-### index.html
+> "Comprendre l'invisible pour construire du solide : réseaux, systèmes, sécurité."
 
-Rechercher et remplacer les placeholders suivants :
+---
 
-| Placeholder | Remplacer par | Localisation |
-|-------------|---------------|--------------|
-| `[VOTRE NOM]` | Votre nom complet | Navbar, section accueil, footer |
-| `[VOTRE_EMAIL]` | Votre adresse email | Section contact, footer |
-| `[VOTRE_TELEPHONE]` | Votre numero de telephone | Section contact, footer |
-| `[VOTRE VILLE]` | Votre ville | Section contact, footer |
-| `[LIEN_LINKEDIN]` | URL de votre profil LinkedIn | Section contact, footer |
-| `[LIEN_GITHUB]` | URL de votre profil GitHub | Section contact, footer |
-| `[VOTRE_URL]` | URL de votre site | Formulaire de contact |
+## 👨‍💻 À propos de moi
 
-### CV (PDF)
+Étudiant en Réseaux et Télécommunications, je m'intéresse particulièrement à l'architecture des systèmes, à leur mise en réseau, et à leur sécurisation. Mon parcours m'a permis d'acquérir une approche rigoureuse, orientée infrastructure et solutions concrètes.
 
-1. Placer votre CV dans : `assets/downloads/`
-2. Renommer le fichier en : `mettrelepdfici.pdf`
-   OU modifier le lien dans index.html (ligne ~380)
+Je me spécialise dans les environnements réseaux, avec un fort attrait pour le cloud computing, la virtualisation, et la cybersécurité. Ce sont pour moi des piliers indispensables de toute architecture moderne.
 
-### Titre de la page
+**Mon objectif :** Construire des infrastructures fiables, évolutives et sécurisées. Je souhaite progresser dans des environnements techniques exigeants pour mettre en œuvre mes compétences réseau, renforcer la sécurité des systèmes et tirer parti des technologies cloud.
 
-Dans `<head>`, modifier la balise `<title>` :
-```html
-<title>[VOTRE NOM] | Portfolio</title>
-```
+---
 
-### Nom de domaine (CNAME)
+## 🛠️ Compétences Techniques
 
-Le fichier `CNAME` contient le nom de domaine pour GitHub Pages.
-Remplacer `votredomaine.fr` par votre nom de domaine.
+### ☁️ Cloud & Virtualisation
+*   **Virtualisation** : Gestion d'environnements virtualisés (VMware ESXi, VirtualBox) et allocation de ressources.
+*   **Conteneurisation** : Déploiement et gestion de conteneurs (Docker).
+*   **Architecture Cloud** : Modèles de service (IaaS, PaaS, SaaS) et cloud public (AWS/Azure).
 
-### Formulaire de contact
+### 🌐 Administration Réseaux
+*   **Infrastructures LAN/WAN** : Configuration switchs/routeurs (Cisco IOS), VLANs, OSPF, RIP.
+*   **Troubleshooting** : Diagnostic avancé et analyse de paquets (Wireshark).
+*   **Services Réseaux** : DNS, DHCP, NAT, QoS.
 
-Le formulaire utilise Formspree. Pour le configurer :
-1. Creer un compte sur formspree.io
-2. Remplacer l'action du formulaire (ligne ~683) par votre endpoint Formspree
+### 🛡️ Système & Cybersécurité
+*   **Administration Système** : Windows Server (Active Directory, GPO, DNS), Linux (Debian/Ubuntu).
+*   **Sécurité Défensive** : Configuration pare-feux (pfsense, UFW), VPN (IPsec, OpenVPN), ACLs.
+*   **Audit & Hygiène** : Scan de vulnérabilités (Nmap), analyse de logs, hardening.
 
-### Image de fond
+### ⚙️ Automatisation & DevOps
+*   **Scripting** : Python, Bash.
+*   **Web & BDD** : HTML/PHP, SQL.
+*   **Versioning** : Git.
 
-L'image de fond de la section accueil se trouve dans :
-`assets/img/background.jpg`
+---
 
-Pour la changer, remplacer ce fichier par votre image (garder le meme nom).
+## 📫 Contact
 
-### Favicon
-
-L'icone du site (favicon) se trouve dans :
-`assets/img/icons/favicon.png`
-
-Pour la changer, remplacer ce fichier par votre icone (garder le meme nom).
-
-### Icones des outils (section CV)
-
-Les icones des outils utilisent des liens CDN (cdn.jsdelivr.net).
-Exception : l'icone Wireshark est en local car le CDN ne fonctionnait pas.
-Elle se trouve dans : `assets/img/icons/wireshark.svg`
-
-
-## Structure detaillee du projet
-
-```
-/
-├── assets/
-│   ├── downloads/
-│   │   └── mettrelepdfici.pdf    <- CV a telecharger
-│   └── img/
-│       ├── background.jpg        <- Image de fond section accueil
-│       ├── icons/
-│       │   ├── favicon.png       <- Icone du site
-│       │   └── wireshark.svg     <- Icone Wireshark (local)
-│       └── profile/              <- Dossier pour photo de profil (non utilise)
-│
-├── css/
-│   ├── style.css                 <- Styles principaux du site
-│   └── projet-detail.css         <- Styles pour les pages de detail des projets
-│
-├── js/
-│   └── script.js                 <- JavaScript du site (animations, menu, etc.)
-│
-├── projets/
-│   ├── assets/
-│   │   ├── css/                  <- Styles communs aux pages projets
-│   │   └── img/                  <- Images des cartes projets (miniatures)
-│   │       ├── sae101.png
-│   │       ├── sae102.png
-│   │       ├── sae103.png
-│   │       ├── sae104.png
-│   │       ├── sae105.png
-│   │       ├── sae201.png
-│   │       ├── sae202.png
-│   │       ├── sae203.png
-│   │       ├── sae204.png
-│   │       └── lanscanner.png
-│   │
-│   ├── en-construction.html      <- Page affichee pour les projets non termines
-│   │
-│   ├── sae101/
-│   │   └── index.html            <- Page detail du projet SAE101
-│   ├── sae102/
-│   │   └── index.html            <- Page detail du projet SAE102
-│   ├── sae103/
-│   │   └── index.html            <- Page detail du projet SAE103
-│   ├── sae104/
-│   │   └── index.html            <- Page detail du projet SAE104
-│   ├── sae105/
-│   │   └── index.html            <- Page detail du projet SAE105
-│   ├── sae201/
-│   │   └── index.html            <- Page detail du projet SAE201
-│   └── sae202/
-│       └── index.html            <- Page detail du projet SAE202
-│
-├── CNAME                         <- Nom de domaine pour GitHub Pages
-├── index.html                    <- Page principale du portfolio
-└── README.md                     <- Ce fichier
-```
-
-## Notes
-
-- Les projets SAE203 et SAE204 pointent vers `en-construction.html` car leurs pages ne sont pas encore creees
+*   **Email** : [contact@melihugurlu.fr](mailto:contact@melihugurlu.fr)
+*   **Localisation** : Dijon, France
+*   **LinkedIn** : [Melih UGURLU](https://www.linkedin.com/in/melihugurlu/)
+*   **Portfolio** : [melihugurlu.fr](https://melihugurlu.fr)
