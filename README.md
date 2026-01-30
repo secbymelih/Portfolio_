@@ -18,9 +18,9 @@ Je me spécialise dans les environnements réseaux, avec un fort attrait pour le
 
 ### Formulaire de contact
 
-Le formulaire utilise **Formsubmit.co**.
-Il est configuré pour envoyer les messages à `contact@melihugurlu.fr`.
-Pour le modifier, changez l'adresse email dans l'attribut `action` du formulaire dans `index.html`.
+Le formulaire utilise **Formspree.io**.
+Il est configuré avec l'endpoint : `https://formspree.io/f/mojwkakz`.
+Pour le modifier, changez l'URL dans l'attribut `action` du formulaire dans `index.html`.
 
 ---
 
