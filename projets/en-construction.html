@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>En Construction | Léo Loss-Jayet</title>
-    
+    <title>En Construction | Melih UGURLU</title>
+
     <!-- Performance & SEO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Preloader CSS critique pour masquer tout flash visuel -->
     <style>
         /* Preloader - affiché par défaut */
@@ -28,18 +30,18 @@
             opacity: 1;
             transition: opacity 0.8s ease-out;
         }
-        
+
         #preloader.fade-out {
             opacity: 0;
             pointer-events: none;
         }
-        
+
         .preloader-content {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
+
         .preloader-spinner {
             width: 50px;
             height: 50px;
@@ -48,59 +50,71 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
+
         /* PROTECTION ULTIME : Garder la navbar visible sur toutes les pages pendant le preloader */
         .navbar {
             opacity: 1 !important;
             transform: none !important;
             transition: none !important;
         }
-        
+
         /* Masquer SEULEMENT le contenu principal pendant le preloader */
         body:not(.loaded) main,
         body:not(.loaded) footer {
             opacity: 0;
         }
-        
+
         /* Forcer l'affichage de la police Montserrat pour éviter le flash de police */
-        body, h1, h2, h3, h4, h5, h6, .navbar-logo {
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-logo {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
         }
-        
+
         .construction-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 100px 20px;
             text-align: center;
         }
-        
+
         .construction-icon {
             font-size: 5rem;
             color: var(--primary-color);
             margin-bottom: 30px;
         }
-        
+
         .construction-title {
             font-size: 2.5rem;
             color: var(--secondary-color);
             margin-bottom: 20px;
         }
-        
+
         .construction-text {
             font-size: 1.2rem;
             margin-bottom: 40px;
             line-height: 1.6;
         }
-        
+
         .return-btn {
             margin-top: 30px;
         }
-        
+
         .construction-page {
             background-color: var(--light-alt-color);
             min-height: calc(100vh - 300px);
@@ -108,11 +122,12 @@
             align-items: center;
         }
     </style>
-    
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="../image copy.png">
 </head>
+
 <body>
     <!-- Preloader -->
     <div id="preloader">
@@ -124,7 +139,7 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="../index.html" class="navbar-logo">LÉO LOSS-JAYET</a>
+            <a href="../index.html" class="navbar-logo">Melih UGURLU</a>
             <div class="menu-icon">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -134,31 +149,32 @@
                 <li><a href="../index.html#accueil" class="nav-link">Accueil</a></li>
                 <li><a href="../index.html#apropos" class="nav-link">À Propos</a></li>
                 <li><a href="../index.html#cv" class="nav-link">CV</a></li>
-                <li><a href="../index.html#projet-phare" class="nav-link">Projet Phare</a></li>
+
                 <li><a href="../index.html#projets" class="nav-link">Projets</a></li>
-                <li><a href="../index.html#temoignages" class="nav-link">Témoignages</a></li>
+
                 <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
-    <!-- Contenu de la page en construction -->
-    <section class="construction-page">
-        <div class="section-background">
-            <!-- Les formes seront ajoutées dynamiquement par JavaScript -->
-        </div>
-        <div class="construction-container">
-            <div class="construction-icon">
-                <i class="fas fa-hard-hat"></i>
+        <!-- Contenu de la page en construction -->
+        <section class="construction-page">
+            <div class="section-background">
+                <!-- Les formes seront ajoutées dynamiquement par JavaScript -->
             </div>
-            <h1 class="construction-title">Page en construction</h1>
-            <p class="construction-text">Cette page est actuellement en cours de développement. Les détails de ce projet seront bientôt disponibles. Merci pour votre patience !</p>
-            <a href="../index.html#projets" class="btn return-btn">
-                <i class="fas fa-arrow-left"></i> Retour aux projets
-            </a>
-        </div>
-    </section>
+            <div class="construction-container">
+                <div class="construction-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h1 class="construction-title">Page en construction</h1>
+                <p class="construction-text">Cette page est actuellement en cours de développement. Les détails de ce
+                    projet seront bientôt disponibles. Merci pour votre patience !</p>
+                <a href="../index.html#projets" class="btn return-btn">
+                    <i class="fas fa-arrow-left"></i> Retour aux projets
+                </a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -175,21 +191,21 @@
                         <li><a href="../index.html#contact">Contact</a></li>
                     </ul>
                 </nav>
-                
+
                 <div class="footer-contact">
                     <h3>Contact</h3>
                     <div class="footer-contact-info">
                         <div class="footer-contact-item">
                             <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <span><a href="mailto:contact@leolossjayet.fr">contact@leolossjayet.fr</a></span>
+                            <span><a href="mailto:contact@melihugurlu.fr">contact@melihugurlu.fr</a></span>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-phone" aria-hidden="true"></i>
-                            <span><a href="tel:+33652804449">06 52 80 44 49</a></span>
+                            <span>Sur demande</span>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                            <span>Grenoble, France</span>
+                            <span>Dijon, France</span>
                         </div>
                     </div>
                 </div>
@@ -197,16 +213,18 @@
                 <div class="footer-social-section">
                     <h3>Réseaux sociaux</h3>
                     <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/l%C3%A9o-loss-jayet-1ab463351/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                        <a href="https://github.com/leolossjayet/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/melihugurlu/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://github.com/secbymelih" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="fab fa-github" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-divider"></div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; <time datetime="2025">2025</time> Léo Loss-Jayet. Tous droits réservés.</p>
+                <p>&copy; <time datetime="2025">2025</time> Melih UGURLU. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -214,4 +232,5 @@
     <!-- JavaScript -->
     <script src="../js/script.js"></script>
 </body>
-</html> 
+
+</html>

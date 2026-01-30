@@ -7,67 +7,100 @@
     --light-color: #F8F9FA;
     --light-alt-color: #f2f7fb;
     --dark-color: #212529;
-    
+
     /* Espacement existant */
     --section-padding: 80px 0;
     --transition: all 0.3s ease;
-    
+
     /* NOUVELLES VARIABLES - Couleurs système */
     --color-white: white;
     --color-transparent: transparent;
     --color-black: black;
-    
+
     /* NOUVELLES VARIABLES - Couleurs de texte */
-    --text-dark-gray: #666;      /* Texte secondaire */
-    --text-medium-gray: #444;    /* Texte quotes témoignages */
-    --text-light-gray: #ccc;     /* Texte footer */
-    --text-border-gray: #ddd;    /* Bordures inputs, boutons */
-    
+    --text-dark-gray: #666;
+    /* Texte secondaire */
+    --text-medium-gray: #444;
+    /* Texte quotes témoignages */
+    --text-light-gray: #ccc;
+    /* Texte footer */
+    --text-border-gray: #ddd;
+    /* Bordures inputs, boutons */
+
     /* NOUVELLES VARIABLES - Couleurs de fond spéciales */
-    --bg-menu-icon: rgba(0, 119, 182, 0.1);           /* Fond icônes contact */
-    --bg-projekt-tag: rgba(0, 119, 182, 0.1);         /* Fond tags projets */
-    --bg-soft-skill-1: rgba(144, 224, 239, var(--opacity-overlay));  /* Bubble 1 */
-    --bg-soft-skill-2: rgba(0, 119, 182, var(--opacity-overlay));    /* Bubble 2 */
-    --bg-soft-skill-3: rgba(2, 62, 138, var(--opacity-overlay));     /* Bubble 3 */
-    --bg-overlay-section: rgba(255, 255, 255, var(--opacity-overlay)); /* Overlay sections */
-    --bg-testimonial-nav: rgba(255, 255, 255, 0.7);   /* Navigation témoignages */
-    --bg-footer-social: rgba(255, 255, 255, 0.1);     /* Réseaux sociaux footer */
-    --bg-footer-white-07: rgba(255, 255, 255, 0.7);   /* Texte footer bottom */
-    
+    --bg-menu-icon: rgba(0, 119, 182, 0.1);
+    /* Fond icônes contact */
+    --bg-projekt-tag: rgba(0, 119, 182, 0.1);
+    /* Fond tags projets */
+    --bg-soft-skill-1: rgba(144, 224, 239, var(--opacity-overlay));
+    /* Bubble 1 */
+    --bg-soft-skill-2: rgba(0, 119, 182, var(--opacity-overlay));
+    /* Bubble 2 */
+    --bg-soft-skill-3: rgba(2, 62, 138, var(--opacity-overlay));
+    /* Bubble 3 */
+    --bg-overlay-section: rgba(255, 255, 255, var(--opacity-overlay));
+    /* Overlay sections */
+    --bg-testimonial-nav: rgba(255, 255, 255, 0.7);
+    /* Navigation témoignages */
+    --bg-footer-social: rgba(255, 255, 255, 0.1);
+    /* Réseaux sociaux footer */
+    --bg-footer-white-07: rgba(255, 255, 255, 0.7);
+    /* Texte footer bottom */
+
     /* NOUVELLES VARIABLES - Couleurs formulaires (messages d'état) */
-    --form-info-bg: #e8f4fd;      /* Fond message info */
-    --form-info-text: #0277bd;    /* Texte message info */
-    --form-info-border: #b3e5fc;  /* Bordure message info */
-    
-    --form-success-bg: #e8f5e9;   /* Fond message succès */
-    --form-success-text: #2e7d32; /* Texte message succès */
-    --form-success-border: #a5d6a7; /* Bordure message succès */
-    
-    --form-error-bg: #ffebee;     /* Fond message erreur */
-    --form-error-text: #c62828;   /* Texte message erreur */
-    --form-error-border: #ffcdd2; /* Bordure message erreur */
-    
+    --form-info-bg: #e8f4fd;
+    /* Fond message info */
+    --form-info-text: #0277bd;
+    /* Texte message info */
+    --form-info-border: #b3e5fc;
+    /* Bordure message info */
+
+    --form-success-bg: #e8f5e9;
+    /* Fond message succès */
+    --form-success-text: #2e7d32;
+    /* Texte message succès */
+    --form-success-border: #a5d6a7;
+    /* Bordure message succès */
+
+    --form-error-bg: #ffebee;
+    /* Fond message erreur */
+    --form-error-text: #c62828;
+    /* Texte message erreur */
+    --form-error-border: #ffcdd2;
+    /* Bordure message erreur */
+
     /* NOUVELLES VARIABLES - Couleurs de bordures */
     --border-transparent: transparent;
-    --border-input: #ddd;          /* Bordure inputs */
-    
+    --border-input: #ddd;
+    /* Bordure inputs */
+
     /* NOUVELLES VARIABLES - Couleurs gradients footer */
-    --gradient-footer-start: rgba(255,255,255,var(--opacity-shape));
-    --gradient-footer-middle: rgba(255,255,255,0.2);
-    --gradient-footer-end: rgba(255,255,255,var(--opacity-shape));
-    
+    --gradient-footer-start: rgba(255, 255, 255, var(--opacity-shape));
+    --gradient-footer-middle: rgba(255, 255, 255, 0.2);
+    --gradient-footer-end: rgba(255, 255, 255, var(--opacity-shape));
+
     /* NOUVELLES VARIABLES - Typographie */
-    --font-xs: 0.8rem;        /* Répété pour petits textes */
-    --font-sm: 0.9rem;        /* Répété pour textes secondaires */
-    --font-base: 1rem;        /* Répété pour texte de base */
-    --font-md: 1.1rem;        /* Répété pour textes moyens */
-    --font-lg: 1.2rem;        /* Répété pour sous-titres */
-    --font-xl: 1.3rem;        /* Répété pour titres de cartes */
-    --font-2xl: 1.5rem;       /* Répété pour titres de section */
-    --font-3xl: 2rem;         /* Répété pour grands titres */
-    --font-4xl: 2.5rem;       /* Répété pour titres principaux */
-    --font-5xl: 3.5rem;       /* Pour le titre principal */
-    
+    --font-xs: 0.8rem;
+    /* Répété pour petits textes */
+    --font-sm: 0.9rem;
+    /* Répété pour textes secondaires */
+    --font-base: 1rem;
+    /* Répété pour texte de base */
+    --font-md: 1.1rem;
+    /* Répété pour textes moyens */
+    --font-lg: 1.2rem;
+    /* Répété pour sous-titres */
+    --font-xl: 1.3rem;
+    /* Répété pour titres de cartes */
+    --font-2xl: 1.5rem;
+    /* Répété pour titres de section */
+    --font-3xl: 2rem;
+    /* Répété pour grands titres */
+    --font-4xl: 2.5rem;
+    /* Répété pour titres principaux */
+    --font-5xl: 3.5rem;
+    /* Pour le titre principal */
+
     /* NOUVELLES VARIABLES - Espacements */
     --space-xs: 5px;
     --space-sm: 8px;
@@ -79,58 +112,94 @@
     --space-4xl: 40px;
     --space-5xl: 60px;
     --space-6xl: 80px;
-    
+
     /* NOUVELLES VARIABLES - Padding répétés */
-    --padding-btn: 12px 28px;      /* Répété pour boutons */
-    --padding-card: 30px;          /* Répété pour cartes */
-    --padding-section: 0 20px;     /* Répété pour sections */
-    --padding-container: 20px 5%;  /* Répété pour containers */
-    --padding-form: 15px;          /* Répété pour formulaires */
-    --padding-tag: 15px 25px;      /* Répété pour tags */
-    
+    --padding-btn: 12px 28px;
+    /* Répété pour boutons */
+    --padding-card: 30px;
+    /* Répété pour cartes */
+    --padding-section: 0 20px;
+    /* Répété pour sections */
+    --padding-container: 20px 5%;
+    /* Répété pour containers */
+    --padding-form: 15px;
+    /* Répété pour formulaires */
+    --padding-tag: 15px 25px;
+    /* Répété pour tags */
+
     /* NOUVELLES VARIABLES - Border radius */
-    --radius-xs: 4px;         /* Répété pour petits éléments */
-    --radius-sm: 8px;         /* Répété pour cartes */
-    --radius-md: 20px;        /* Répété pour tags */
-    --radius-lg: 30px;        /* Répété pour tags spéciaux */
-    --radius-full: 50%;       /* Répété pour éléments circulaires */
-    
+    --radius-xs: 4px;
+    /* Répété pour petits éléments */
+    --radius-sm: 8px;
+    /* Répété pour cartes */
+    --radius-md: 20px;
+    /* Répété pour tags */
+    --radius-lg: 30px;
+    /* Répété pour tags spéciaux */
+    --radius-full: 50%;
+    /* Répété pour éléments circulaires */
+
     /* NOUVELLES VARIABLES - Ombres */
-    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);   /* Répété pour navbar */
-    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.05);  /* Répété pour cartes */
-    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);  /* Répété pour éléments spéciaux */
-    
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Répété pour navbar */
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* Répété pour cartes */
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Répété pour éléments spéciaux */
+
     /* NOUVELLES VARIABLES - Z-index */
-    --z-background: -1;       /* Répété pour arrière-plans */
-    --z-base: 0;              /* Répété pour éléments de base */
-    --z-content: 1;           /* Répété pour contenu */
-    --z-timeline: 2;          /* Répété pour points de timeline */
-    --z-dropdown: 100;        /* Pour menus déroulants */
-    --z-navbar: 1000;         /* Répété pour navbar */
-    --z-preloader: 9999;      /* Répété pour preloader */
-    
+    --z-background: -1;
+    /* Répété pour arrière-plans */
+    --z-base: 0;
+    /* Répété pour éléments de base */
+    --z-content: 1;
+    /* Répété pour contenu */
+    --z-timeline: 2;
+    /* Répété pour points de timeline */
+    --z-dropdown: 100;
+    /* Pour menus déroulants */
+    --z-navbar: 1000;
+    /* Répété pour navbar */
+    --z-preloader: 9999;
+    /* Répété pour preloader */
+
     /* NOUVELLES VARIABLES - Dimensions */
-    --container-max: 1400px;  /* Répété pour largeur max containers */
-    --content-max: 1200px;    /* Répété pour largeur max contenu */
-    --card-height: 500px;     /* Répété pour hauteur cartes projets */
-    --timeline-point: 18px;   /* Répété pour points timeline */
-    --bubble-size: 220px;     /* Répété pour bulles soft skills */
-    
+    --container-max: 1400px;
+    /* Répété pour largeur max containers */
+    --content-max: 1200px;
+    /* Répété pour largeur max contenu */
+    --card-height: 500px;
+    /* Répété pour hauteur cartes projets */
+    --timeline-point: 18px;
+    /* Répété pour points timeline */
+    --bubble-size: 220px;
+    /* Répété pour bulles soft skills */
+
     /* NOUVELLES VARIABLES - Transitions spécifiques */
-    --transition-fast: 0.3s ease;      /* Répété pour transitions rapides */
-    --transition-medium: 0.5s ease;    /* Répété pour transitions moyennes */
-    --transition-slow: 0.8s ease;      /* Répété pour animations lentes */
-    
+    --transition-fast: 0.3s ease;
+    /* Répété pour transitions rapides */
+    --transition-medium: 0.5s ease;
+    /* Répété pour transitions moyennes */
+    --transition-slow: 0.8s ease;
+    /* Répété pour animations lentes */
+
     /* NOUVELLES VARIABLES - Opacités */
-    --opacity-hidden: 0;      /* Répété pour éléments cachés */
-    --opacity-visible: 1;     /* Répété pour éléments visibles */
-    --opacity-overlay: 0.6;   /* Répété pour overlays */
-    --opacity-shape: 0.05;    /* Répété pour formes décoratives */
-    
+    --opacity-hidden: 0;
+    /* Répété pour éléments cachés */
+    --opacity-visible: 1;
+    /* Répété pour éléments visibles */
+    --opacity-overlay: 0.6;
+    /* Répété pour overlays */
+    --opacity-shape: 0.05;
+    /* Répété pour formes décoratives */
+
     /* NOUVELLES VARIABLES - Positions négatives pour barres sous titres */
-    --underline-close: -5px;   /* Barre proche du titre */
-    --underline-normal: -8px;  /* Barre distance normale */
-    --underline-far: -10px;    /* Barre plus espacée */
+    --underline-close: -5px;
+    /* Barre proche du titre */
+    --underline-normal: -8px;
+    /* Barre distance normale */
+    --underline-far: -10px;
+    /* Barre plus espacée */
 }
 
 /* Accessibilité - Screen reader only */
@@ -407,7 +476,8 @@ body.logo-visible .navbar-logo {
     background: var(--accent-color);
     border-radius: 4px;
     width: 0%;
-    transition: width 0.05s linear; /* Transition plus rapide et linéaire pour la fluidité */
+    transition: width 0.05s linear;
+    /* Transition plus rapide et linéaire pour la fluidité */
     position: relative;
 }
 
@@ -469,19 +539,19 @@ body.logo-visible .navbar-logo {
         gap: 15px;
         padding: 12px 20px;
     }
-    
+
     .audio-btn {
         width: 36px;
         height: 36px;
         font-size: 12px;
     }
-    
+
     .audio-btn-primary {
         width: 42px;
         height: 42px;
         font-size: 14px;
     }
-    
+
     .audio-progress {
         gap: 10px;
         font-size: 11px;
@@ -497,19 +567,19 @@ body.logo-visible .navbar-logo {
         align-items: center;
         position: relative;
     }
-    
+
     .audio-info {
         order: 1;
         text-align: center;
         width: 100%;
         margin-bottom: 5px;
     }
-    
+
     .audio-info span {
         font-size: 13px;
         font-weight: 500;
     }
-    
+
     .audio-controls {
         order: 2;
         display: flex;
@@ -517,19 +587,19 @@ body.logo-visible .navbar-logo {
         gap: 12px;
         margin-bottom: 5px;
     }
-    
+
     .audio-btn {
         width: 35px;
         height: 35px;
         font-size: 12px;
     }
-    
+
     .audio-btn-primary {
         width: 40px;
         height: 40px;
         font-size: 14px;
     }
-    
+
     .audio-progress {
         order: 3;
         display: flex;
@@ -538,13 +608,13 @@ body.logo-visible .navbar-logo {
         width: 100%;
         font-size: 10px;
     }
-    
+
     .progress-bar {
         flex: 1;
         height: 6px;
         min-width: 0;
     }
-    
+
     .audio-close-btn {
         position: absolute;
         top: 8px;
@@ -561,36 +631,36 @@ body.logo-visible .navbar-logo {
         padding: 8px 12px 10px;
         gap: 6px;
     }
-    
+
     .audio-info span {
         font-size: 12px;
     }
-    
+
     .audio-controls {
         gap: 10px;
     }
-    
+
     .audio-btn {
         width: 32px;
         height: 32px;
         font-size: 11px;
     }
-    
+
     .audio-btn-primary {
         width: 36px;
         height: 36px;
         font-size: 13px;
     }
-    
+
     .audio-progress {
         gap: 6px;
         font-size: 9px;
     }
-    
+
     .progress-bar {
         height: 5px;
     }
-    
+
     .audio-close-btn {
         width: 26px;
         height: 26px;
@@ -611,7 +681,8 @@ body.audio-bar-visible::before {
     height: 70px;
     background-color: var(--secondary-color);
     z-index: calc(var(--z-navbar) - 2);
-    transition: none; /* Apparition immédiate */
+    transition: none;
+    /* Apparition immédiate */
 }
 
 body.audio-bar-visible .navbar {
@@ -627,11 +698,11 @@ body.audio-bar-visible main {
     body.audio-bar-visible::before {
         height: 65px;
     }
-    
+
     body.audio-bar-visible .navbar {
         margin-top: 65px;
     }
-    
+
     body.audio-bar-visible main {
         padding-top: 135px;
     }
@@ -641,11 +712,11 @@ body.audio-bar-visible main {
     body.audio-bar-visible::before {
         height: 85px;
     }
-    
+
     body.audio-bar-visible .navbar {
         margin-top: 85px;
     }
-    
+
     body.audio-bar-visible main {
         padding-top: 155px;
     }
@@ -655,11 +726,11 @@ body.audio-bar-visible main {
     body.audio-bar-visible::before {
         height: 75px;
     }
-    
+
     body.audio-bar-visible .navbar {
         margin-top: 75px;
     }
-    
+
     body.audio-bar-visible main {
         padding-top: 145px;
     }
@@ -758,12 +829,19 @@ body.audio-bar-visible main {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0);
     }
+
     40% {
         transform: translateY(-20px);
     }
+
     60% {
         transform: translateY(-10px);
     }
@@ -794,6 +872,7 @@ body.audio-bar-visible main {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -951,6 +1030,60 @@ body.audio-bar-visible main {
     font-size: var(--font-lg);
 }
 
+/* Catégories de compétences */
+.competence-category {
+    margin-bottom: var(--space-4xl);
+}
+
+.competence-category h3 {
+    font-size: var(--font-lg);
+    color: var(--secondary-color);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+.competence-category .competence-item {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-xl);
+    position: relative;
+}
+
+.competence-category .competence-item::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: var(--font-lg);
+}
+
+.competence-category .competence-item h4 {
+    font-size: var(--font-base);
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: var(--space-xs);
+}
+
+.competence-category .competence-item p {
+    font-size: var(--font-sm);
+    color: var(--text-dark-gray);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Aligner les colonnes de compétences */
+.competences-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.competences-col .competence-category {
+    flex: 1;
+}
+
 /* Outils */
 .outils-grid {
     display: grid;
@@ -995,14 +1128,16 @@ body.audio-bar-visible main {
     left: 50%;
     transform: translateX(-50%);
     opacity: var(--opacity-hidden);
-    height: 0; /* Début à hauteur 0 */
+    height: 0;
+    /* Début à hauteur 0 */
     transition: height 1.5s ease, opacity var(--transition-medium);
     z-index: var(--z-background);
 }
 
 .timeline.active::before {
     opacity: var(--opacity-visible);
-    height: 100%; /* Animation de haut en bas */
+    height: 100%;
+    /* Animation de haut en bas */
 }
 
 /* Points fixes sur la timeline verticale */
@@ -1023,11 +1158,13 @@ body.audio-bar-visible main {
 
 /* Ajustement des points pour qu'ils s'alignent avec les dates dans les cartes */
 .timeline .point-right {
-    top: calc(25% + var(--space-3xl)); /* Aligné avec le titre "Depuis 2021" */
+    top: calc(25% + var(--space-3xl));
+    /* Aligné avec le titre "Depuis 2021" */
 }
 
 .timeline .point-left {
-    top: calc(75% + var(--space-3xl)); /* Aligné avec le titre "Juillet 2022, 2023, 2024" */
+    top: calc(75% + var(--space-3xl));
+    /* Aligné avec le titre "Juillet 2022, 2023, 2024" */
 }
 
 /* Les points ne sont plus activés par la classe active sur la timeline */
@@ -1041,14 +1178,16 @@ body.audio-bar-visible main {
     width: 50%;
     padding: var(--space-3xl) var(--space-5xl);
     opacity: var(--opacity-hidden);
-    transform: translateY(-30px); /* Début légèrement au-dessus */
+    transform: translateY(-30px);
+    /* Début légèrement au-dessus */
     transition: all var(--transition-slow);
     margin-bottom: var(--space-5xl);
 }
 
 .timeline-item.active {
     opacity: var(--opacity-visible);
-    transform: translateY(0); /* Animation vers le bas */
+    transform: translateY(0);
+    /* Animation vers le bas */
 }
 
 .timeline-item.left {
@@ -1120,17 +1259,21 @@ body.audio-bar-visible main {
     left: 0;
     right: 0;
     top: 50%;
-    margin-top: -2px; /* Ajustement pour centrer la ligne */
+    margin-top: -2px;
+    /* Ajustement pour centrer la ligne */
     opacity: var(--opacity-hidden);
-    width: 0; /* Début à largeur 0 */
+    width: 0;
+    /* Début à largeur 0 */
     transition: width 1.5s ease, opacity var(--transition-medium);
     z-index: var(--z-background);
-    transform-origin: left center; /* Point d'origine à gauche */
+    transform-origin: left center;
+    /* Point d'origine à gauche */
 }
 
 .timeline-horizontal.active::before {
     opacity: var(--opacity-visible);
-    width: 100%; /* Animation de gauche à droite */
+    width: 100%;
+    /* Animation de gauche à droite */
 }
 
 /* Points fixes au lieu du positionnement relatif aux cartes */
@@ -1166,24 +1309,28 @@ body.audio-bar-visible main {
     top: 65%;
     left: 0;
     padding-left: var(--space-3xl);
-    transform: translateX(-30px); /* Début légèrement à gauche */
+    transform: translateX(-30px);
+    /* Début légèrement à gauche */
 }
 
 .timeline-item-horizontal.top {
     bottom: 65%;
     right: 0;
     padding-left: var(--space-3xl);
-    transform: translateX(var(--space-3xl)); /* Début légèrement à droite */
+    transform: translateX(var(--space-3xl));
+    /* Début légèrement à droite */
 }
 
 .timeline-item-horizontal.active.bottom {
     opacity: var(--opacity-visible);
-    transform: translateX(0); /* Animation vers la droite */
+    transform: translateX(0);
+    /* Animation vers la droite */
 }
 
 .timeline-item-horizontal.active.top {
     opacity: var(--opacity-visible);
-    transform: translateX(0); /* Animation vers la gauche */
+    transform: translateX(0);
+    /* Animation vers la gauche */
 }
 
 .timeline-content-horizontal {
@@ -1201,7 +1348,8 @@ body.audio-bar-visible main {
     margin-bottom: var(--space-md);
     font-size: var(--font-lg);
     font-weight: 700;
-    position: relative; /* Ajout de position relative pour un meilleur référencement */
+    position: relative;
+    /* Ajout de position relative pour un meilleur référencement */
 }
 
 .timeline-content-horizontal h4 {
@@ -1293,18 +1441,18 @@ body.audio-bar-visible main {
     .anglais-container {
         flex-direction: column;
     }
-    
+
     .anglais-blocks {
         position: static;
         flex-direction: column;
         margin-top: 30px;
     }
-    
+
     .anglais-block {
         width: 100%;
         margin: 10px 0 !important;
     }
-    
+
     .globe-container {
         margin-bottom: 40px;
     }
@@ -1317,7 +1465,8 @@ body.audio-bar-visible main {
     .nav-menu {
         position: absolute;
         left: -100%;
-        top: 100%; /* Collé sous la navbar */
+        top: 100%;
+        /* Collé sous la navbar */
         flex-direction: column;
         background-color: white;
         width: 100%;
@@ -1325,7 +1474,8 @@ body.audio-bar-visible main {
         transition: var(--transition);
         /* Suppression de l'ombre */
         padding: 20px 0;
-        margin: 0; /* Pas de marge */
+        margin: 0;
+        /* Pas de marge */
     }
 
     .nav-menu.active {
@@ -1386,9 +1536,11 @@ body.audio-bar-visible main {
     0% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-15px);
     }
+
     100% {
         transform: translateY(0px);
     }
@@ -1397,32 +1549,39 @@ body.audio-bar-visible main {
 /* Media queries spécifiques pour les centres d'intérêt */
 @media screen and (max-width: 992px) {
     .tag-cloud {
-        height: 600px; /* Augmentation de la hauteur pour les tablettes */
+        height: 600px;
+        /* Augmentation de la hauteur pour les tablettes */
     }
-    
+
     .tag {
-        animation: none; /* Désactive l'animation floating en mode responsive */
+        animation: none;
+        /* Désactive l'animation floating en mode responsive */
     }
 }
 
 @media screen and (max-width: 768px) {
     .tag-cloud {
-        height: 700px; /* Augmentation supplémentaire pour les smartphones */
+        height: 700px;
+        /* Augmentation supplémentaire pour les smartphones */
     }
-    
+
     .tag {
-        padding: var(--space-sm) var(--space-xl); /* Réduire légèrement la taille des tags */
-        animation: none; /* Désactive l'animation floating en mode responsive */
+        padding: var(--space-sm) var(--space-xl);
+        /* Réduire légèrement la taille des tags */
+        animation: none;
+        /* Désactive l'animation floating en mode responsive */
     }
 }
 
 @media screen and (max-width: 576px) {
     .tag-cloud {
-        height: 800px; /* Encore plus d'espace pour les petits écrans */
+        height: 800px;
+        /* Encore plus d'espace pour les petits écrans */
     }
-    
+
     .tag {
-        animation: none; /* Désactive l'animation floating en mode responsive */
+        animation: none;
+        /* Désactive l'animation floating en mode responsive */
     }
 }
 
@@ -1538,7 +1697,8 @@ body.audio-bar-visible main {
 
     .competences-col {
         flex: 0 0 100%;
-        margin-bottom: 0; /* Supprime l'espacement entre les colonnes */
+        margin-bottom: 0;
+        /* Supprime l'espacement entre les colonnes */
     }
 
     .competences-col:last-child {
@@ -1565,7 +1725,8 @@ body.audio-bar-visible main {
         padding-right: 20px;
     }
 
-    .timeline-item.left, .timeline-item.right {
+    .timeline-item.left,
+    .timeline-item.right {
         left: 0;
     }
 
@@ -1573,22 +1734,27 @@ body.audio-bar-visible main {
         left: 40px;
     }
 
-    .timeline-item.left::after, .timeline-item.right::after {
+    .timeline-item.left::after,
+    .timeline-item.right::after {
         display: none;
     }
 
     /* FORMATIONS - Version responsive complètement différente */
     .cv-section.formations {
-        margin-bottom: 100px; /* Réduction de la marge */
+        margin-bottom: 100px;
+        /* Réduction de la marge */
     }
 
     .cv-section.formations .cv-title {
-        margin-bottom: 50px; /* Réduction de la marge */
+        margin-bottom: 50px;
+        /* Réduction de la marge */
     }
 
     .timeline-horizontal {
-        height: auto; /* Supprime la hauteur fixe */
-        position: static; /* Supprime le positionnement */
+        height: auto;
+        /* Supprime la hauteur fixe */
+        position: static;
+        /* Supprime le positionnement */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1608,22 +1774,31 @@ body.audio-bar-visible main {
     }
 
     .timeline-item-horizontal {
-        position: static; /* Supprime le positionnement absolu */
-        width: 100%; /* Pleine largeur */
-        max-width: 500px; /* Largeur maximale pour éviter que ce soit trop large */
-        opacity: 1; /* Toujours visible */
-        transform: none; /* Supprime les transformations */
-        padding: 0; /* Supprime le padding */
-        margin: 0; /* Supprime les marges */
+        position: static;
+        /* Supprime le positionnement absolu */
+        width: 100%;
+        /* Pleine largeur */
+        max-width: 500px;
+        /* Largeur maximale pour éviter que ce soit trop large */
+        opacity: 1;
+        /* Toujours visible */
+        transform: none;
+        /* Supprime les transformations */
+        padding: 0;
+        /* Supprime le padding */
+        margin: 0;
+        /* Supprime les marges */
     }
 
     /* Échange des positions des cartes de formation en responsive */
     .timeline-item-horizontal.bottom {
-        order: 2; /* Le baccalauréat (bottom) passe en deuxième position */
+        order: 2;
+        /* Le baccalauréat (bottom) passe en deuxième position */
     }
 
     .timeline-item-horizontal.top {
-        order: 1; /* Le BUT (top) passe en première position */
+        order: 1;
+        /* Le BUT (top) passe en première position */
     }
 
     .timeline-item-horizontal.bottom,
@@ -1652,15 +1827,19 @@ body.audio-bar-visible main {
 
     /* EXPÉRIENCES PROFESSIONNELLES - Version responsive complètement différente */
     .cv-section.experiences .timeline {
-        height: auto; /* Supprime la hauteur fixe */
-        position: static; /* Supprime le positionnement */
+        height: auto;
+        /* Supprime la hauteur fixe */
+        position: static;
+        /* Supprime le positionnement */
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 40px;
         margin: 40px auto 60px;
-        max-width: none; /* Supprime la largeur max */
-        padding: 0; /* Supprime le padding */
+        max-width: none;
+        /* Supprime la largeur max */
+        padding: 0;
+        /* Supprime le padding */
     }
 
     /* Supprime la ligne verticale en responsive pour les expériences */
@@ -1675,13 +1854,20 @@ body.audio-bar-visible main {
     }
 
     .cv-section.experiences .timeline-item {
-        position: static; /* Supprime le positionnement absolu */
-        width: 100%; /* Pleine largeur */
-        max-width: 500px; /* Largeur maximale pour éviter que ce soit trop large */
-        opacity: 1; /* Toujours visible */
-        transform: none; /* Supprime les transformations */
-        padding: 0; /* Supprime le padding */
-        margin: 0; /* Supprime les marges */
+        position: static;
+        /* Supprime le positionnement absolu */
+        width: 100%;
+        /* Pleine largeur */
+        max-width: 500px;
+        /* Largeur maximale pour éviter que ce soit trop large */
+        opacity: 1;
+        /* Toujours visible */
+        transform: none;
+        /* Supprime les transformations */
+        padding: 0;
+        /* Supprime le padding */
+        margin: 0;
+        /* Supprime les marges */
     }
 
     .cv-section.experiences .timeline-item.left,
@@ -1754,13 +1940,15 @@ body.audio-bar-visible main {
     .contact-content {
         flex-direction: column;
     }
-    
-    .contact-info, .contact-form {
+
+    .contact-info,
+    .contact-form {
         flex: 0 0 100%;
     }
 }
 
 @media screen and (max-width: 768px) {
+
     /* Styles spécifiques aux petits écrans - le menu burger est déjà actif */
     .accueil h1 {
         font-size: 2.5rem;
@@ -1840,7 +2028,8 @@ body.audio-bar-visible main {
         left: 30px;
     }
 
-    .timeline-item.left::after, .timeline-item.right::after {
+    .timeline-item.left::after,
+    .timeline-item.right::after {
         display: none;
     }
 
@@ -2002,7 +2191,8 @@ body.audio-bar-visible main {
 .carousel-container {
     width: 320px;
     position: relative;
-    touch-action: pan-y; /* Permet le scroll vertical tout en capturant les swipes horizontaux */
+    touch-action: pan-y;
+    /* Permet le scroll vertical tout en capturant les swipes horizontaux */
 }
 
 .carousel-track {
@@ -2034,7 +2224,8 @@ body.audio-bar-visible main {
     margin-top: var(--space-xl);
 }
 
-.carousel-prev, .carousel-next {
+.carousel-prev,
+.carousel-next {
     background: none;
     border: none;
     width: var(--space-4xl);
@@ -2050,7 +2241,8 @@ body.audio-bar-visible main {
     margin: 0 var(--space-lg);
 }
 
-.carousel-prev:hover, .carousel-next:hover {
+.carousel-prev:hover,
+.carousel-next:hover {
     background-color: var(--primary-color);
     color: var(--color-white);
 }
@@ -2102,7 +2294,7 @@ body.audio-bar-visible main {
     .competence-cards {
         margin-top: 10px;
     }
-    
+
     .competence-item {
         margin-bottom: 12px;
     }
@@ -2169,7 +2361,8 @@ body.audio-bar-visible main {
     transition: all var(--transition-fast);
 }
 
-.filter-select:hover, .filter-select:focus {
+.filter-select:hover,
+.filter-select:focus {
     border-color: var(--secondary-color);
     outline: none;
     /* Suppression de l'ombre au survol */
@@ -2185,8 +2378,8 @@ body.audio-bar-visible main {
     transition: all var(--transition-fast);
 }
 
-.filter-select:hover + .select-arrow,
-.filter-select:focus + .select-arrow {
+.filter-select:hover+.select-arrow,
+.filter-select:focus+.select-arrow {
     color: var(--secondary-color);
 }
 
@@ -2314,7 +2507,8 @@ body.audio-bar-visible main {
     overflow: hidden;
     margin-bottom: var(--space-4xl);
     min-height: 300px;
-    touch-action: pan-y; /* Permet le scroll vertical tout en capturant les swipes horizontaux */
+    touch-action: pan-y;
+    /* Permet le scroll vertical tout en capturant les swipes horizontaux */
 }
 
 .temoignage-slide {
@@ -2326,14 +2520,16 @@ body.audio-bar-visible main {
     opacity: var(--opacity-hidden);
     transform: translateX(50px);
     transition: opacity var(--transition-medium), transform var(--transition-medium);
-    pointer-events: none; /* Les slides inactifs n'interceptent pas les événements */
+    pointer-events: none;
+    /* Les slides inactifs n'interceptent pas les événements */
 }
 
 .temoignage-slide.active {
     opacity: var(--opacity-visible);
     z-index: var(--z-content);
     transform: translateX(0);
-    pointer-events: auto; /* Le slide actif peut recevoir des événements */
+    pointer-events: auto;
+    /* Le slide actif peut recevoir des événements */
 }
 
 .temoignage-slide.prev {
@@ -2391,7 +2587,8 @@ body.audio-bar-visible main {
     align-items: center;
 }
 
-.temoignage-prev, .temoignage-next {
+.temoignage-prev,
+.temoignage-next {
     background: none;
     border: none;
     width: var(--space-4xl);
@@ -2409,7 +2606,8 @@ body.audio-bar-visible main {
     z-index: 5;
 }
 
-.temoignage-prev:hover, .temoignage-next:hover {
+.temoignage-prev:hover,
+.temoignage-next:hover {
     background-color: var(--primary-color);
     color: var(--color-white);
 }
@@ -2437,16 +2635,16 @@ body.audio-bar-visible main {
     .temoignages-slider {
         min-height: 400px;
     }
-    
+
     .temoignage-content {
         padding: 30px 25px;
     }
-    
+
     .temoignage-text {
         font-size: 1rem;
         margin-bottom: 20px;
     }
-    
+
     /* Suppression de l'indicateur visuel pour le swipe */
 }
 
@@ -2454,7 +2652,7 @@ body.audio-bar-visible main {
     .temoignages-slider {
         min-height: 450px;
     }
-    
+
     .temoignage-content {
         padding: 25px 20px;
     }
@@ -2462,7 +2660,7 @@ body.audio-bar-visible main {
     .temoignage-text {
         font-size: 0.95rem;
     }
-    
+
     .temoignage-auteur {
         text-align: right;
         /* Suppression du fond blanc */
@@ -2471,11 +2669,11 @@ body.audio-bar-visible main {
         margin-top: 15px;
         width: 100%;
     }
-    
+
     .temoignage-auteur h3 {
         font-size: 1rem;
     }
-    
+
     .temoignage-auteur p {
         font-size: 0.8rem;
     }
@@ -2581,7 +2779,8 @@ body.audio-bar-visible main {
     margin-bottom: var(--space-xl);
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: var(--padding-form);
     border: 1px solid var(--border-input);
@@ -2590,7 +2789,8 @@ body.audio-bar-visible main {
     transition: var(--transition);
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     /* Suppression de l'ombre de focus */
@@ -2654,14 +2854,14 @@ body.audio-bar-visible main {
     margin-bottom: var(--space-4xl);
 }
 
-.footer-nav, 
+.footer-nav,
 .footer-contact,
 .footer-social-section {
     flex: 1;
     min-width: 250px;
 }
 
-.footer-nav h3, 
+.footer-nav h3,
 .footer-contact h3,
 .footer-social-section h3 {
     font-size: var(--font-lg);
@@ -2671,7 +2871,7 @@ body.audio-bar-visible main {
     font-weight: 600;
 }
 
-.footer-nav h3::after, 
+.footer-nav h3::after,
 .footer-contact h3::after,
 .footer-social-section h3::after {
     content: '';
@@ -2757,10 +2957,10 @@ body.audio-bar-visible main {
 
 .footer-divider {
     height: 1px;
-    background: linear-gradient(90deg, 
-        var(--gradient-footer-start), 
-        var(--gradient-footer-middle), 
-        var(--gradient-footer-end));
+    background: linear-gradient(90deg,
+            var(--gradient-footer-start),
+            var(--gradient-footer-middle),
+            var(--gradient-footer-end));
     margin-bottom: var(--space-xl);
 }
 
@@ -2778,28 +2978,28 @@ body.audio-bar-visible main {
         gap: 30px;
         text-align: center;
     }
-    
-    .footer-nav h3, 
+
+    .footer-nav h3,
     .footer-contact h3,
     .footer-social-section h3 {
         text-align: center;
     }
-    
-    .footer-nav h3::after, 
+
+    .footer-nav h3::after,
     .footer-contact h3::after,
     .footer-social-section h3::after {
         left: 50%;
         transform: translateX(-50%);
     }
-    
+
     .footer-nav ul {
         align-items: center;
     }
-    
+
     .footer-contact-info {
         align-items: center;
     }
-    
+
     .footer-social {
         justify-content: center;
     }
@@ -2855,8 +3055,9 @@ body.audio-bar-visible main {
     .contact-content {
         flex-direction: column;
     }
-    
-    .contact-info, .contact-form {
+
+    .contact-info,
+    .contact-form {
         flex: 0 0 100%;
     }
 }
@@ -2880,7 +3081,8 @@ body.audio-bar-visible main {
         font-size: 1rem;
     }
 
-    .social-links, .footer-social:not(.footer .footer-social) {
+    .social-links,
+    .footer-social:not(.footer .footer-social) {
         justify-content: center;
     }
 }
@@ -2969,11 +3171,13 @@ body.audio-bar-visible main {
 
 /* Ajustement des points pour qu'ils s'alignent avec les dates dans les cartes */
 .timeline .point-right {
-    top: calc(25% + 30px); /* Aligné avec le titre "Depuis 2021" */
+    top: calc(25% + 30px);
+    /* Aligné avec le titre "Depuis 2021" */
 }
 
 .timeline .point-left {
-    top: calc(75% + 30px); /* Aligné avec le titre "Juillet 2022, 2023, 2024" */
+    top: calc(75% + 30px);
+    /* Aligné avec le titre "Juillet 2022, 2023, 2024" */
 }
 
 /* Les points ne sont plus activés par la classe active sur la timeline */
@@ -2990,7 +3194,8 @@ body.audio-bar-visible main {
         padding-right: 20px;
     }
 
-    .timeline-item.left, .timeline-item.right {
+    .timeline-item.left,
+    .timeline-item.right {
         left: 0;
     }
 
@@ -3005,13 +3210,15 @@ body.audio-bar-visible main {
         transform: translateX(-50%);
     }
 
-    .timeline-item.left::after, .timeline-item.right::after {
+    .timeline-item.left::after,
+    .timeline-item.right::after {
         display: none;
     }
 }
 
 /* Désactivation complète des effets hover sur les appareils tactiles */
 @media (hover: none) and (pointer: coarse) {
+
     /* Désactiver seulement les transformations et effets de survol, pas les couleurs de base */
     .nav-link:hover,
     .btn:hover,
@@ -3033,7 +3240,7 @@ body.audio-bar-visible main {
         outline: none !important;
         /* Ne pas forcer les couleurs - laisser les styles par défaut */
     }
-    
+
     /* Désactiver spécifiquement les changements de couleur de survol problématiques */
     .carousel-prev:hover,
     .carousel-next:hover,
@@ -3042,14 +3249,14 @@ body.audio-bar-visible main {
         background-color: rgba(255, 255, 255, 0.7) !important;
         color: var(--secondary-color) !important;
     }
-    
+
     .menu-icon:hover,
     .menu-icon:focus,
     .menu-icon:active {
         background-color: transparent !important;
         outline: none !important;
     }
-    
+
     /* Correction des états focus et active problématiques */
     .carousel-prev:focus,
     .carousel-next:focus,
@@ -3063,7 +3270,7 @@ body.audio-bar-visible main {
         color: var(--secondary-color) !important;
         outline: none !important;
     }
-    
+
     /* Éviter les couleurs noires sur les liens et boutons */
     .nav-link:focus,
     .nav-link:active,
@@ -3082,25 +3289,29 @@ body.audio-bar-visible main {
 /* Ajustement du blur selon la taille d'écran pour un rendu uniforme */
 @media screen and (max-width: 1440px) {
     .bg-overlay {
-        filter: blur(6px); /* Réduction sur écrans moyens */
+        filter: blur(6px);
+        /* Réduction sur écrans moyens */
     }
 }
 
 @media screen and (max-width: 992px) {
     .bg-overlay {
-        filter: blur(5px); /* Réduction du flou sur tablettes */
+        filter: blur(5px);
+        /* Réduction du flou sur tablettes */
     }
 }
 
 @media screen and (max-width: 768px) {
     .bg-overlay {
-        filter: blur(4px); /* Flou réduit sur smartphones */
+        filter: blur(4px);
+        /* Flou réduit sur smartphones */
     }
 }
 
 @media screen and (max-width: 576px) {
     .bg-overlay {
-        filter: blur(3px); /* Flou minimal sur petits écrans */
+        filter: blur(3px);
+        /* Flou minimal sur petits écrans */
     }
 }
 
@@ -3129,7 +3340,7 @@ body.audio-bar-visible main {
     body.audio-bar-visible .navbar {
         margin-top: 65px;
     }
-    
+
     body.audio-bar-visible main {
         padding-top: 135px;
     }
@@ -3137,28 +3348,34 @@ body.audio-bar-visible main {
 
 @media screen and (max-width: 768px) {
     body.audio-bar-visible::before {
-        height: 110px; /* Augmenté pour mode colonne mobile */
+        height: 110px;
+        /* Augmenté pour mode colonne mobile */
     }
-    
+
     body.audio-bar-visible .navbar {
-        margin-top: 110px; /* Ajusté en conséquence */
+        margin-top: 110px;
+        /* Ajusté en conséquence */
     }
-    
+
     body.audio-bar-visible main {
-        padding-top: 180px; /* Ajusté en conséquence */
+        padding-top: 180px;
+        /* Ajusté en conséquence */
     }
 }
 
 @media screen and (max-width: 480px) {
     body.audio-bar-visible::before {
-        height: 100px; /* Hauteur ajustée pour très petits écrans */
+        height: 100px;
+        /* Hauteur ajustée pour très petits écrans */
     }
-    
+
     body.audio-bar-visible .navbar {
-        margin-top: 100px; /* Ajusté en conséquence */
+        margin-top: 100px;
+        /* Ajusté en conséquence */
     }
-    
+
     body.audio-bar-visible main {
-        padding-top: 170px; /* Ajusté en conséquence */
+        padding-top: 170px;
+        /* Ajusté en conséquence */
     }
-} 
+}

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAÉ201 - Construire un réseau informatique | Léo Loss-Jayet</title>
-    
+    <title>SAÉ201 - Construire un réseau informatique | Melih UGURLU</title>
+
     <!-- Performance & SEO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Preloader CSS critique pour masquer tout flash visuel -->
     <style>
         /* Preloader - affiché par défaut */
@@ -28,18 +30,18 @@
             opacity: 1;
             transition: opacity 0.8s ease-out;
         }
-        
+
         #preloader.fade-out {
             opacity: 0;
             pointer-events: none;
         }
-        
+
         .preloader-content {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
+
         .preloader-spinner {
             width: 50px;
             height: 50px;
@@ -48,39 +50,52 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
+
         /* PROTECTION ULTIME : Garder la navbar visible sur toutes les pages pendant le preloader */
         .navbar {
             opacity: 1 !important;
             transform: none !important;
             transition: none !important;
         }
-        
+
         /* Masquer SEULEMENT le contenu principal pendant le preloader */
         body:not(.loaded) main,
         body:not(.loaded) footer {
             opacity: 0;
         }
-        
+
         /* Forcer l'affichage de la police Montserrat pour éviter le flash de police */
-        body, h1, h2, h3, h4, h5, h6, .navbar-logo {
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-logo {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
         }
     </style>
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/projet-detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/img/icons/favicon.png">
 </head>
+
 <body>
     <!-- Preloader -->
     <div id="preloader">
@@ -92,7 +107,7 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="../../index.html" class="navbar-logo">LÉO LOSS-JAYET</a>
+            <a href="../../index.html" class="navbar-logo">Melih UGURLU</a>
             <div class="menu-icon">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -102,28 +117,29 @@
                 <li><a href="../../index.html#accueil" class="nav-link">Accueil</a></li>
                 <li><a href="../../index.html#apropos" class="nav-link">À Propos</a></li>
                 <li><a href="../../index.html#cv" class="nav-link">CV</a></li>
-                <li><a href="../../index.html#projet-phare" class="nav-link">Projet Phare</a></li>
+
                 <li><a href="../../index.html#projets" class="nav-link">Projets</a></li>
-                <li><a href="../../index.html#temoignages" class="nav-link">Témoignages</a></li>
+
                 <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
-    <!-- Contenu de la page projet -->
-    <section class="projet-detail">
-        <div class="section-background">
-            <!-- Les formes seront ajoutées dynamiquement par JavaScript -->
-        </div>
-        <div class="projet-detail-container">
-            <div class="projet-header">
-                <h1 class="projet-title">SAÉ201 - Construire un réseau informatique</h1>
-                <h2 class="projet-subtitle">Déploiement d'une infrastructure réseau sécurisée sous OpenStack</h2>
-                <p class="projet-intro">Découvrez les objectifs, le travail effectué et les compétences acquises lors de cette SAE.</p>
+        <!-- Contenu de la page projet -->
+        <section class="projet-detail">
+            <div class="section-background">
+                <!-- Les formes seront ajoutées dynamiquement par JavaScript -->
             </div>
+            <div class="projet-detail-container">
+                <div class="projet-header">
+                    <h1 class="projet-title">SAÉ201 - Construire un réseau informatique</h1>
+                    <h2 class="projet-subtitle">Déploiement d'une infrastructure réseau sécurisée sous OpenStack</h2>
+                    <p class="projet-intro">Découvrez les objectifs, le travail effectué et les compétences acquises
+                        lors de cette SAE.</p>
+                </div>
 
-            <!-- 
+                <!-- 
             <div class="projet-phare-carousel">
                 <div class="carousel-container">
                     <div class="carousel-track">
@@ -158,57 +174,75 @@
             </div>
             -->
 
-            <div class="projet-section">
-                <h2>Objectifs de la SAE</h2>
-                <p>Mettre en place une infrastructure réseau complète pour une petite entreprise fictive, en utilisant des instances Windows et Linux sous OpenStack, et en configurant plusieurs services réseaux essentiels dans un environnement virtualisé sécurisé.</p>
-            </div>
-
-            <div class="projet-section">
-                <h2>Travail effectué</h2>
-                <p>En binôme, nous avons conçu un réseau à partir de zéro dans OpenStack, en suivant un cahier des charges très précis :</p>
-                <ul>
-                    <li><strong>Création de réseaux privés et publics</strong>, configuration de routeurs et de NAT</li>
-                    <li><strong>Déploiement d'instances</strong> Windows 10 et Rocky Linux 9</li>
-                    <li><strong>Mise en place et test de services :</strong>
-                        <ul>
-                            <li>DNS (dnsmasq) pour la résolution interne</li>
-                            <li>FTP (vsftpd) pour le transfert de fichiers</li>
-                            <li>Web (Apache) avec plusieurs virtualhosts (site de test, CV en ligne, Nextcloud)</li>
-                            <li>Nextcloud avec gestion d'utilisateurs et partage de fichiers</li>
-                            <li>Monitoring avec Prometheus, Node Exporter et Grafana</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p>Un schéma réseau complet a été réalisé sous draw.io avec toutes les tables de routage, et nous avons assuré la connectivité fine entre les instances avec des tests de bout en bout.</p>
-            </div>
-
-            <div class="projet-section">
-                <h2>Compétences acquises</h2>
-                <div class="competence-cards">
-                    <div class="competence-item"><strong>Virtualisation & Cloud :</strong> prise en main d'OpenStack, gestion des volumes, réseaux, IP flottantes</div>
-                    <div class="competence-item"><strong>Réseaux :</strong> routage, NAT, DNS interne, configuration de routes statiques</div>
-                    <div class="competence-item"><strong>Services réseau :</strong> installation, configuration et sécurisation de FTP, DNS, HTTP/HTTPS, Nextcloud</div>
-                    <div class="competence-item"><strong>Sécurité :</strong> gestion des groupes de sécurité OpenStack, configuration des firewalls internes</div>
-                    <div class="competence-item"><strong>Supervision :</strong> installation de Prometheus et création de dashboards Grafana</div>
-                    <div class="competence-item"><strong>Méthodologie projet :</strong> travail en binôme, respect du cahier des charges, validation par étapes</div>
+                <div class="projet-section">
+                    <h2>Objectifs de la SAE</h2>
+                    <p>Mettre en place une infrastructure réseau complète pour une petite entreprise fictive, en
+                        utilisant des instances Windows et Linux sous OpenStack, et en configurant plusieurs services
+                        réseaux essentiels dans un environnement virtualisé sécurisé.</p>
                 </div>
-            </div>
 
-            <div class="projet-section">
-                <h2>Auto-réflexion</h2>
-                <p>Ce projet m'a permis d'approfondir mes compétences réseau en situation quasi-professionnelle. Il m'a appris à être rigoureux dans la documentation, à automatiser certaines tâches, et à comprendre les enjeux de l'interconnexion entre services dans un environnement cloud.</p>
-                <p><em>Une immersion complète dans l'univers du DevOps, entre infrastructure, services, sécurité et supervision.</em></p>
-            </div>
+                <div class="projet-section">
+                    <h2>Travail effectué</h2>
+                    <p>En binôme, nous avons conçu un réseau à partir de zéro dans OpenStack, en suivant un cahier des
+                        charges très précis :</p>
+                    <ul>
+                        <li><strong>Création de réseaux privés et publics</strong>, configuration de routeurs et de NAT
+                        </li>
+                        <li><strong>Déploiement d'instances</strong> Windows 10 et Rocky Linux 9</li>
+                        <li><strong>Mise en place et test de services :</strong>
+                            <ul>
+                                <li>DNS (dnsmasq) pour la résolution interne</li>
+                                <li>FTP (vsftpd) pour le transfert de fichiers</li>
+                                <li>Web (Apache) avec plusieurs virtualhosts (site de test, CV en ligne, Nextcloud)</li>
+                                <li>Nextcloud avec gestion d'utilisateurs et partage de fichiers</li>
+                                <li>Monitoring avec Prometheus, Node Exporter et Grafana</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Un schéma réseau complet a été réalisé sous draw.io avec toutes les tables de routage, et nous
+                        avons assuré la connectivité fine entre les instances avec des tests de bout en bout.</p>
+                </div>
 
-            <div class="projet-conclusion">
-                <p>Les Situations d'Apprentissage et d'Évaluation (SAE) réalisées dans le cadre de ma formation en BUT Réseaux & Télécommunications me permettent d'appliquer théorie et compétences sur des projets concrets. Cette SAE sur la construction d'un réseau informatique a constitué une excellente immersion dans les technologies cloud et l'administration d'infrastructures complexes.</p>
-            </div>
+                <div class="projet-section">
+                    <h2>Compétences acquises</h2>
+                    <div class="competence-cards">
+                        <div class="competence-item"><strong>Virtualisation & Cloud :</strong> prise en main
+                            d'OpenStack, gestion des volumes, réseaux, IP flottantes</div>
+                        <div class="competence-item"><strong>Réseaux :</strong> routage, NAT, DNS interne, configuration
+                            de routes statiques</div>
+                        <div class="competence-item"><strong>Services réseau :</strong> installation, configuration et
+                            sécurisation de FTP, DNS, HTTP/HTTPS, Nextcloud</div>
+                        <div class="competence-item"><strong>Sécurité :</strong> gestion des groupes de sécurité
+                            OpenStack, configuration des firewalls internes</div>
+                        <div class="competence-item"><strong>Supervision :</strong> installation de Prometheus et
+                            création de dashboards Grafana</div>
+                        <div class="competence-item"><strong>Méthodologie projet :</strong> travail en binôme, respect
+                            du cahier des charges, validation par étapes</div>
+                    </div>
+                </div>
 
-            <a href="../../index.html#projets" class="btn return-btn">
-                <i class="fas fa-arrow-left"></i> Retour aux projets
-            </a>
-        </div>
-    </section>
+                <div class="projet-section">
+                    <h2>Auto-réflexion</h2>
+                    <p>Ce projet m'a permis d'approfondir mes compétences réseau en situation quasi-professionnelle. Il
+                        m'a appris à être rigoureux dans la documentation, à automatiser certaines tâches, et à
+                        comprendre les enjeux de l'interconnexion entre services dans un environnement cloud.</p>
+                    <p><em>Une immersion complète dans l'univers du DevOps, entre infrastructure, services, sécurité et
+                            supervision.</em></p>
+                </div>
+
+                <div class="projet-conclusion">
+                    <p>Les Situations d'Apprentissage et d'Évaluation (SAE) réalisées dans le cadre de ma formation en
+                        BUT Réseaux & Télécommunications me permettent d'appliquer théorie et compétences sur des
+                        projets concrets. Cette SAE sur la construction d'un réseau informatique a constitué une
+                        excellente immersion dans les technologies cloud et l'administration d'infrastructures
+                        complexes.</p>
+                </div>
+
+                <a href="../../index.html#projets" class="btn return-btn">
+                    <i class="fas fa-arrow-left"></i> Retour aux projets
+                </a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -225,21 +259,21 @@
                         <li><a href="../../index.html#contact">Contact</a></li>
                     </ul>
                 </nav>
-                
+
                 <div class="footer-contact">
                     <h3>Contact</h3>
                     <div class="footer-contact-info">
                         <div class="footer-contact-item">
                             <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <span><a href="mailto:contact@leolossjayet.fr">contact@leolossjayet.fr</a></span>
+                            <span><a href="mailto:contact@melihugurlu.fr">contact@melihugurlu.fr</a></span>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-phone" aria-hidden="true"></i>
-                            <span><a href="tel:+33652804449">06 52 80 44 49</a></span>
+                            <span>Sur demande</span>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                            <span>Grenoble, France</span>
+                            <span>Dijon, France</span>
                         </div>
                     </div>
                 </div>
@@ -247,16 +281,18 @@
                 <div class="footer-social-section">
                     <h3>Réseaux sociaux</h3>
                     <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/l%C3%A9o-loss-jayet-1ab463351/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                        <a href="https://github.com/leolossjayet/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/melihugurlu/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://github.com/secbymelih" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="fab fa-github" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-divider"></div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; <time datetime="2025">2025</time> Léo Loss-Jayet. Tous droits réservés.</p>
+                <p>&copy; <time datetime="2025">2025</time> Melih UGURLU. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -264,4 +300,5 @@
     <!-- JavaScript -->
     <script src="../../js/script.js"></script>
 </body>
-</html> 
+
+</html>

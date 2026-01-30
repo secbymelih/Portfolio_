@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ203 - WebEntreprise | Melih UGURLU</title>
+
+    <!-- Performance & SEO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Preloader CSS critique pour masquer tout flash visuel -->
+    <style>
+        /* Preloader - affiché par défaut */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0077B6 0%, #023E8A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.8s ease-out;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .preloader-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preloader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* PROTECTION ULTIME : Garder la navbar visible sur toutes les pages pendant le preloader */
+        .navbar {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        /* Masquer SEULEMENT le contenu principal pendant le preloader */
+        body:not(.loaded) main,
+        body:not(.loaded) footer {
+            opacity: 0;
+        }
+
+        /* Forcer l'affichage de la police Montserrat pour éviter le flash de police */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-logo {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        }
+    </style>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/projet-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/icons/favicon.png">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../../index.html" class="navbar-logo">Melih UGURLU</a>
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="../../index.html#apropos" class="nav-link">À Propos</a></li>
+                <li><a href="../../index.html#cv" class="nav-link">CV</a></li>
+
+                <li><a href="../../index.html#projets" class="nav-link">Projets</a></li>
+
+                <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Contenu de la page projet -->
+        <section class="projet-detail">
+            <div class="section-background">
+                <!-- Les formes seront ajoutées dynamiquement par JavaScript -->
+            </div>
+            <div class="projet-detail-container">
+                <div class="projet-header">
+                    <h1 class="projet-title">SAÉ203 - WebEntreprise</h1>
+                    <h2 class="projet-subtitle">Développement d'une application web dynamique avec Flask et base de
+                        données</h2>
+                    <p class="projet-intro">Découvrez les objectifs, le travail effectué et les compétences acquises
+                        lors de cette SAE.</p>
+                </div>
+
+                <div class="projet-section">
+                    <h2>Objectifs de la SAE</h2>
+                    <p>L'objectif était de concevoir et de développer une solution web complète pour la gestion
+                        technique d'une entreprise. Il s'agissait de créer une application capable d'interagir avec une
+                        base de données pour gérer des techniciens, des équipements informatiques, des salles et des
+                        capteurs, tout en offrant une interface utilisateur ergonomique et sécurisée.</p>
+                </div>
+
+                <div class="projet-section">
+                    <h2>Travail effectué</h2>
+                    <p>J'ai développé une application <strong>Flask</strong> (Python) structurée de manière modulaire
+                        grâce à l'utilisation de <strong>Blueprints</strong> (gestion séparée de l'authentification, des
+                        techniciens, des capteurs, etc.).</p>
+                    <p>Le projet impliquait la conception d'une base de données relationnelle et l'écriture de requêtes
+                        SQL pour effectuer les opérations CRUD (Create, Read, Update, Delete) sur les différentes
+                        entités du système.</p>
+                    <p>J'ai également mis en place un système d'authentification sécurisé permettant aux administrateurs
+                        de se connecter pour accéder aux fonctionnalités de gestion.</p>
+                </div>
+
+                <div class="projet-section">
+                    <h2>Compétences acquises</h2>
+                    <div class="competence-cards">
+                        <div class="competence-item"><strong>Développement Web Back-end :</strong> Maîtrise du framework
+                            Flask, du templating Jinja2 et de l'architecture MVC.</div>
+                        <div class="competence-item"><strong>Base de données :</strong> Conception de schémas
+                            relationnels, requêtes SQL complexes et intégration avec Python.</div>
+                        <div class="competence-item"><strong>Architecture logicielle :</strong> Structuration d'une
+                            application en modules (Blueprints) pour la maintenabilité.</div>
+                        <div class="competence-item"><strong>Sécurité :</strong> Gestion de l'authentification et des
+                            sessions utilisateurs.</div>
+                        <div class="competence-item"><strong>Outils de développement :</strong> Utilisation de Git pour
+                            le versioning et d'environnements virtuels Python.</div>
+                    </div>
+                </div>
+
+                <div class="projet-section">
+                    <h2>Auto-réflexion</h2>
+                    <p>Ce projet a été une étape charnière dans mon apprentissage du développement web "Full Stack". Il
+                        m'a permis de comprendre la complexité et les enjeux d'une application dynamique qui ne se
+                        contente pas d'afficher du contenu statique mais qui interagit réellement avec des données.</p>
+                    <p><em>J'ai particulièrement apprécié la rigueur nécessaire pour organiser le code en modules
+                            indépendants, ce qui rend l'application beaucoup plus robuste et facile à faire
+                            évoluer.</em></p>
+                </div>
+
+                <div class="projet-conclusion">
+                    <p>Les Situations d'Apprentissage et d'Évaluation (SAE) réalisées dans le cadre de ma formation en
+                        BUT Réseaux & Télécommunications me permettent d'appliquer théorie et compétences sur des
+                        projets concrets. Cette SAE m'a offert une vision complète du cycle de vie d'une application
+                        web, de la base de données jusqu'à l'interface utilisateur.</p>
+                </div>
+
+                <a href="../../index.html#projets" class="btn return-btn">
+                    <i class="fas fa-arrow-left"></i> Retour aux projets
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+        <div class="footer-container">
+            <div class="footer-main">
+                <nav class="footer-nav" aria-label="Navigation du pied de page">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#accueil">Accueil</a></li>
+                        <li><a href="../../index.html#apropos">À propos</a></li>
+                        <li><a href="../../index.html#cv">CV</a></li>
+                        <li><a href="../../index.html#projets">Projets</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span><a href="mailto:contact@melihugurlu.fr">contact@melihugurlu.fr</a></span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <span>Sur demande</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Dijon, France</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-social-section">
+                    <h3>Réseaux sociaux</h3>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/melihugurlu/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://github.com/secbymelih" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="fab fa-github" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p>&copy; <time datetime="2025">2025</time> Melih UGURLU. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>

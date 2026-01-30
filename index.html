@@ -1,73 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Léo Loss-Jayet | Étudiant Réseaux & Télécommunications | Portfolio</title>
-    <meta name="description" content="Portfolio de Léo Loss-Jayet, étudiant en Réseaux et Télécommunications à Grenoble. Spécialisé en cybersécurité, cloud computing, virtualisation et développement. Découvrez mes projets et compétences techniques.">
-    <meta name="keywords" content="Léo Loss-Jayet, réseaux, télécommunications, cybersécurité, cloud computing, virtualisation, développement web, portfolio, étudiant, Grenoble, BUT, wireshark, python, linux">
-    <meta name="author" content="Léo Loss-Jayet">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://leolossjayet.fr/">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Léo Loss-Jayet | Étudiant Réseaux & Télécommunications">
-    <meta property="og:description" content="Portfolio de Léo Loss-Jayet, étudiant en Réseaux et Télécommunications. Spécialisé en cybersécurité, cloud computing et développement.">
-    <meta property="og:url" content="https://leolossjayet.fr/">
-    <meta property="og:site_name" content="Portfolio Léo Loss-Jayet">
-    <meta property="og:locale" content="fr_FR">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Léo Loss-Jayet | Étudiant Réseaux & Télécommunications">
-    <meta name="twitter:description" content="Portfolio de Léo Loss-Jayet, étudiant en Réseaux et Télécommunications. Spécialisé en cybersécurité, cloud computing et développement.">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Léo Loss-Jayet",
-        "jobTitle": "Étudiant en Réseaux et Télécommunications",
-        "description": "Étudiant spécialisé en réseaux, télécommunications, cybersécurité et cloud computing",
-        "url": "https://leolossjayet.fr/",
-        "email": "contact@leolossjayet.fr",
-        "telephone": "+33652804449",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Grenoble",
-            "addressCountry": "France"
-        },
-        "alumniOf": {
-            "@type": "EducationalOrganization",
-            "name": "Université Grenoble Alpes"
-        },
-        "knowsAbout": [
-            "Réseaux informatiques",
-            "Télécommunications",
-            "Cybersécurité",
-            "Cloud Computing",
-            "Virtualisation",
-            "Développement web",
-            "Python",
-            "Linux"
-        ],
-        "sameAs": [
-            "https://www.linkedin.com/in/léo-loss-jayet-1ab463351/",
-            "https://github.com/leolossjayet/"
-        ]
-    }
-    </script>
-    
-    <!-- Performance & SEO -->
+
+    <!-- TODO: Modifier le titre -->
+    <title>Melih UGURLU | Portfolio</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Preloader CSS critique pour masquer tout flash visuel -->
     <style>
         /* Preloader - affiché par défaut */
@@ -85,18 +33,18 @@
             opacity: 1;
             transition: opacity 0.8s ease-out;
         }
-        
+
         #preloader.fade-out {
             opacity: 0;
             pointer-events: none;
         }
-        
+
         .preloader-content {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
+
         .preloader-spinner {
             width: 50px;
             height: 50px;
@@ -105,31 +53,43 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
+
         /* PROTECTION ULTIME : Garder la navbar visible sur toutes les pages pendant le preloader */
         .navbar {
             opacity: 1 !important;
             transform: none !important;
             transition: none !important;
         }
-        
+
         /* Masquer SEULEMENT le contenu principal pendant le preloader */
         body:not(.loaded) main,
         body:not(.loaded) footer {
             opacity: 0;
         }
-        
+
         /* Forcer l'affichage de la police Montserrat pour éviter le flash de police */
-        body, h1, h2, h3, h4, h5, h6, .navbar-logo {
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-logo {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
         }
     </style>
-    
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -138,7 +98,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icons/favicon.png">
     <link rel="apple-touch-icon" href="assets/img/icons/favicon.png">
 </head>
-<body itemscope itemtype="https://schema.org/WebPage">
+
+<body>
     <!-- Preloader -->
     <div id="preloader">
         <div class="preloader-content">
@@ -148,635 +109,644 @@
 
     <header>
         <nav class="navbar" role="navigation" aria-label="Navigation principale">
-        <div class="navbar-container">
-                <a href="#accueil" class="navbar-logo" aria-label="Retour à l'accueil">LÉO LOSS-JAYET</a>
+            <div class="navbar-container">
+                <!-- TODO: Remplacer par votre nom -->
+                <a href="#accueil" class="navbar-logo" aria-label="Retour à l'accueil">Melih UGURLU</a>
                 <button class="menu-icon" aria-label="Menu de navigation" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </button>
-            <ul class="nav-menu">
-                <li><a href="#accueil" class="nav-link">Accueil</a></li>
-                <li><a href="#apropos" class="nav-link">À propos</a></li>
-                <li><a href="#cv" class="nav-link">CV</a></li>
-                <li><a href="#projet-phare" class="nav-link">Projet Phare</a></li>
-                <li><a href="#projets" class="nav-link">Projets</a></li>
-                <li><a href="#temoignages" class="nav-link">Témoignages</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+                <ul class="nav-menu">
+                    <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                    <li><a href="#apropos" class="nav-link">À propos</a></li>
+                    <li><a href="#cv" class="nav-link">CV</a></li>
+                    <li><a href="#projets" class="nav-link">Projets</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <!-- Barre de contrôle audio -->
-    <div id="audio-control-bar" class="audio-control-bar hidden">
-        <div class="audio-control-container">
-            <div class="audio-info">
-                <span id="current-track-name">Aucun morceau</span>
-            </div>
-            <div class="audio-controls">
-                <button id="prev-track" class="audio-btn" aria-label="Morceau précédent">
-                    <i class="fas fa-step-backward" aria-hidden="true"></i>
-                </button>
-                <button id="play-pause" class="audio-btn audio-btn-primary" aria-label="Lecture/Pause">
-                    <i class="fas fa-play" aria-hidden="true"></i>
-                </button>
-                <button id="next-track" class="audio-btn" aria-label="Morceau suivant">
-                    <i class="fas fa-step-forward" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div class="audio-progress">
-                <span id="current-time">0:00</span>
-                <div class="progress-bar">
-                    <div id="progress-fill" class="progress-fill"></div>
-                    <input type="range" id="progress-slider" class="progress-slider" min="0" max="100" value="0">
-                </div>
-                <span id="total-time">0:00</span>
-            </div>
-            <button id="close-audio-bar" class="audio-btn audio-close-btn" aria-label="Fermer la barre audio">
-                <i class="fas fa-times" aria-hidden="true"></i>
-            </button>
-        </div>
-    </div>
+
 
     <main>
-    <!-- Section Accueil -->
-        <section id="accueil" class="accueil" itemscope itemtype="https://schema.org/Person">
-        <div class="bg-overlay"></div>
-        <div class="accueil-container">
-                <h1 class="fade-in" itemprop="name">LÉO LOSS-JAYET</h1>
-                <h2 class="fade-in-delayed-1" itemprop="jobTitle">Étudiant en Réseaux et Télécommunications</h2>
-                <p class="fade-in-delayed-2" itemprop="description">Comprendre l'invisible pour construire du solide : réseaux, systèmes, sécurité.</p>
-            <div class="buttons fade-in-delayed-3">
-                <a href="#cv" class="btn">Voir mon CV</a>
-                <a href="#apropos" class="btn btn-outline">En savoir plus</a>
+        <!-- Section Accueil -->
+        <!-- TODO: Remplacer par vos informations -->
+        <section id="accueil" class="accueil">
+            <div class="bg-overlay"></div>
+            <div class="accueil-container">
+                <h1 class="fade-in">Melih UGURLU</h1>
+                <h2 class="fade-in-delayed-1">Étudiant en Réseaux et Télécommunications</h2>
+                <p class="fade-in-delayed-2" itemprop="description">Comprendre l'invisible pour construire du solide :
+                    réseaux, systèmes, sécurité.</p>
+                <div class="buttons fade-in-delayed-3">
+                    <a href="#cv" class="btn">Voir mon CV</a>
+                    <a href="#apropos" class="btn btn-outline">En savoir plus</a>
+                </div>
             </div>
-        </div>
             <a href="#apropos" class="scroll-down" aria-label="Faire défiler vers la section À propos">
                 <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </a>
-    </section>
+            </a>
+        </section>
 
-    <!-- Section À propos -->
-    <section id="apropos" class="apropos">
+        <!-- Section À propos -->
+        <section id="apropos" class="apropos">
             <div class="section-background"></div>
-        <div class="apropos-container">
-            <div class="apropos-block fade-in-scroll">
-                <h2>Qui suis-je ?</h2>
-                <p>Étudiant en Réseaux et Télécommunications, je m'intéresse particulièrement à l'architecture des systèmes, à leur mise en réseau, et à leur sécurisation. Mon parcours m'a permis d'acquérir une approche rigoureuse, orientée infrastructure et solutions concrètes.</p>
-            </div>
-            
-            <div class="apropos-block fade-in-scroll">
-                <h2>Mes domaines de prédilection</h2>
-                <p>Je me spécialise dans les environnements réseaux, avec un fort attrait pour le cloud computing, la virtualisation, et la cybersécurité. Ce sont pour moi des piliers indispensables de toute architecture moderne, qui exigent à la fois méthode, vision d'ensemble et capacité d'adaptation.</p>
-            </div>
-            
-            <div class="apropos-block fade-in-scroll">
-                <h2>Mon objectif</h2>
-                <p>Construire des infrastructures fiables, évolutives et sécurisées. Je veux progresser dans des environnements techniques exigeants où je pourrai mettre en œuvre mes compétences réseau, renforcer la sécurité des systèmes, et tirer parti des technologies cloud pour répondre aux enjeux actuels.</p>
-            </div>
-        </div>
-    </section>
+            <div class="apropos-container">
+                <div class="apropos-block fade-in-scroll">
+                    <h2>Qui suis-je ?</h2>
+                    <p>Étudiant en Réseaux et Télécommunications, je m'intéresse particulièrement à l'architecture des
+                        systèmes, à leur mise en réseau, et à leur sécurisation. Mon parcours m'a permis d'acquérir une
+                        approche rigoureuse, orientée infrastructure et solutions concrètes.</p>
+                </div>
 
-    <!-- Section CV -->
-    <section id="cv" class="cv">
+                <div class="apropos-block fade-in-scroll">
+                    <h2>Mes domaines de prédilection</h2>
+                    <p>Je me spécialise dans les environnements réseaux, avec un fort attrait pour le cloud computing,
+                        la virtualisation, et la cybersécurité. Ce sont pour moi des piliers indispensables de toute
+                        architecture moderne, qui exigent à la fois méthode, vision d'ensemble et capacité d'adaptation.
+                    </p>
+                </div>
+
+                <div class="apropos-block fade-in-scroll">
+                    <h2>Mon objectif</h2>
+                    <p>Construire des infrastructures fiables, évolutives et sécurisées. Je veux progresser dans des
+                        environnements techniques exigeants où je pourrai mettre en œuvre mes compétences réseau,
+                        renforcer la sécurité des systèmes, et tirer parti des technologies cloud pour répondre aux
+                        enjeux actuels.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CV -->
+        <section id="cv" class="cv">
             <div class="section-background"></div>
-        <div class="cv-container">
+            <div class="cv-container">
                 <article class="cv-section competences">
                     <div class="section-background"></div>
-                <h2 class="cv-title">Compétences Techniques</h2>
-                <div class="competences-container">
-                    <div class="competences-col">
-                            <div class="competence-item"><strong>Diagnostic et troubleshooting :</strong> Surveillance du trafic réseau, analyse de paquets avec Wireshark</div>
-                            <div class="competence-item"><strong>Développement web :</strong> Création de sites avec HTML, CSS, JavaScript, PHP</div>
-                            <div class="competence-item"><strong>Développement mobile :</strong> Conception d'applications avec Flutter et Dart</div>
-                            <div class="competence-item"><strong>Automatisation :</strong> Scripts Python/Bash pour simplifier certaines tâches réseau</div>
-                    </div>
-                    <div class="competences-col">
-                            <div class="competence-item"><strong>Sécurisation réseau :</strong> Mise en place de VPN, configuration de pare-feu (UFW, iptables)</div>
-                            <div class="competence-item"><strong>Virtualisation :</strong> Installation et gestion de machines virtuelles avec VirtualBox et VMware</div>
-                            <div class="competence-item"><strong>Base de données :</strong> Manipulation et requêtes SQL avec MySQL et SQLite</div>
-                            <div class="competence-item"><strong>Support et documentation :</strong> Rédaction de procédures et bonnes pratiques</div>
+                    <h2 class="cv-title">Compétences Techniques</h2>
+                    <div class="competences-container">
+                        <div class="competences-col">
+                            <div class="competence-category">
+                                <h3>☁️ Cloud & Virtualisation</h3>
+                                <div class="competence-item">
+                                    <h4>Virtualisation</h4>
+                                    <p>Gestion d'environnements virtualisés (VMware ESXi, VirtualBox) et allocation de
+                                        ressources.</p>
+                                </div>
+                                <div class="competence-item">
+                                    <h4>Conteneurisation</h4>
+                                    <p>Déploiement et gestion de conteneurs (Docker) pour l'isolation des services.</p>
+                                </div>
+                                <div class="competence-item">
+                                    <h4>Architecture Cloud</h4>
+                                    <p>Compréhension des modèles de service (IaaS, PaaS, SaaS) et notions sur les
+                                        fournisseurs publics (AWS/Azure).</p>
+                                </div>
+                            </div>
+                            <div class="competence-category">
+                                <h3>🌐 Administration Réseaux</h3>
+                                <div class="competence-item">
+                                    <h4>Infrastructures LAN/WAN</h4>
+                                    <p>Configuration de switchs et routeurs (Cisco IOS), segmentation (VLANs) et
+                                        protocoles de routage (OSPF, RIP).</p>
+                                </div>
+                                <div class="competence-item">
+                                    <h4>Troubleshooting</h4>
+                                    <p>Diagnostic avancé, analyse de paquets et surveillance du trafic via Wireshark.
+                                    </p>
+                                </div>
+                                <div class="competence-item">
+                                    <h4>Services Réseaux</h4>
+                                    <p>Implémentation et gestion des services critiques (DNS, DHCP, NAT, QoS).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="competences-col">
+                            <div class="competence-category">
+                                <h3>🛡️ Système & Cybersécurité</h3>
+                                <div class="competence-item">
+                                    <h4>Administration Système</h4>
+                                    <p>Gestion Windows Server (Active Directory, GPO, DNS) et environnements Linux
+                                        (Debian/Ubuntu).</p>
+                                </div>
+                                <div class="competence-item">
+                                    <h4>Sécurité Défensive</h4>
+                                    <p>Configuration de pare-feux (pfsense, UFW), mise en place de VPN (IPsec, OpenVPN)
+                                        et ACLs.</p>
+                                </div>
+                                <div class="competence-item">
+                                    <h4>Audit & Hygiène</h4>
+                                    <p>Scan de vulnérabilités (Nmap), analyse de logs et durcissement des configurations
+                                        (Hardening).</p>
+                                </div>
+                            </div>
+                            <div class="competence-category">
+                                <h3>⚙️ Automatisation & DevOps</h3>
+                                <div class="competence-item">
+                                    <h4>Scripting</h4>
+                                    <p>Automatisation des tâches d'administration et de sauvegarde via Python et Bash.
+                                    </p>
+                                </div>
+                                <div class="competence-item">
+                                    <h4>Web & Base de Données</h4>
+                                    <p>Compréhension des architectures Web (HTML/PHP) et requêtes SQL pour l'interaction
+                                        avec les données.</p>
+                                </div>
+                                <div class="competence-item">
+                                    <h4>Versioning</h4>
+                                    <p>Gestion de versions et collaboration via Git.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </article>
 
                 <article class="cv-section outils">
                     <div class="section-background"></div>
-                <h2 class="cv-title">Mes Outils</h2>
-                <div class="outils-grid">
-                    <div class="outil-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Logo Python - Langage de programmation" width="48" height="48">
-                        <p>Python</p>
+                    <h2 class="cv-title">Mes Outils</h2>
+                    <div class="outils-grid">
+                        <div class="outil-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                alt="Logo Python - Langage de programmation" width="48" height="48">
+                            <p>Python</p>
+                        </div>
+                        <div class="outil-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                                alt="Logo Linux - Système d'exploitation" width="48" height="48">
+                            <p>Linux</p>
+                        </div>
+                        <div class="outil-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                                alt="Logo Git - Système de contrôle de version" width="48" height="48">
+                            <p>Git</p>
+                        </div>
+                        <div class="outil-item">
+                            <img src="assets/img/icons/wireshark.svg"
+                                alt="Logo Wireshark - Analyseur de protocoles réseau" width="48" height="48">
+                            <p>Wireshark</p>
+                        </div>
+                        <div class="outil-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Virtualbox_logo.svg"
+                                alt="Logo VirtualBox - Machine virtuelle" width="48" height="48">
+                            <p>VirtualBox</p>
+                        </div>
+                        <div class="outil-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                                alt="Logo HTML5 - Langage de marquage" width="48" height="48">
+                            <p>HTML5</p>
+                        </div>
+                        <div class="outil-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                alt="Logo MySQL - Base de données" width="48" height="48">
+                            <p>MySQL</p>
+                        </div>
+                        <div class="outil-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg"
+                                alt="Logo Bash - Interpréteur de commandes" width="48" height="48">
+                            <p>Bash</p>
+                        </div>
                     </div>
-                    <div class="outil-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Logo Linux - Système d'exploitation" width="48" height="48">
-                        <p>Linux</p>
-                    </div>
-                    <div class="outil-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Logo Git - Système de contrôle de version" width="48" height="48">
-                        <p>Git</p>
-                    </div>
-                    <div class="outil-item">
-                            <img src="assets/img/icons/wireshark.svg" alt="Logo Wireshark - Analyseur de protocoles réseau" width="48" height="48">
-                        <p>Wireshark</p>
-                    </div>
-                    <div class="outil-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Virtualbox_logo.svg" alt="Logo VirtualBox - Machine virtuelle" width="48" height="48">
-                        <p>VirtualBox</p>
-                    </div>
-                    <div class="outil-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="Logo HTML5 - Langage de marquage" width="48" height="48">
-                        <p>HTML5</p>
-                    </div>
-                    <div class="outil-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="Logo MySQL - Base de données" width="48" height="48">
-                        <p>MySQL</p>
-                    </div>
-                    <div class="outil-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Logo Bash - Interpréteur de commandes" width="48" height="48">
-                        <p>Bash</p>
-                    </div>
-                </div>
                 </article>
 
                 <article class="cv-section experiences" itemscope itemtype="https://schema.org/WorkHistory">
                     <div class="section-background"></div>
-                <h2 class="cv-title">Expériences Professionnelles</h2>
-                <div class="timeline">
-                    <div class="point-right" data-for="exp-1"></div>
-                    <div class="point-left" data-for="exp-2"></div>
-                        <div class="timeline-item right" id="exp-1" itemscope itemtype="https://schema.org/WorkExperience">
-                        <div class="timeline-content">
+                    <h2 class="cv-title">Expériences Professionnelles</h2>
+                    <div class="timeline">
+                        <div class="point-right" data-for="exp-1"></div>
+                        <div class="point-left" data-for="exp-2"></div>
+                        <div class="timeline-item right" id="exp-1" itemscope
+                            itemtype="https://schema.org/WorkExperience">
+                            <div class="timeline-content">
                                 <h3 itemprop="startDate">Depuis 2021</h3>
-                                <h4 itemprop="jobTitle">Paysagiste autodidacte</h4>
-                                <p class="timeline-subtitle" itemprop="employmentType">Bénévolat</p>
+                                <h4 itemprop="jobTitle">Webmaster</h4>
+                                <p class="timeline-subtitle" itemprop="hiringOrganization">Société de Transport</p>
                                 <ul itemprop="description">
-                                <li>Création et distribution de flyers pour promouvoir les services</li>
-                                <li>Tonte de pelouses et entretien des espaces verts pour des particuliers</li>
-                                <li>Taille des haies et arbustes pour maintenir l'esthétique des jardins</li>
-                                <li>Nettoyage des allées et des zones extérieures</li>
-                                <li>Gestion autonome des plannings et relations clients</li>
-                            </ul>
-                        </div>
-                    </div>
-                        <div class="timeline-item left" id="exp-2" itemscope itemtype="https://schema.org/WorkExperience">
-                        <div class="timeline-content">
-                                <h3><time itemprop="startDate" datetime="2022-07">Juillet 2022</time>, <time datetime="2023-07">2023</time>, <time itemprop="endDate" datetime="2024-07">2024</time></h3>
-                                <h4 itemprop="jobTitle">Ouvrier maraîcher</h4>
-                                <p class="timeline-subtitle" itemprop="hiringOrganization">Les Jardins de Malissoles</p>
-                                <ul itemprop="description">
-                                <li>Entretien des cultures : désherbage, arrosage, surveillance des maladies</li>
-                                <li>Récolte des légumes selon les maturités</li>
-                                <li>Conditionnement des produits pour la vente directe</li>
-                                <li>Participation aux marchés paysans organisés sur place</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                </article>
-
-                <article class="cv-section formations" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
-                    <div class="section-background"></div>
-                <h2 class="cv-title">Formations</h2>
-                <div class="timeline-horizontal">
-                    <div class="point-bottom" data-for="formation-1"></div>
-                    <div class="point-top" data-for="formation-2"></div>
-                        <div class="timeline-item-horizontal bottom" id="formation-1" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
-                        <div class="timeline-content-horizontal">
-                                <h3><time itemprop="dateCreated" datetime="2024">2024</time></h3>
-                                <h4 itemprop="name">Baccalauréat Général Scientifique</h4>
-                                <p class="timeline-subtitle" itemprop="sourceOrganization">Lycée Vaucanson - Grenoble</p>
-                                <p itemprop="description">Spécialités : Mathématiques, Physique-Chimie, NSI (Numérique et Sciences Informatiques)</p>
+                                    <li>Refonte complète du site web de l'entreprise (structure, design, contenu)</li>
+                                    <li>Développement d'un site responsive adapté à tous les supports (mobile, tablette,
+                                        desktop)</li>
+                                    <li>Gestion de l'architecture technique et optimisation des performances</li>
+                                    <li>Maintenance et mises à jour régulières du site</li>
+                                    <li>Intégration de fonctionnalités complexes (formulaires, galeries, SEO)</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="timeline-item-horizontal top" id="formation-2" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
+                        <div class="timeline-item left" id="exp-2" itemscope
+                            itemtype="https://schema.org/WorkExperience">
+                            <div class="timeline-content">
+                                <h3><time itemprop="startDate" datetime="2022-07">Juillet 2022</time>, <time
+                                        datetime="2023-07">2023</time>, <time itemprop="endDate"
+                                        datetime="2024-07">2024</time></h3>
+                                <h4 itemprop="jobTitle">Déménageur</h4>
+                                <p class="timeline-subtitle" itemprop="hiringOrganization">Palaud Transport</p>
+                                <ul itemprop="description">
+                                    <li>Chargement et déchargement de camions avec soin et efficacité</li>
+                                    <li>Manutention de mobilier et équipements lourds ou fragiles</li>
+                                    <li>Protection et emballage des objets pour le transport</li>
+                                    <li>Travail en équipe et coordination des opérations</li>
+                                    <li>Gestion du temps et respect des délais de livraison</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cv-section formations" itemscope
+                    itemtype="https://schema.org/EducationalOccupationalCredential">
+                    <div class="section-background"></div>
+                    <h2 class="cv-title">Formations</h2>
+                    <div class="timeline-horizontal">
+                        <div class="point-bottom" data-for="formation-1"></div>
+                        <div class="point-top" data-for="formation-2"></div>
+                        <div class="timeline-item-horizontal bottom" id="formation-1" itemscope
+                            itemtype="https://schema.org/EducationalOccupationalCredential">
+                            <div class="timeline-content-horizontal">
+                                <h3><time itemprop="dateCreated" datetime="2024">2024</time></h3>
+                                <h4 itemprop="name">Baccalauréat Général Scientifique</h4>
+                                <p class="timeline-subtitle" itemprop="sourceOrganization">Lycée André Argouges -
+                                    Grenoble
+                                </p>
+                                <p itemprop="description">Spécialités : Mathématiques, Physique-Chimie, NSI (Numérique
+                                    et Sciences Informatiques)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item-horizontal top" id="formation-2" itemscope
+                            itemtype="https://schema.org/EducationalOccupationalCredential">
                             <div class="timeline-content-horizontal">
                                 <h3><time itemprop="startDate" datetime="2024">2024</time> - En cours</h3>
                                 <h4 itemprop="name">BUT Réseaux & Télécom</h4>
                                 <p class="timeline-subtitle" itemprop="sourceOrganization">Université Grenoble Alpes</p>
                                 <p itemprop="description">Formation en réseaux, télécoms, cloud et cybersécurité.</p>
-                    </div>
+                            </div>
                         </div>
                     </div>
                 </article>
 
                 <article class="cv-section anglais">
                     <div class="section-background"></div>
-                <h2 class="cv-title">Anglais & Expériences Internationales</h2>
-                <div class="anglais-container">
-                    <div class="globe-container">
+                    <h2 class="cv-title">Anglais & Expériences Internationales</h2>
+                    <div class="anglais-container">
+                        <div class="globe-container">
                             <div id="globe-3d" aria-hidden="true"></div>
-                    </div>
-                    <div class="anglais-blocks">
-                        <div class="anglais-block">
-                            <h3>Compétences linguistiques</h3>
-                            <p>Bases solides à l'oral et à l'écrit acquises au lycée.</p>
                         </div>
-                        <div class="anglais-block">
-                            <h3>Voyages internationaux</h3>
-                            <p>Séjours prolongés aux USA et au Canada.</p>
+                        <div class="anglais-blocks">
+                            <div class="anglais-block">
+                                <h3>Compétences linguistiques</h3>
+                                <p>Mention Anglais Européen au Baccalauréat. Niveau solide à l'oral et à l'écrit.</p>
+                            </div>
+                            <div class="anglais-block">
+                                <h3>Voyages internationaux</h3>
+                                <p>Séjours prolongés aux USA et au Canada.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </article>
 
                 <article class="cv-section interets">
                     <div class="section-background"></div>
-                <h2 class="cv-title">Centres d'Intérêts</h2>
-                <div class="tag-cloud">
-                    <span class="tag size-l tag-guitare" style="cursor: pointer;">Guitare électrique <i class="fas fa-volume-up" aria-hidden="true"></i></span>
-                    <span class="tag size-xl tag-cinema" style="cursor: pointer;">Cinéma <i class="fas fa-external-link-alt" aria-hidden="true"></i></span>
-                    <span class="tag size-s">Canoë</span>
-                    <span class="tag size-m">Randonnée</span>
-                    <span class="tag size-l">Innovation</span>
-                </div>
+                    <h2 class="cv-title">Centres d'Intérêts</h2>
+                    <div class="tag-cloud">
+                        <span class="tag size-l">Guitare électrique</span>
+                        <span class="tag size-xl">Cinéma</span>
+                        <span class="tag size-s">Canoë</span>
+                        <span class="tag size-m">Randonnée</span>
+                        <span class="tag size-l">Innovation</span>
+                    </div>
                 </article>
 
                 <article class="cv-section soft-skills">
                     <div class="section-background"></div>
-                <h2 class="cv-title">Soft Skills</h2>
-                <div class="soft-skills-container">
-                    <div class="soft-skill-bubble">
-                        <h3>Résultats</h3>
-                        <p>Orienté vers l'atteinte des objectifs.</p>
+                    <h2 class="cv-title">Soft Skills</h2>
+                    <div class="soft-skills-container">
+                        <div class="soft-skill-bubble">
+                            <h3>Résultats</h3>
+                            <p>Orienté vers l'atteinte des objectifs.</p>
+                        </div>
+                        <div class="soft-skill-bubble">
+                            <h3>Esprit Critique</h3>
+                            <p>Analyse continue pour garantir la qualité.</p>
+                        </div>
+                        <div class="soft-skill-bubble">
+                            <h3>Communication Dynamique</h3>
+                            <p>Transmettre les idées avec clarté et énergie.</p>
+                        </div>
                     </div>
-                    <div class="soft-skill-bubble">
-                        <h3>Esprit Critique</h3>
-                        <p>Analyse continue pour garantir la qualité.</p>
-                    </div>
-                    <div class="soft-skill-bubble">
-                        <h3>Communication Dynamique</h3>
-                        <p>Transmettre les idées avec clarté et énergie.</p>
-                    </div>
-                </div>
-                <div class="cv-download">
-                        <a href="assets/downloads/cv.pdf" class="btn btn-outline" download aria-describedby="cv-download-info">
+                    <div class="cv-download">
+                        <a href="assets/downloads/cv.pdf" class="btn btn-outline" download
+                            aria-describedby="cv-download-info">
                             <i class="fas fa-download" aria-hidden="true"></i> Télécharger mon CV (PDF)
-                    </a>
-                        <span id="cv-download-info" class="sr-only">Télécharge le CV de Léo Loss-Jayet au format PDF</span>
-                </div>
+                        </a>
+                        <span id="cv-download-info" class="sr-only">Télécharge le CV de Léo Loss-Jayet au format
+                            PDF</span>
+                    </div>
                 </article>
-        </div>
-    </section>
-
-    <!-- Section Projet Phare -->
-        <section id="projet-phare" class="projet-phare" itemscope itemtype="https://schema.org/CreativeWork">
-            <div class="section-background"></div>
-        <div class="projet-phare-container">
-            <div class="projet-phare-content">
-                    <h2 class="fade-in-scroll" itemprop="name">Speedix - Avertisseur de radars</h2>
-                    <div class="projet-phare-description fade-in-scroll" itemprop="description">
-                    <p>Avec mon frère, nous avons créé Speedix, une application mobile qui avertit les conducteurs de la présence de radars pour une conduite plus sereine. Actuellement disponible sur Android, nous travaillons ensemble pour la rendre bientôt accessible sur iOS.</p>
-                    <p>Je me charge principalement de la communication autour de l'application, du maintien et de la mise à jour des bases de données, tout en soutenant mon frère sur le développement technique. Grâce à son expérience dans la programmation, j'apprends continuellement et contribue aux améliorations de l'application.</p>
-                </div>
-                
-                <div class="competences-acquises fade-in-scroll">
-                    <h3>Compétences acquises</h3>
-                    <div class="competence-cards">
-                            <div class="competence-item"><strong>Bases de données :</strong> Mettre à jour et gérer des bases de données dynamiques</div>
-                            <div class="competence-item"><strong>Travail d'équipe :</strong> Répartir les responsabilités et collaborer efficacement</div>
-                            <div class="competence-item"><strong>Communication :</strong> Promouvoir un projet et toucher les utilisateurs</div>
-                            <div class="competence-item"><strong>Développement :</strong> Programmer en Flutter</div>
-                    </div>
-                </div>
-                
-                    <a href="https://play.google.com/store/apps/details?id=com.jytproduction.speedix&pcampaignid=web_share" target="_blank" rel="noopener" class="btn download-btn fade-in-scroll" itemprop="url">    
-                        <i class="fab fa-google-play" aria-hidden="true"></i> Télécharger sur Play Store
-                </a>
             </div>
-            
-            <div class="projet-phare-carousel">
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <div class="carousel-slide active">
-                                <img src="speedix/img/1.png" alt="Capture d'écran de l'application Speedix - Interface principale" loading="lazy">
-                        </div>
-                        <div class="carousel-slide">
-                                <img src="speedix/img/2.png" alt="Capture d'écran de l'application Speedix - Fonctionnalités de navigation" loading="lazy">
-                        </div>
-                        <div class="carousel-slide">
-                                <img src="speedix/img/3.png" alt="Capture d'écran de l'application Speedix - Paramètres et configuration" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="carousel-nav">
-                            <button class="carousel-prev" aria-label="Image précédente"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                        <div class="carousel-dots">
-                                <span class="carousel-dot active" data-slide="0" aria-label="Image 1"></span>
-                                <span class="carousel-dot" data-slide="1" aria-label="Image 2"></span>
-                                <span class="carousel-dot" data-slide="2" aria-label="Image 3"></span>
-                        </div>
-                            <button class="carousel-next" aria-label="Image suivante"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Section Projets -->
-    <section id="projets" class="projets">
+
+
+        <!-- Section Projets -->
+        <section id="projets" class="projets">
             <div class="section-background"></div>
-        <div class="projets-container">
-            <h2 class="section-title">Mes Projets</h2>
-            
-            <div class="projets-filter">
-                <div class="filter-select-container">
+            <div class="projets-container">
+                <h2 class="section-title">Mes Projets</h2>
+
+                <div class="projets-filter">
+                    <div class="filter-select-container">
                         <label for="filter-select" class="sr-only">Filtrer les projets par catégorie</label>
                         <select id="filter-select" class="filter-select" aria-label="Filtre des projets">
-                        <option value="all">Tous les projets</option>
-                        <option value="cloud">Cloud</option>
-                        <option value="cyber">Cybersécurité</option>
-                        <option value="dev">Développement</option>
-                        <option value="reseau">Réseaux</option>
-                        <option value="electronique">Électronique</option>
-                        <option value="universitaire">Universitaire</option>
-                    </select>
-                    <div class="select-arrow">
+                            <option value="all">Tous les projets</option>
+                            <option value="cloud">Cloud</option>
+                            <option value="cyber">Cybersécurité</option>
+                            <option value="dev">Développement</option>
+                            <option value="reseau">Réseaux</option>
+                            <option value="electronique">Électronique</option>
+                            <option value="universitaire">Universitaire</option>
+                        </select>
+                        <div class="select-arrow">
                             <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="projets-grid">
-                    <article class="projet-card" data-category="cyber,universitaire" itemscope itemtype="https://schema.org/CreativeWork">
-                    <div class="projet-img">
-                            <img src="projets/assets/img/sae101.png" alt="Aperçu du projet SAÉ101 CyberHygiène" loading="lazy">
-                    </div>
-                    <div class="projet-info">
+
+                <div class="projets-grid">
+                    <article class="projet-card" data-category="cyber,universitaire" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/sae101.png" alt="Aperçu du projet SAÉ101 CyberHygiène"
+                                loading="lazy">
+                        </div>
+                        <div class="projet-info">
                             <h3 itemprop="name">SAÉ101 - CyberHygiène</h3>
-                            <p itemprop="description">Sensibilisation aux bonnes pratiques de cybersécurité personnelle et professionnelle.</p>
-                        <div class="projet-tags">
-                            <span class="projet-tag">Hygiène numérique</span>
-                            <span class="projet-tag">Sensibilisation</span>
-                        </div>
+                            <p itemprop="description">Sensibilisation aux bonnes pratiques de cybersécurité personnelle
+                                et professionnelle.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">Hygiène numérique</span>
+                                <span class="projet-tag">Sensibilisation</span>
+                            </div>
                             <a href="projets/sae101/index.html" class="btn-small" itemprop="url">Voir plus</a>
-                    </div>
+                        </div>
                     </article>
-                
-                    <article class="projet-card" data-category="reseau,universitaire" itemscope itemtype="https://schema.org/CreativeWork">
-                    <div class="projet-img">
-                            <img src="projets/assets/img/sae102.png" alt="Aperçu du projet SAÉ102 Réseaux de Base" loading="lazy">
-                    </div>
-                    <div class="projet-info">
+
+                    <article class="projet-card" data-category="reseau,universitaire" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/sae102.png" alt="Aperçu du projet SAÉ102 Réseaux de Base"
+                                loading="lazy">
+                        </div>
+                        <div class="projet-info">
                             <h3 itemprop="name">SAÉ102 - Réseaux de Base</h3>
-                            <p itemprop="description">Découverte des fondements des réseaux, câblage, adressage IP et configuration simple.</p>
-                        <div class="projet-tags">
-                            <span class="projet-tag">Réseaux</span>
-                            <span class="projet-tag">Adressage IP</span>
-                            <span class="projet-tag">Câblage</span>
-                        </div>
+                            <p itemprop="description">Découverte des fondements des réseaux, câblage, adressage IP et
+                                configuration simple.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">Réseaux</span>
+                                <span class="projet-tag">Adressage IP</span>
+                                <span class="projet-tag">Câblage</span>
+                            </div>
                             <a href="projets/sae102/index.html" class="btn-small" itemprop="url">Voir plus</a>
-                    </div>
+                        </div>
                     </article>
-                
-                    <article class="projet-card" data-category="electronique,universitaire" itemscope itemtype="https://schema.org/CreativeWork">
-                    <div class="projet-img">
-                            <img src="projets/assets/img/sae103.png" alt="Aperçu du projet SAÉ103 Transmission Numérique" loading="lazy">
-                    </div>
-                    <div class="projet-info">
+
+                    <article class="projet-card" data-category="electronique,universitaire" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/sae103.png"
+                                alt="Aperçu du projet SAÉ103 Transmission Numérique" loading="lazy">
+                        </div>
+                        <div class="projet-info">
                             <h3 itemprop="name">SAÉ103 - Transmission Numérique</h3>
-                            <p itemprop="description">Analyse et caractérisation de liaisons physiques avec testeur professionnel DSX-602 et tableur.</p>
-                        <div class="projet-tags">
-                            <span class="projet-tag">Transmission</span>
-                            <span class="projet-tag">Mesures</span>
-                            <span class="projet-tag">Tableur</span>
-                        </div>
+                            <p itemprop="description">Analyse et caractérisation de liaisons physiques avec testeur
+                                professionnel DSX-602 et tableur.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">Transmission</span>
+                                <span class="projet-tag">Mesures</span>
+                                <span class="projet-tag">Tableur</span>
+                            </div>
                             <a href="projets/sae103/index.html" class="btn-small" itemprop="url">Voir plus</a>
-                    </div>
+                        </div>
                     </article>
-                
-                    <article class="projet-card" data-category="dev,universitaire" itemscope itemtype="https://schema.org/CreativeWork">
-                    <div class="projet-img">
-                            <img src="projets/assets/img/sae104.png" alt="Aperçu du projet SAÉ104 Identité Numérique" loading="lazy">
-                    </div>
-                    <div class="projet-info">
+
+                    <article class="projet-card" data-category="dev,universitaire" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/sae104.png" alt="Aperçu du projet SAÉ104 Identité Numérique"
+                                loading="lazy">
+                        </div>
+                        <div class="projet-info">
                             <h3 itemprop="name">SAÉ104 - Se présenter sur Internet</h3>
-                            <p itemprop="description">Création d'un portfolio web personnel avec HTML/CSS, Bootstrap, versioning Git et déploiement.</p>
-                        <div class="projet-tags">
-                            <span class="projet-tag">Portfolio</span>
-                            <span class="projet-tag">HTML/CSS</span>
-                            <span class="projet-tag">Bootstrap</span>
-                        </div>
+                            <p itemprop="description">Création d'un portfolio web personnel avec HTML/CSS, Bootstrap,
+                                versioning Git et déploiement.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">Portfolio</span>
+                                <span class="projet-tag">HTML/CSS</span>
+                                <span class="projet-tag">Bootstrap</span>
+                            </div>
                             <a href="projets/sae104/index.html" class="btn-small" itemprop="url">Voir plus</a>
-                    </div>
+                        </div>
                     </article>
 
-                    <article class="projet-card" data-category="dev,universitaire" itemscope itemtype="https://schema.org/CreativeWork">
-                    <div class="projet-img">
-                            <img src="projets/assets/img/sae105.png" alt="Aperçu du projet SAÉ105 Traitement de données" loading="lazy">
-                    </div>
-                    <div class="projet-info">
+                    <article class="projet-card" data-category="dev,universitaire" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/sae105.png" alt="Aperçu du projet SAÉ105 Traitement de données"
+                                loading="lazy">
+                        </div>
+                        <div class="projet-info">
                             <h3 itemprop="name">SAÉ105 - Traitement de données</h3>
-                            <p itemprop="description">Extraction, traitement et visualisation automatisée de données ADE avec Python et matplotlib.</p>
-                        <div class="projet-tags">
-                            <span class="projet-tag">Python</span>
-                            <span class="projet-tag">CSV</span>
-                            <span class="projet-tag">Matplotlib</span>
-                        </div>
+                            <p itemprop="description">Extraction, traitement et visualisation automatisée de données ADE
+                                avec Python et matplotlib.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">Python</span>
+                                <span class="projet-tag">CSV</span>
+                                <span class="projet-tag">Matplotlib</span>
+                            </div>
                             <a href="projets/sae105/index.html" class="btn-small" itemprop="url">Voir plus</a>
-                    </div>
+                        </div>
                     </article>
 
-                    <article class="projet-card" data-category="reseau,cloud,universitaire" itemscope itemtype="https://schema.org/CreativeWork">
-                    <div class="projet-img">
-                            <img src="projets/assets/img/sae201.png" alt="Aperçu du projet SAÉ201 Réseau d'Entreprise" loading="lazy">
-                    </div>
-                    <div class="projet-info">
+                    <article class="projet-card" data-category="reseau,cloud,universitaire" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/sae201.png" alt="Aperçu du projet SAÉ201 Réseau d'Entreprise"
+                                loading="lazy">
+                        </div>
+                        <div class="projet-info">
                             <h3 itemprop="name">SAÉ201 - Réseau d'Entreprise</h3>
-                            <p itemprop="description">Déploiement d'une infrastructure réseau complète avec services (DNS, FTP, Nextcloud) sur OpenStack.</p>
-                        <div class="projet-tags">
-                            <span class="projet-tag">OpenStack</span>
-                            <span class="projet-tag">Réseaux</span>
-                            <span class="projet-tag">Services</span>
-                        </div>
+                            <p itemprop="description">Déploiement d'une infrastructure réseau complète avec services
+                                (DNS, FTP, Nextcloud) sur OpenStack.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">OpenStack</span>
+                                <span class="projet-tag">Réseaux</span>
+                                <span class="projet-tag">Services</span>
+                            </div>
                             <a href="projets/sae201/index.html" class="btn-small" itemprop="url">Voir plus</a>
-                    </div>
+                        </div>
                     </article>
-                
-                    <article class="projet-card" data-category="electronique,universitaire" itemscope itemtype="https://schema.org/CreativeWork">
-                    <div class="projet-img">
-                            <img src="projets/assets/img/sae202.png" alt="Aperçu du projet SAÉ202 Signal & Système" loading="lazy">
-                    </div>
-                    <div class="projet-info">
+
+                    <article class="projet-card" data-category="electronique,universitaire" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/sae202.png" alt="Aperçu du projet SAÉ202 Signal & Système"
+                                loading="lazy">
+                        </div>
+                        <div class="projet-info">
                             <h3 itemprop="name">SAÉ202 - Signal & Système</h3>
-                            <p itemprop="description">Analyse et caractérisation de signaux et systèmes par tableur avec diagrammes de Bode et FFT.</p>
-                        <div class="projet-tags">
-                            <span class="projet-tag">Signal</span>
-                            <span class="projet-tag">Tableur</span>
-                            <span class="projet-tag">FFT</span>
-                        </div>
+                            <p itemprop="description">Analyse et caractérisation de signaux et systèmes par tableur avec
+                                diagrammes de Bode et FFT.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">Signal</span>
+                                <span class="projet-tag">Tableur</span>
+                                <span class="projet-tag">FFT</span>
+                            </div>
                             <a href="projets/sae202/index.html" class="btn-small" itemprop="url">Voir plus</a>
-                    </div>
+                        </div>
                     </article>
-                
-                    <article class="projet-card" data-category="dev,universitaire" itemscope itemtype="https://schema.org/CreativeWork">
-                    <div class="projet-img">
-                            <img src="projets/assets/img/sae203.png" alt="Aperçu du projet SAÉ203 WebEntreprise" loading="lazy">
-                    </div>
-                    <div class="projet-info">
+
+                    <article class="projet-card" data-category="dev,universitaire" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/sae203.png" alt="Aperçu du projet SAÉ203 WebEntreprise"
+                                loading="lazy">
+                        </div>
+                        <div class="projet-info">
                             <h3 itemprop="name">SAÉ203 - WebEntreprise</h3>
-                            <p itemprop="description">Développement d'une application Flask avec base PostgreSQL pour la gestion de plateformes techniques.</p>
-                        <div class="projet-tags">
-                            <span class="projet-tag">Flask</span>
-                            <span class="projet-tag">PostgreSQL</span>
-                            <span class="projet-tag">Web</span>
+                            <p itemprop="description">Développement d'une application Flask avec base PostgreSQL pour la
+                                gestion de plateformes techniques.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">Flask</span>
+                                <span class="projet-tag">PostgreSQL</span>
+                                <span class="projet-tag">Web</span>
+                            </div>
+                            <a href="projets/sae203/index.html" class="btn-small" itemprop="url">Voir plus</a>
                         </div>
-                            <a href="projets/en-construction.html" class="btn-small" itemprop="url">Voir plus</a>
-                    </div>
                     </article>
-                
-                    <article class="projet-card" data-category="cloud,dev,electronique,universitaire" itemscope itemtype="https://schema.org/CreativeWork">
-                    <div class="projet-img">
-                            <img src="projets/assets/img/sae204.png" alt="Aperçu du projet SAÉ204 IoT Température" loading="lazy">
-                    </div>
-                    <div class="projet-info">
+
+                    <article class="projet-card" data-category="cloud,dev,electronique,universitaire" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/sae204.png" alt="Aperçu du projet SAÉ204 IoT Température"
+                                loading="lazy">
+                        </div>
+                        <div class="projet-info">
                             <h3 itemprop="name">SAÉ204 - IoT Température</h3>
-                            <p itemprop="description">Capteur de température, acquisition de données, stockage PostgreSQL, visualisation avec Grafana.</p>
-                        <div class="projet-tags">
-                            <span class="projet-tag">Python</span>
-                            <span class="projet-tag">Grafana</span>
-                            <span class="projet-tag">PostgreSQL</span>
+                            <p itemprop="description">Capteur de température, acquisition de données, stockage
+                                PostgreSQL, visualisation avec Grafana.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">Python</span>
+                                <span class="projet-tag">Grafana</span>
+                                <span class="projet-tag">PostgreSQL</span>
+                            </div>
+                            <a href="projets/sae204/index.html" class="btn-small" itemprop="url">Voir plus</a>
                         </div>
-                            <a href="projets/en-construction.html" class="btn-small" itemprop="url">Voir plus</a>
-                    </div>
                     </article>
-            </div>
-        </div>
-    </section>
 
-    <!-- Section Témoignages -->
-    <section id="temoignages" class="temoignages">
-            <div class="section-background"></div>
-        <div class="temoignages-container">
-            <h2 class="section-title">Témoignages</h2>
-            
-            <div class="temoignages-slider">
-                    <article class="temoignage-slide active" itemscope itemtype="https://schema.org/Review">
-                    <div class="temoignage-content">
-                            <div class="quote-icon"><i class="fas fa-quote-left" aria-hidden="true"></i></div>
-                            <p class="temoignage-text" itemprop="reviewBody">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac justo eget lorem laoreet dapibus. Integer nec velit non augue dapibus posuere.</p>
-                            <div class="temoignage-auteur" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                <h3 itemprop="name">Jean Dupont</h3>
-                                <p itemprop="jobTitle">Responsable IT, Entreprise XYZ</p>
-                            </div>
+                    <article class="projet-card" data-category="dev,reseau" itemscope
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="projet-img">
+                            <img src="projets/assets/img/lanscanner.png" alt="Aperçu du projet LANScanner"
+                                loading="lazy">
                         </div>
-                    </article>
-                    
-                    <article class="temoignage-slide" itemscope itemtype="https://schema.org/Review">
-                        <div class="temoignage-content">
-                            <div class="quote-icon"><i class="fas fa-quote-left" aria-hidden="true"></i></div>
-                            <p class="temoignage-text" itemprop="reviewBody">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Nemo enim ipsam voluptatem quia voluptas.</p>
-                            <div class="temoignage-auteur" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                <h3 itemprop="name">Djibril Lamroussi</h3>
-                                <p itemprop="jobTitle">Chef de projet digital, Agence ABC</p>
-                    </div>
-                </div>
-                    </article>
-                
-                    <article class="temoignage-slide" itemscope itemtype="https://schema.org/Review">
-                    <div class="temoignage-content">
-                            <div class="quote-icon"><i class="fas fa-quote-left" aria-hidden="true"></i></div>
-                            <p class="temoignage-text" itemprop="reviewBody">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure.</p>
-                            <div class="temoignage-auteur" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                <h3 itemprop="name">Clément Delaporte</h3>
-                                <p itemprop="jobTitle">Étudiant en BUT Réseaux & Télécom</p>
+                        <div class="projet-info">
+                            <h3 itemprop="name">LANScanner – Scanner de réseau local</h3>
+                            <p itemprop="description">Exploration réseau automatisée pour détecter les machines actives
+                                sur un LAN.</p>
+                            <div class="projet-tags">
+                                <span class="projet-tag">Réseaux</span>
+                                <span class="projet-tag">Python</span>
+                                <span class="projet-tag">Développement</span>
+                                <span class="projet-tag">CLI</span>
                             </div>
+                            <a href="projets/lanscanner/index.html" class="btn-small" itemprop="url">Voir plus</a>
                         </div>
                     </article>
                 </div>
-                
-                <div class="temoignages-nav">
-                    <button class="temoignage-prev" aria-label="Témoignage précédent"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                    <div class="temoignages-dots">
-                        <span class="temoignage-dot active" data-slide="0" aria-label="Témoignage 1"></span>
-                        <span class="temoignage-dot" data-slide="1" aria-label="Témoignage 2"></span>
-                        <span class="temoignage-dot" data-slide="2" aria-label="Témoignage 3"></span>
-                    </div>
-                    <button class="temoignage-next" aria-label="Témoignage suivant"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Section Contact -->
-        <section id="contact" class="contact" itemscope itemtype="https://schema.org/ContactPage">
+
+
+        <!-- Section Contact -->
+        <!-- TODO: Remplacer par vos informations de contact -->
+        <section id="contact" class="contact">
             <div class="section-background"></div>
-        <div class="contact-container">
-            <h2 class="section-title">Contact</h2>
-            
-            <div class="contact-content">
-                    <div class="contact-info" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
-                    <div class="contact-item">
-                        <div class="contact-icon">
+            <div class="contact-container">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
                                 <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p><a href="mailto:contact@melihugurlu.fr">contact@melihugurlu.fr</a></p>
+                            </div>
                         </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                                <p><a href="mailto:contact@leolossjayet.fr" itemprop="email">contact@leolossjayet.fr</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
                                 <i class="fas fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Téléphone</h3>
+                                <p>Sur demande</p>
+                            </div>
                         </div>
-                        <div class="contact-text">
-                            <h3>Téléphone</h3>
-                                <p><a href="tel:+33652804449" itemprop="telephone">06 52 80 44 49</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Localisation</h3>
+                                <p>Dijon, France</p>
+                            </div>
                         </div>
-                        <div class="contact-text">
-                            <h3>Localisation</h3>
-                                <p itemprop="address">Grenoble, France</p>
+
+                        <div class="social-links">
+                            <!-- TODO: Remplacer par vos liens -->
+                            <a href="https://www.linkedin.com/in/melihugurlu/" target="_blank" rel="noopener"
+                                class="social-link" aria-label="Profil LinkedIn"><i class="fab fa-linkedin-in"
+                                    aria-hidden="true"></i></a>
+                            <a href="https://github.com/secbymelih" target="_blank" rel="noopener" class="social-link"
+                                aria-label="Profil GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    
-                    <div class="social-links">
-                            <a href="https://www.linkedin.com/in/l%C3%A9o-loss-jayet-1ab463351/" target="_blank" rel="noopener" class="social-link" aria-label="Profil LinkedIn de Léo Loss-Jayet"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                            <a href="https://github.com/leolossjayet/" target="_blank" rel="noopener" class="social-link" aria-label="Profil GitHub de Léo Loss-Jayet"><i class="fab fa-github" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm" action="https://formspree.io/f/xldbkdaa" method="POST">
-                        <div class="form-group">
+
+                    <div class="contact-form">
+                        <form id="contactForm" action="mailto:contact@melihugurlu.fr" method="POST"
+                            enctype="text/plain">
+                            <div class="form-group">
                                 <label for="nom" class="sr-only">Votre nom</label>
-                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required aria-required="true">
-                        </div>
-                        
-                        <div class="form-group">
+                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required
+                                    aria-required="true">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="email" class="sr-only">Votre email</label>
-                                <input type="email" id="email" name="email" placeholder="Votre email" required aria-required="true">
-                        </div>
-                        
-                        <!-- Honeypot pour la protection anti-spam -->
-                        <div class="form-group" style="display:none;">
-                            <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off">
-                        </div>
-                        
-                        <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Votre email" required
+                                    aria-required="true">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="message" class="sr-only">Votre message</label>
-                                <textarea id="message" name="message" placeholder="Votre message" required aria-required="true"></textarea>
-                        </div>
-                        
-                        <!-- Champ caché pour éviter les redirections -->
-                            <input type="hidden" name="_next" value="https://leolossjayet.fr/#contact">
-                        
+                                <textarea id="message" name="message" placeholder="Votre message" required
+                                    aria-required="true"></textarea>
+                            </div>
+
                             <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
-                        
-                        <button type="submit" class="btn">Envoyer</button>
-                    </form>
+
+                            <button type="submit" class="btn">Envoyer</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     </main>
 
-    <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-main">
                 <nav class="footer-nav" aria-label="Navigation du pied de page">
@@ -789,38 +759,43 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
-                
+
                 <div class="footer-contact">
                     <h3>Contact</h3>
                     <div class="footer-contact-info">
+                        <!-- TODO: Remplacer par vos informations -->
                         <div class="footer-contact-item">
                             <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <span><a href="mailto:contact@leolossjayet.fr">contact@leolossjayet.fr</a></span>
+                            <span><a href="mailto:contact@melihugurlu.fr">contact@melihugurlu.fr</a></span>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-phone" aria-hidden="true"></i>
-                            <span><a href="tel:+33652804449">06 52 80 44 49</a></span>
+                            <span>Sur demande</span>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                            <span>Grenoble, France</span>
+                            <span>Dijon, France</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="footer-social-section">
                     <h3>Réseaux sociaux</h3>
+                    <!-- TODO: Remplacer par vos liens -->
                     <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/l%C3%A9o-loss-jayet-1ab463351/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                        <a href="https://github.com/leolossjayet/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/melihugurlu/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://github.com/secbymelih" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="fab fa-github" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-divider"></div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; <time datetime="2025">2025</time> Léo Loss-Jayet. Tous droits réservés.</p>
+                <!-- TODO: Remplacer par votre nom -->
+                <p>&copy; <time datetime="2026">2026</time> Melih UGURLU. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -828,4 +803,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/script.js"></script>
 </body>
-</html> 
+
+</html>

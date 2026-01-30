@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ204 - IoT Température | Melih UGURLU</title>
+
+    <!-- Performance & SEO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Preloader CSS critique pour masquer tout flash visuel -->
+    <style>
+        /* Preloader - affiché par défaut */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0077B6 0%, #023E8A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.8s ease-out;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .preloader-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preloader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* PROTECTION ULTIME : Garder la navbar visible sur toutes les pages pendant le preloader */
+        .navbar {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        /* Masquer SEULEMENT le contenu principal pendant le preloader */
+        body:not(.loaded) main,
+        body:not(.loaded) footer {
+            opacity: 0;
+        }
+
+        /* Forcer l'affichage de la police Montserrat pour éviter le flash de police */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-logo {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        }
+    </style>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/projet-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/icons/favicon.png">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../../index.html" class="navbar-logo">Melih UGURLU</a>
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="../../index.html#apropos" class="nav-link">À Propos</a></li>
+                <li><a href="../../index.html#cv" class="nav-link">CV</a></li>
+
+                <li><a href="../../index.html#projets" class="nav-link">Projets</a></li>
+
+                <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Contenu de la page projet -->
+        <section class="projet-detail">
+            <div class="section-background">
+                <!-- Les formes seront ajoutées dynamiquement par JavaScript -->
+            </div>
+            <div class="projet-detail-container">
+                <div class="projet-header">
+                    <h1 class="projet-title">SAÉ204 - IoT Température</h1>
+                    <h2 class="projet-subtitle">Acquisition, transmission, stockage et visualisation de données
+                        environnementales</h2>
+                    <p class="projet-intro">Découvrez les objectifs, le travail effectué et les compétences acquises
+                        lors de cette SAE.</p>
+                </div>
+
+                <div class="projet-section">
+                    <h2>Objectifs de la SAE</h2>
+                    <p>L'objectif était de mettre en œuvre une chaîne d'acquisition de données IoT complète. Le projet
+                        consistait à récupérer des données de température (simulées ou réelles via capteurs), à les
+                        transmettre via le réseau, à les stocker dans une base de données pérenne et à les visualiser en
+                        temps réel sur un tableau de bord.</p>
+                </div>
+
+                <div class="projet-section">
+                    <h2>Travail effectué</h2>
+                    <p>J'ai réalisé des scripts <strong>Python</strong> modulaires pour assurer l'acquisition des
+                        données et leur insertion en base de données via des requêtes SQL.</p>
+                    <p>J'ai configuré une base de données <strong>PostgreSQL</strong> pour stocker l'historique des
+                        températures et garantir l'intégrité des données.</p>
+                    <p>Le projet a également nécessité la mise en place d'une pipeline <strong>CI/CD</strong>
+                        (Intégration et Déploiement Continus) avec GitLab pour automatiser les tests unitaires (avec
+                        Pytest) et garantir la qualité du code à chaque modification.</p>
+                    <p>Enfin, la visualisation des données s'est faite via des requêtes pour exploiter ces données sous
+                        forme de graphiques compréhensibles.</p>
+                </div>
+
+                <div class="projet-section">
+                    <h2>Compétences acquises</h2>
+                    <div class="competence-cards">
+                        <div class="competence-item"><strong>Développement Python :</strong> Écriture de scripts
+                            d'acquisition, utilisation de librairies (psycopg, requests) et tests unitaires (pytest).
+                        </div>
+                        <div class="competence-item"><strong>Base de données :</strong> Modélisation et administration
+                            d'une base PostgreSQL pour des séries temporelles.</div>
+                        <div class="competence-item"><strong>DevOps & CI/CD :</strong> Configuration de pipelines GitLab
+                            CI pour automatiser les tests et le déploiement.</div>
+                        <div class="competence-item"><strong>IoT & Réseaux :</strong> Compréhension de la chaîne de
+                            transmission de la donnée du capteur jusqu'au serveur.</div>
+                        <div class="competence-item"><strong>Visualisation :</strong> Exploitation des données pour la
+                            prise de décision.</div>
+                    </div>
+                </div>
+
+                <div class="projet-section">
+                    <h2>Auto-réflexion</h2>
+                    <p>Ce projet m'a permis de comprendre concrètement le cycle de vie de la donnée dans un système IoT.
+                        J'ai appris à connecter différentes briques technologiques (Capteur -> Script Python -> BDD ->
+                        Visualisation) pour créer un système cohérent et fonctionnel.</p>
+                    <p><em>L'aspect CI/CD a été particulièrement formateur, me montrant comment l'automatisation des
+                            tests sécurise le développement et facilite le travail en équipe.</em></p>
+                </div>
+
+                <div class="projet-conclusion">
+                    <p>Les Situations d'Apprentissage et d'Évaluation (SAE) réalisées dans le cadre de ma formation en
+                        BUT Réseaux & Télécommunications me permettent d'appliquer théorie et compétences sur des
+                        projets concrets. Cette SAE m'a donné une vision globale des architectures IoT et des bonnes
+                        pratiques de développement moderne ("Code Quality").</p>
+                </div>
+
+                <a href="../../index.html#projets" class="btn return-btn">
+                    <i class="fas fa-arrow-left"></i> Retour aux projets
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+        <div class="footer-container">
+            <div class="footer-main">
+                <nav class="footer-nav" aria-label="Navigation du pied de page">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#accueil">Accueil</a></li>
+                        <li><a href="../../index.html#apropos">À propos</a></li>
+                        <li><a href="../../index.html#cv">CV</a></li>
+                        <li><a href="../../index.html#projets">Projets</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span><a href="mailto:contact@melihugurlu.fr">contact@melihugurlu.fr</a></span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <span>Sur demande</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Dijon, France</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-social-section">
+                    <h3>Réseaux sociaux</h3>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/melihugurlu/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://github.com/secbymelih" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="fab fa-github" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p>&copy; <time datetime="2025">2025</time> Melih UGURLU. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>
