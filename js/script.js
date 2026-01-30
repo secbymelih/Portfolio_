@@ -454,8 +454,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         observer.observe(contactForm);
+    }
 
-        contactForm.addEventListener('submit', async function (event) {
+    const formElement = document.getElementById('contactForm');
+    if (formElement) {
+        formElement.addEventListener('submit', async function (event) {
             event.preventDefault();
 
             const form = event.target;
