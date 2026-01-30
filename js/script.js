@@ -455,32 +455,49 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         observer.observe(contactForm);
 
-        // Gestion sécurisée du formulaire de contact via JavaScript
-        contactForm.addEventListener('submit', (e) => {
+        // Gestion du formulaire de contact avec Formspree
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const nom = document.getElementById('nom').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+            // Afficher le message de chargement
             const formMessage = document.getElementById('form-message');
+            formMessage.textContent = 'Envoi en cours...';
+            formMessage.classList.add('form-message-info');
+            formMessage.classList.remove('form-message-success', 'form-message-error');
 
-            const subject = `Nouveau message de ${nom} via Portfolio`;
-            const body = `Nom: ${nom}\nEmail: ${email}\n\nMessage:\n${message}`;
+            try {
+                // Envoyer les données via Formspree
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-            const mailtoLink = `mailto:contact@melihugurlu.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                const data = await response.json();
 
-            // Afficher un message de feedback
-            formMessage.textContent = "Ouverture de votre logiciel de messagerie...";
-            formMessage.className = 'form-message form-message-info';
+                if (response.ok) {
+                    // Afficher le message de succès
+                    formMessage.textContent = "Votre message a été envoyé avec succès !";
+                    formMessage.classList.add('form-message-success');
+                    formMessage.classList.remove('form-message-error', 'form-message-info');
 
-            // Ouvrir le client mail
-            window.location.href = mailtoLink;
-
-            // Réinitialiser le formulaire après un court délai
-            setTimeout(() => {
-                contactForm.reset();
-                formMessage.textContent = "Si votre messagerie ne s'est pas ouverte, merci de m'écrire directement à contact@melihugurlu.fr";
-            }, 1000);
+                    // Réinitialiser le formulaire
+                    contactForm.reset();
+                } else {
+                    // Afficher le message d'erreur
+                    formMessage.textContent = data.error || "Une erreur est survenue lors de l'envoi du message.";
+                    formMessage.classList.add('form-message-error');
+                    formMessage.classList.remove('form-message-success', 'form-message-info');
+                }
+            } catch (error) {
+                // Gérer les erreurs
+                console.error('Erreur lors de l\'envoi du formulaire:', error);
+                formMessage.textContent = 'Une erreur est survenue lors de l\'envoi du formulaire.';
+                formMessage.classList.add('form-message-error');
+                formMessage.classList.remove('form-message-success', 'form-message-info');
+            }
         });
     }
 
