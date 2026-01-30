@@ -456,47 +456,46 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(contactForm);
     }
 
-    const formElement = document.getElementById('contactForm');
-    if (formElement) {
-        formElement.addEventListener('submit', async function (event) {
-            event.preventDefault();
+    const form = document.getElementById("contactForm");
 
-            const form = event.target;
-            const data = new FormData(form);
-            const formMessage = document.getElementById('form-message');
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("form-message");
+        var data = new FormData(event.target);
 
-            // Afficher le message de chargement
-            formMessage.textContent = 'Envoi en cours...';
-            formMessage.className = 'form-message form-message-info';
+        // Afficher un message de chargement
+        status.innerHTML = 'Envoi en cours...';
+        status.style.color = "#3498db"; // Bleu pour le chargement
 
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    formMessage.textContent = "Merci ! Votre message a bien été envoyé.";
-                    formMessage.className = 'form-message form-message-success';
-                    form.reset();
-                } else {
-                    const responseData = await response.json();
-                    if (Object.hasOwn(responseData, 'errors')) {
-                        formMessage.textContent = responseData["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        formMessage.textContent = "Oups ! Une erreur s'est produite lors de l'envoi de votre formulaire.";
-                    }
-                    formMessage.className = 'form-message form-message-error';
-                }
-            } catch (error) {
-                console.error('Erreur:', error);
-                formMessage.textContent = "Oups ! Une erreur s'est produite lors de l'envoi de votre formulaire.";
-                formMessage.className = 'form-message form-message-error';
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
             }
+        }).then(response => {
+            if (response.ok) {
+                status.innerHTML = "Message reçu ! Je te répondrai vite.";
+                status.style.color = "#2ecc71"; // Vert "Cyber"
+                form.reset();
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        status.innerHTML = "Oups ! Il y a eu un problème lors de l'envoi.";
+                    }
+                    status.style.color = "red";
+                })
+            }
+        }).catch(error => {
+            status.innerHTML = "Erreur réseau. Réessaie plus tard.";
+            status.style.color = "red";
         });
+    }
+
+    if (form) {
+        form.addEventListener("submit", handleSubmit);
     }
 
     // Animation spéciale pour le CV (style Apple)
