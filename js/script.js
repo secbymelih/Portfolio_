@@ -454,51 +454,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         observer.observe(contactForm);
-
-        // Gestion du formulaire de contact avec Formspree
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            // Afficher le message de chargement
-            const formMessage = document.getElementById('form-message');
-            formMessage.textContent = 'Envoi en cours...';
-            formMessage.classList.add('form-message-info');
-            formMessage.classList.remove('form-message-success', 'form-message-error');
-
-            try {
-                // Envoyer les données via Formspree
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: new FormData(contactForm),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    // Afficher le message de succès
-                    formMessage.textContent = "Votre message a été envoyé avec succès !";
-                    formMessage.classList.add('form-message-success');
-                    formMessage.classList.remove('form-message-error', 'form-message-info');
-
-                    // Réinitialiser le formulaire
-                    contactForm.reset();
-                } else {
-                    // Afficher le message d'erreur
-                    formMessage.textContent = data.error || "Une erreur est survenue lors de l'envoi du message.";
-                    formMessage.classList.add('form-message-error');
-                    formMessage.classList.remove('form-message-success', 'form-message-info');
-                }
-            } catch (error) {
-                // Gérer les erreurs
-                console.error('Erreur lors de l\'envoi du formulaire:', error);
-                formMessage.textContent = 'Une erreur est survenue lors de l\'envoi du formulaire.';
-                formMessage.classList.add('form-message-error');
-                formMessage.classList.remove('form-message-success', 'form-message-info');
-            }
-        });
     }
 
     // Animation spéciale pour le CV (style Apple)
